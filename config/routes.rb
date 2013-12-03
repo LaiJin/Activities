@@ -1,5 +1,6 @@
 Activities::Application.routes.draw do
-  root 'users#login'
+  root 'users#login', :as => 'login'
+  #get '/login' => 'users#login'
   get '/register' => 'users#register', :as => 'register'
   get '/reset_password' => 'users#reset_password', :as => 'reset_password'
   get 'welcome' => 'users#welcome', :as => 'welcome'
