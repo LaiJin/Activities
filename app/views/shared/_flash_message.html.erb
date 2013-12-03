@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+  <div class="flash-notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="flash-alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div class="flash-error text-center" style ="width:600px padding: 50px 50px 50px 50px;width:42% ;margin:auto auto ">
+    <%= flash[:error] %>
+  </div>
+<% end %>

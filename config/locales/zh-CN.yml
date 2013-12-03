@@ -1,0 +1,20 @@
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        name: "用户名"
+        password: "密码"
+        password_confirmation: "请再次输入"
+
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "密码不匹配"
+              too_short: "最短%{count}个字符"
+            password:
+              blank: "不能为空"
+            name:
+              blank: "请添加用户名"
+              taken: "已占用"
