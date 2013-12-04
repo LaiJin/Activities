@@ -1,27 +1,27 @@
-<div class= "form-group" style="width: 600px; padding: 50px 50px 50px 50px;width:50% ;margin:auto auto">
+<div style="background: #F5F5F5; width: 659px; margin:auto auto auto auto">
+<div class= "form-group" style="padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
   <h4>用户登陆</h4>
     <div class="col-sm-offset-2 col-sm-10 text-right" >
-      <%= link_to "用户注册",register_path %>
+      <%= link_to "用户注册",register_path, :style=> "color: #1E90FF"%>
     </div>
-   <%= form_tag "/create_login_session" do %>
-    <div class="input-group" style="margin:20px auto auto auto">
+   <%= form_tag "create_login_session" do %>
+    <div class="input-group" style="margin:20px auto auto auto; width: 559px">
       <span class="input-group-addon text-center" style="width: 120px">帐号</span>
       <%= text_field_tag :name, params[:name], :class => "form-control", :style => "width:450px"%>
     </div>
-    <div class="input-group" style="margin:20px auto auto auto">
+    <div class="input-group" style="margin:20px auto auto auto; width: 559px">
       <span class="input-group-addon text-center" style="width: 120px">密码</span>
       <%= password_field_tag :password, params[:password], :class => "form-control", :style => "width:450px"%>
     </div>
 </div>
      <%= render 'shared/flash_message' %>
-<div class="form-group" style="width:600px;padding:30px 50px 20px 50px;width:50% ;margin:auto auto">
+<div class="form-group" style="padding:30px 50px 20px 50px;width:659px ;margin:auto auto">
   <div class="col-sm-offset-2 col-sm-10 text-right">
-    <%= link_to "忘记密码",reset_password_path %>
+    <%= link_to "忘记密码",reset_password_path, :style=> "color: #1E90FF"%>
   </div>
   <div class="text-center">
     <%= submit_tag "登录", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
   </div>
   <% end %>
 </div>
-<div class="jumbotron" style="width:600px;padding:50px 50px 50px 50px;width:50% ;margin:auto auto">
 </div>

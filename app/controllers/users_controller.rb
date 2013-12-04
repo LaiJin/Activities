@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       redirect_to login_url #,:notice => "登录成功"
     else
       flash[:error] = "用户名或密码错误"
-      redirect_to :login
+      redirect_to login_url
     end
   end
 
