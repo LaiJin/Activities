@@ -1,12 +1,13 @@
 class User < ActiveRecord::Base
-  has_secure_password
+
   #attr_accessor :password_confirmation
   before_create { generate_token(:token) }
 
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
-  #validates :email, :presence => true, :uniqueness => {:case_sensitive => false}, :email_format => true
+  has_secure_password
   validates :password, :length => { :minimum => 6 }, :on => :create
-
+  validates :question, :presence => true
+  validates :answer, :presence => true
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64

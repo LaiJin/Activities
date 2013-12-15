@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     redirect_to login_url #,:notice => "已经退出登录"
   end
 
+
   private
   def user_params
     #params.require(:user).permit(:name, :email, :password, :salt, :encrypted_password)
