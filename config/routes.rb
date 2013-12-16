@@ -5,6 +5,7 @@ Activities::Application.routes.draw do
   get '/reset_password' => 'users#reset_password', :as => 'reset_password'
   get 'welcome' => 'users#welcome', :as => 'welcome'
   post '/create_login_session' => 'users#create_login_session'
+  post 'reset_password_judgment_name' => 'users#reset_password_judgment_name'
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
   #resources :users, only: [:create]

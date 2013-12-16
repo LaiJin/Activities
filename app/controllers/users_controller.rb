@@ -34,6 +34,16 @@ class UsersController < ApplicationController
   def reset_password
   end
 
+  def reset_password_judgment_name
+    user = User.find_by_name(params[:name])
+    if user
+      redirect_to login_url
+    else
+      flash[:reset_password_error] = "帐号不存在"
+      redirect_to reset_password_url
+    end
+  end
+
   def welcome
     if !current_user
       redirect_to :login
