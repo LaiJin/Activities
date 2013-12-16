@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
   has_secure_password
   validates :password, :length => { :minimum => 6 }, :on => :create
-  validates :question, :presence => true
-  validates :answer, :presence => true
+  validates :question, :presence => true, :uniqueness => {:case_sensitive => false}
+  validates :answer, :presence => true, :uniqueness => {:case_sensitive => false}
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64

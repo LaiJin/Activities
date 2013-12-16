@@ -4,8 +4,10 @@ Activities::Application.routes.draw do
   get '/register' => 'users#register', :as => 'register'
   get '/reset_password' => 'users#reset_password', :as => 'reset_password'
   get 'welcome' => 'users#welcome', :as => 'welcome'
+  get '/reset_password_question_and_answer' => 'users#reset_password_question_and_answer', :as => 'reset_password_question_and_answer'
   post '/create_login_session' => 'users#create_login_session'
-  post 'reset_password_judgment_name' => 'users#reset_password_judgment_name'
+  post '/reset_password_judgment_name' => 'users#reset_password_judgment_name'
+  post '/reset_password_judgment_answer' => 'users#reset_password_judgment_answer'
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
   #resources :users, only: [:create]

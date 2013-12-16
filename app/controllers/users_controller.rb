@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       cookies.permanent[:token] = user.token
       redirect_to login_url #,:notice => "登录成功"
     else
-      flash[:error] = "用户名或密码错误"
+      flash[:login_error] = "用户名或密码错误"
       redirect_to login_url
     end
   end
@@ -37,10 +37,23 @@ class UsersController < ApplicationController
   def reset_password_judgment_name
     user = User.find_by_name(params[:name])
     if user
-      redirect_to login_url
+      redirect_to :reset_password_question_and_answer
     else
       flash[:reset_password_error] = "帐号不存在"
-      redirect_to reset_password_url
+      redirect_to :reset_password
+    end
+  end
+
+  def reset_password_question_and_answer
+  end
+
+  def reset_password_judgment_answer
+    user = User.find_by_answer(params[:answer])
+    if user
+      redirect_to login_url
+    else
+      flash[:reset_password_error] = "忘记密码问题错误"
+      redirect_to :reset_password_question_and_answer
     end
   end
 
