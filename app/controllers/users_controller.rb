@@ -52,11 +52,15 @@ class UsersController < ApplicationController
   def reset_password_judgment_answer
     answer = User.find(session[:user]).answer
     if answer == params[:answer]
-      redirect_to login_url
+      redirect_to :reset_password_setup_new_password
     else
-      flash[:reset_password_error] = "忘记密码问题错误"
+      flash[:reset_password_error] = "忘记密码答案错误"
       redirect_to :reset_password_question_and_answer
     end
+  end
+
+  def reset_password_setup_new_password
+
   end
 
   def welcome
