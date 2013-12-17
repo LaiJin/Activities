@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def reset_password_judgment_name
     user = User.find_by_name(params[:name])
     if user
+      session[:user] = user
       redirect_to :reset_password_question_and_answer
     else
       flash[:reset_password_error] = "帐号不存在"
@@ -45,11 +46,12 @@ class UsersController < ApplicationController
   end
 
   def reset_password_question_and_answer
+    @question = User.find(session[:user]).question
   end
 
   def reset_password_judgment_answer
-    user = User.find_by_answer(params[:answer])
-    if user
+    answer = User.find(session[:user]).answer
+    if answer == params[:answer]
       redirect_to login_url
     else
       flash[:reset_password_error] = "忘记密码问题错误"
