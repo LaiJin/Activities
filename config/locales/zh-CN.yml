@@ -19,6 +19,7 @@ zh-CN:
               blank: "不能为空"
               too_short: "最短%{count}个字符"
             password_confirmation:
+              blank: "重置密码不能为空"
               confirmation: "两次密码输入不一致，请重新输入"
             question:
               blank: "不能为空"

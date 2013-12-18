@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     user = User.find_by_name(params[:name])
     if user && user.authenticate(params[:password])
       cookies.permanent[:token] = user.token
-      redirect_to login_url #,:notice => "登录成功"
+      redirect_to :welcome #,:notice => "登录成功"
     else
       flash[:login_error] = "用户名或密码错误"
       redirect_to login_url
@@ -60,6 +60,28 @@ class UsersController < ApplicationController
   end
 
   def reset_password_setup_new_password
+
+  end
+
+  def reset_password_update_password
+
+    user = User.find(session[:user])
+    if params[:password].empty?
+      flash[:reset_password_error] = "密码不能为空"
+      redirect_to :reset_password_setup_new_password
+    else
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+      #user.update_attributes(:password => params[:password])
+      if user.save
+        cookies.permanent[:token] = user.token
+        redirect_to :welcome
+      else
+        flash[:reset_password_error] = user.errors.full_messages.first
+        redirect_to :reset_password_setup_new_password
+      end
+
+    end
 
   end
 

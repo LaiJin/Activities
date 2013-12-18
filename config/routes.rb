@@ -9,6 +9,8 @@ Activities::Application.routes.draw do
   post '/create_login_session' => 'users#create_login_session'
   post '/reset_password_judgment_name' => 'users#reset_password_judgment_name'
   post '/reset_password_judgment_answer' => 'users#reset_password_judgment_answer'
+  post '/reset_password_update_password' => 'users#reset_password_update_password'
+  #match '/reset_password_setup_new_password' => 'users#reset_password_update_password', :via=> :post
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
   #resources :users, only: [:create]

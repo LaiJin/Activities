@@ -24,11 +24,11 @@ module Activities
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'zh-CN'
-    config.filter_parameters += [:password]
-    config.encoding = "utf-8"
-    config.active_support.escape_html_entities_in_json = true
-    config.active_record.whitelist_attributes = true
-    config.assets.enabled = true
-    config.assets.version = '1.0'
+    #config.filter_parameters += [:password]
+    #config.encoding = "utf-8"
+    #config.active_support.escape_html_entities_in_json = true
+    #config.active_record.whitelist_attributes = true
+    #config.assets.enabled = true
+    #config.assets.version = '1.0'
   end
 end
