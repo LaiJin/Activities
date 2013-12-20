@@ -4,7 +4,7 @@
     <list default="true" id="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" name="Default" comment="" />
     <ignored path="Activities.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387371460598" ignored="false" />
+    <file path="/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387530466321" ignored="false" />
     <file path="/Dummy.txt" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387521076098" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/views/layouts/application.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385958240169" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/assets/stylesheets/shared/common.css.scss" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385958234927" ignored="false" />
@@ -15,7 +15,7 @@
     <file path="/_header.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1386138297939" ignored="false" />
     <file path="/reset_password.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387174434179" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/controllers/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385991455928" ignored="false" />
-    <file path="/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387528278066" ignored="false" />
+    <file path="/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387530917891" ignored="false" />
     <file path="/register.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387521384465" ignored="false" />
     <file path="/20131125063737_create_users.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385987099711" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/db/migrate/20131125063737_create_users.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385987106686" ignored="false" />
@@ -41,6 +41,8 @@
     <file path="dbtable:/f81d1f9d/f4d3a880-906e-44a3-87dd-8eceec89ac13/..activities" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387519840326" ignored="false" />
     <file path="dbtable:/f81d1f9d/f4d3a880-906e-44a3-87dd-8eceec89ac13/..users" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387519845029" ignored="false" />
     <file path="/schema.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387522786366" ignored="false" />
+    <file path="/a.rxml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387528919007" ignored="false" />
+    <file path="/a.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387528912110" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="36" selection-start="223" selection-end="223" vertical-scroll-proportion="0.25817555">
+            <state line="25" column="9" selection-start="570" selection-end="570" vertical-scroll-proportion="0.6454389">
               <folding />
             </state>
           </provider>
@@ -125,7 +127,7 @@
       <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="19" column="78" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,7 +136,7 @@
       <file leaf-file-name="register.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/register.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="49" selection-start="650" selection-end="650" vertical-scroll-proportion="-0.625">
+            <state line="13" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
@@ -173,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/views/shared/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/reset_password_question_and_answer.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/users/reset_password_setup_new_password.html.erb" />
         <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -183,6 +184,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20131202122608_create_users.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       </list>
     </option>
@@ -195,7 +197,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
+    <option name="x" value="33" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
@@ -466,7 +468,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../lunajin/activity" />
     <property name="Database.TableEditor.Splitter" value="0.9" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -822,14 +824,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="22" width="1280" height="729" extended-state="0" />
-    <editor active="true" />
+    <frame x="33" y="22" width="1280" height="729" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12722853" sideWeight="0.7151899" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16612642" sideWeight="0.7151899" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16612642" sideWeight="0.7151899" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39873418" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28481013" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1000,23 +1002,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/users/register.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="13" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/register.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="49" selection-start="650" selection-end="650" vertical-scroll-proportion="-0.625">
+        <state line="19" column="78" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="223" selection-end="223" vertical-scroll-proportion="0.25817555">
+        <state line="25" column="9" selection-start="570" selection-end="570" vertical-scroll-proportion="0.6454389">
           <folding />
         </state>
       </provider>
