@@ -125,8 +125,6 @@ class UsersController < ApplicationController
     cookies.delete(:token)
     redirect_to login_url #,:notice => "已经退出登录"
   end
-
-
   private
   def user_params
     #params.require(:user).permit(:name, :email, :password, :salt, :encrypted_password)
@@ -135,10 +133,12 @@ class UsersController < ApplicationController
 
   private
   def determine_whether_the_user_login
-    if current_user && !current_user.isAdmin
-      redirect_to :user_welcome
-    else
-      redirect_to :administrator_welcome
+    if current_user
+      if !current_user.isAdmin
+        redirect_to :user_welcome
+      else
+        redirect_to :administrator_welcome
+      end
     end
   end
 end

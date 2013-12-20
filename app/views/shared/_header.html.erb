@@ -6,7 +6,6 @@
       <% if current_user %>
           <li style="color: black"><%= link_to "你好," +current_user.name %> </li>
           <li><%= link_to "退出", logout_path, method: "delete", :style => "color: blue" %></li>
-      <% else %>
       <% end %>
     </ul>
   </div>

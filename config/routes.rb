@@ -13,6 +13,7 @@ Activities::Application.routes.draw do
   post '/reset_password_update_password' => 'users#reset_password_update_password'
   #match '/reset_password_setup_new_password' => 'users#reset_password_update_password', :via=> :post
   delete 'logout' => 'users#logout', :as => 'logout'
+  delete 'logout' => 'administrator#logout'
   resources :users, :only => [:create]
 
   get "administrator/administrator_welcome" => 'administrator#administrator_welcome', :as => 'administrator_welcome'
