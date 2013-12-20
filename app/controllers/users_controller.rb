@@ -100,12 +100,19 @@ class UsersController < ApplicationController
         session[:answer] = nil
         #reset_session
         cookies.permanent[:token] = user.token
-        redirect_to :user_welcome
+        if user.isAdmin
+          redirect_to :administrator_welcome
+        else
+          redirect_to :user_welcome
+        end
+
       else
         flash[:reset_password_error] = user.errors.full_messages.first
         redirect_to :reset_password_setup_new_password
       end
+
     end
+
   end
 
   def user_welcome
@@ -128,8 +135,10 @@ class UsersController < ApplicationController
 
   private
   def determine_whether_the_user_login
-    if current_user
+    if current_user && !current_user.isAdmin
       redirect_to :user_welcome
+    else
+      redirect_to :administrator_welcome
     end
   end
 end
