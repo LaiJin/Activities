@@ -3,7 +3,7 @@ Activities::Application.routes.draw do
   #get '/login' => 'users#login'
   get '/register' => 'users#register', :as => 'register'
   get '/reset_password' => 'users#reset_password', :as => 'reset_password'
-  get 'welcome' => 'users#welcome', :as => 'welcome'
+  get 'user_welcome' => 'users#user_welcome', :as => 'user_welcome'
   get '/reset_password_question_and_answer' => 'users#reset_password_question_and_answer', :as => 'reset_password_question_and_answer'
   get '/reset_password_setup_new_password'  => 'users#reset_password_setup_new_password', :as => 'reset_password_setup_new_password'
   post '/create_login_session' => 'users#create_login_session'
@@ -18,7 +18,7 @@ Activities::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'user_welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

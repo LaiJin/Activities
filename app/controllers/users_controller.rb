@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     user = User.find_by_name(params[:name])
     if user && user.authenticate(params[:password])
       cookies.permanent[:token] = user.token
-      redirect_to :welcome #,:notice => "登录成功"
+      redirect_to :user_welcome #,:notice => "登录成功"
     else
       flash[:login_error] = "用户名或密码错误"
       redirect_to login_url
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       cookies.permanent[:token] = @user.token
-      redirect_to :welcome #,:notice => "注册成功"
+      redirect_to :user_welcome #,:notice => "注册成功"
     else
       render :register
     end
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
         session[:answer] = nil
         #reset_session
         cookies.permanent[:token] = user.token
-        redirect_to :welcome
+        redirect_to :user_welcome
       else
         flash[:reset_password_error] = user.errors.full_messages.first
         redirect_to :reset_password_setup_new_password
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def welcome
+  def user_welcome
     if !current_user
       redirect_to :login
     end
@@ -122,7 +122,7 @@ class UsersController < ApplicationController
   private
   def determine_whether_the_user_login
     if current_user
-      redirect_to :welcome
+      redirect_to :user_welcome
     end
   end
 end
