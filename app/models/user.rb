@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
 
+  PASSWORD_MINIMUM = 4
+  PASSWORD_MAXIMUM = 12
   before_create { generate_token(:token) }
+
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
   has_secure_password
-  validates :password, :length => { :minimum => 6 }, :on => :create, :on => :update
-  validates :question, :presence => true, :uniqueness => {:case_sensitive => false}
-  validates :answer, :presence => true, :uniqueness => {:case_sensitive => false}
+  validates :password, :length => { :minimum => PASSWORD_MINIMUM, :maximum => PASSWORD_MAXIMUM},
+            :on => :create, :on => :update
+  validates :question, :presence => true
+  validates :answer, :presence => true
 
   def generate_token(column)
     begin

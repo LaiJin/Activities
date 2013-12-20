@@ -32,10 +32,10 @@
     <jdbc-url>jdbc:sqlite://$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
     <libraries>
       <library>
-        <url>jar://$USER_HOME$/Downloads/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar!/</url>
+        <url>jar://$PROJECT_DIR$/../lunajin/Work/RubyMineProjects/Ruby on Rails/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar!/</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/Downloads/xerial-sqlite-license.txt</url>
+        <url>file://$PROJECT_DIR$/../lunajin/Work/RubyMineProjects/Ruby on Rails/xerial-sqlite-license.txt</url>
       </library>
     </libraries>
     <schema name="" catalog=""/>
@@ -54,6 +54,7 @@
       <column name="question" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
       <column name="answer" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
       <column name="token" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="isAdmin" sqlType="BOOLEAN" length="2000000000" precision="10" nullable="true" jdbcType="4"/>
       <column name="created_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>

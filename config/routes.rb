@@ -1,4 +1,7 @@
 Activities::Application.routes.draw do
+  get "administrator/administrator_welcome"
+  get "administrator/edit_user"
+  get "administrator/add_user"
   root 'users#login', :as => 'login'
   #get '/login' => 'users#login'
   get '/register' => 'users#register', :as => 'register'
