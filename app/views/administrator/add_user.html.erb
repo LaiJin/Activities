@@ -1,2 +1,46 @@
-<h1>Administrator#add_user</h1>
-<p>Find me in app/views/administrator/add_user.html.erb</p>
+<ol class="breadcrumb" style="margin-right: 180px">
+  <li><%= link_to "首页", administrator_welcome_path, :style=> "color: #1E90FF" %></li>
+  <li class="active">添加用户</li>
+</ol>
+<div style="background: #F5F5F5; width: 659px; margin-left: 180px">
+  <div class= "form-group" style=" padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
+    <%= form_for @user, :url => 'add_user'  do |form| %>
+
+        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
+          <span class="input-group-addon text-center" style="width: 120px">帐号</span>
+          <%= form.text_field :name, :class => "form-control", :style => "width:450px"%>
+        </div>
+
+
+        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
+          <span class="input-group-addon text-center" style="width: 120px">请设置密码</span>
+          <%= form.password_field :password, :class => "form-control", :style => "width:450px"%>
+        </div>
+
+        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
+          <span class="input-group-addon text-center" style="width: 120px">请确认密码</span>
+          <%= form.password_field :password_confirmation, :class => "form-control", :style => "width:450px"%>
+        </div>
+
+        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
+          <span class="input-group-addon text-center" style="width: 120px">忘记密码问题</span>
+          <%= form.text_field :question, :class => "form-control", :style => "width:450px"%>
+        </div>
+
+        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
+          <span class="input-group-addon text-center" style="width: 120px">忘记密码答案</span>
+          <%= form.text_field :answer, :class => "form-control", :style => "width:450px"%>
+        </div>
+        <% if @user.errors.any? %>
+            <dd class="flash-error text-center" style="margin-top: 15px"><%= @user.errors.full_messages.first %></dd>
+        <% end %>
+        <div class="text-center">
+          <%= form.submit "确认添加", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+

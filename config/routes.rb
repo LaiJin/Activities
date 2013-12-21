@@ -14,12 +14,17 @@ Activities::Application.routes.draw do
   #match '/reset_password_setup_new_password' => 'users#reset_password_update_password', :via=> :post
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
+  #post '/create' => 'user#create'
 
   get 'administrator/administrator_welcome' => 'administrator#administrator_welcome', :as => 'administrator_welcome'
   get 'administrator/edit_user' => 'administrator#edit_user', :as => 'edit_user'
+
   get 'administrator/add_user' => 'administrator#add_user',  :as => 'add_user'
+  post 'administrator/add_user' => 'administrator#create_user'
+
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
-  #resources :users, only: [:create]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
