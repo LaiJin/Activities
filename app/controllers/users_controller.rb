@@ -94,7 +94,7 @@ class UsersController < ApplicationController
     else
       user.password = params[:password]
       user.password_confirmation = params[:password_confirmation]
-      #user.update_attributes(:password => params[:password])
+      #user.update_attributes(:password => params[:password], :password_confirmation => params[:password_confirmation])
       if user.save
         session[:user] = nil
         session[:answer] = nil
@@ -125,9 +125,9 @@ class UsersController < ApplicationController
     cookies.delete(:token)
     redirect_to login_url #,:notice => "已经退出登录"
   end
+
   private
   def user_params
-    #params.require(:user).permit(:name, :email, :password, :salt, :encrypted_password)
     params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
   end
 
