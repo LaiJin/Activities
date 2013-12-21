@@ -10,7 +10,7 @@ class AdministratorController < ApplicationController
       @users = User.where(:isAdmin=>false).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||User.new
       @count = 0
       if params[:page]
-        @count=Integer(((Integer(params[:page])-1)*PER_PAGE_COUNT))
+        @count=Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
       end
     end
   end
@@ -22,4 +22,10 @@ class AdministratorController < ApplicationController
   def add_user
 
   end
+
+  def delete_user
+    User.delete(params[:id])
+    redirect_to :administrator_welcome
+  end
+
 end

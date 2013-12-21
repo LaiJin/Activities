@@ -14,7 +14,7 @@
       <td> <%= @count += 1 %> </td>
       <td> <%= user.name   %> </td>
       <td>
-        <%= link_to "删除", login_url, :style=> "color: #1E90FF" %>
+        <%= link_to "删除", delete_user_path(:id=>user.id), method:"delete", :style => "color: #1E90FF",:confirm => "确认删除吗？" %>
         <%= link_to "修改密码", edit_user_path, :style=> "color: #1E90FF" %>
       </td>
     </tr>
