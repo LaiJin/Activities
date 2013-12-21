@@ -23,7 +23,7 @@ Activities::Application.routes.draw do
   post 'administrator/add_user' => 'administrator#create_user'
 
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
-
+  post 'administrator/update_user_password' => 'administrator#update_user_password'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

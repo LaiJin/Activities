@@ -16,15 +16,16 @@ class AdministratorController < ApplicationController
   end
 
   def edit_user
-
+    @user_name = User.find_by_id(params[:updated_user_id]).name
   end
 
   def add_user
-   @user = User.new
+    @user = User.new
   end
 
   def delete_user
-    User.delete(params[:id])
+    User.delete(params[:deleted_user_id])
+    params[:deleted_user_id] = nil
     redirect_to :administrator_welcome
   end
 
@@ -35,6 +36,10 @@ class AdministratorController < ApplicationController
     else
       render :add_user
     end
+
+  end
+
+  def update_user_password
 
   end
 
