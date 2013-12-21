@@ -9,5 +9,16 @@
      <td>用户名</td>
      <td>操作</td>
    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td> <%= @count += 1 %> </td>
+      <td> <%= user.name   %> </td>
+      <td>
+        <%= link_to "删除", login_url, :style=> "color: #1E90FF" %>
+        <%= link_to "修改密码", edit_user_path, :style=> "color: #1E90FF" %>
+      </td>
+    </tr>
+    <% end %>
   </table>
 </div>
+<%= will_paginate @users, :previous_label =>"上一页", :next_label => "下一页", :style => "margin-left:900px" %>

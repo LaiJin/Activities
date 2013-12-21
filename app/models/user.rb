@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, :length => { :minimum => PASSWORD_MINIMUM, :maximum => PASSWORD_MAXIMUM},
             :on => :create, :on => :update
+  #validates_length_of :password, :in => PASSWORD_MINIMUM..PASSWORD_MAXIMUM
   validates :question, :presence => true
   validates :answer, :presence => true
 
