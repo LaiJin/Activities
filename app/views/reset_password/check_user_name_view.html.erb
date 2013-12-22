@@ -4,7 +4,7 @@
     <div class="col-sm-offset-2 col-sm-10 text-right" >
       <%= link_to "用户登录", login_url, :style=> "color: #1E90FF" %>
     </div>
-    <%= form_tag "reset_password_judgment_name" do %>
+    <%= form_tag "check_user_name_view" do %>
         <div class="input-group" style="margin:20px auto auto auto; width: 559px">
           <span class="input-group-addon text-center" style="width: 120px">帐号</span>
           <%= text_field_tag :name, params[:name], :class => "form-control", :style => "width:450px",:placeholder =>"请输入帐号名"%>
