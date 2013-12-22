@@ -131,14 +131,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
   end
 
-  private
-  def determine_whether_the_user_login
-    if current_user
-      if !current_user.isAdmin
-        redirect_to :user_welcome
-      else
-        redirect_to :administrator_welcome
-      end
-    end
-  end
+  #private
+  #def determine_whether_the_user_login
+  #  if current_user
+  #    if !current_user.isAdmin
+  #      redirect_to :user_welcome
+  #    else
+  #      redirect_to :administrator_welcome
+  #    end
+  #  end
+  #end
 end
