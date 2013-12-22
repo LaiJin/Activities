@@ -1,5 +1,9 @@
 Activities::Application.routes.draw do
 
+  get "reset_password/check_user_name_view"
+  get "reset_password/check_user_answer_view"
+  get "reset_password/setup_user_new_password_view"
+
   root 'users#login', :as => 'login'
   #get '/login' => 'users#login'
   get '/register' => 'users#register', :as => 'register'
