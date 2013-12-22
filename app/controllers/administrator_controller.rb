@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AdministratorController < ApplicationController
 
   PER_PAGE_COUNT = 10
