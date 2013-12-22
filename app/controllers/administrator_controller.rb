@@ -16,7 +16,14 @@ class AdministratorController < ApplicationController
   end
 
   def edit_user
-    @user_name = User.find_by_id(params[:updated_user_id]).name
+    if params[:updated_user_id]
+    session[:updated_user_id] = params[:updated_user_id]
+    end
+    if session[:updated_user_id]
+    @user_name = User.find(session[:updated_user_id]).name
+    else
+      redirect_to :administrator_welcome
+    end
   end
 
   def add_user
@@ -40,6 +47,17 @@ class AdministratorController < ApplicationController
   end
 
   def update_user_password
+    user = User.find(session[:updated_user_id])
+    user.password = params[:password]
+    user.password_confirmation = params[:password_confirmation]
+    if user.save
+      session[:updated_user_id] = nil
+      redirect_to :administrator_welcome
+    else
+      flash[:reset_password_error] = user.errors.full_messages.first
+
+      redirect_to :edit_user
+    end
 
   end
 

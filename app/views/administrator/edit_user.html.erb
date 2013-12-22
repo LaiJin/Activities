@@ -7,8 +7,9 @@
     <%= form_tag "update_user_password" do %>
 
         <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">忘记密码问题</span>
-          <input class="form-control" style ="width:450px" id="disabledInput" type="text" placeholder=<%=@user_name %> disabled>
+          <span class="input-group-addon text-center" style="width: 120px">帐号</span>
+          <!--<input class="form-control" style ="width:450px" id="disabledInput" type="text" placeholder=<%=@user_name %> disabled>-->
+          <%= text_field_tag :name, params[:name], :class => 'form-control', :style => 'width:450px', :placeholder => @user_name, :disabled => 'disabledInput' %>
         </div>
 
         <div class="input-group" style="margin:20px auto auto auto; width: 559px">
