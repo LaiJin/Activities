@@ -4,6 +4,7 @@ class AdministratorController < ApplicationController
   USER_NUMBER = 0
 
   def administrator_welcome
+    session[:updated_user_id] = nil
     if !current_user
       redirect_to :login
     else
@@ -55,7 +56,6 @@ class AdministratorController < ApplicationController
       redirect_to :administrator_welcome
     else
       flash[:reset_password_error] = user.errors.full_messages.first
-
       redirect_to :edit_user
     end
 
