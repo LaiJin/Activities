@@ -4,9 +4,9 @@ class AdministratorController < ApplicationController
   PER_PAGE_COUNT = 10
   USER_NUMBER = 0
 
-  def administrator_welcome
+  def administrator_welcome_view
     session[:updated_user_id] = nil
-    if !current_user
+    if !current_user || !current_user.isAdmin
       redirect_to :login
     else
       @users = User.where(:isAdmin=>false).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||User.new
@@ -17,33 +17,33 @@ class AdministratorController < ApplicationController
     end
   end
 
-  def edit_user
+  def edit_user_view
     if params[:updated_user_id]
     session[:updated_user_id] = params[:updated_user_id]
     end
     if session[:updated_user_id]
     @user_name = User.find(session[:updated_user_id]).name
     else
-      redirect_to :administrator_welcome
+      redirect_to :administrator_welcome_view
     end
   end
 
-  def add_user
+  def add_user_view
     @user = User.new
   end
 
   def delete_user
     User.delete(params[:deleted_user_id])
     params[:deleted_user_id] = nil
-    redirect_to :administrator_welcome
+    redirect_to :administrator_welcome_view
   end
 
   def create_user
     @user = User.new(user_params)
     if @user.save
-      redirect_to :administrator_welcome
+      redirect_to :administrator_welcome_view
     else
-      render :add_user
+      render :add_user_view
     end
 
   end
@@ -54,10 +54,10 @@ class AdministratorController < ApplicationController
     user.password_confirmation = params[:password_confirmation]
     if user.save
       session[:updated_user_id] = nil
-      redirect_to :administrator_welcome
+      redirect_to :administrator_welcome_view
     else
       flash[:reset_password_error] = user.errors.full_messages.first
-      redirect_to :edit_user
+      redirect_to :edit_user_view
     end
 
   end

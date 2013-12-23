@@ -18,13 +18,13 @@ Activities::Application.routes.draw do
 
 
 
-  get '/administrator/administrator_welcome' => 'administrator#administrator_welcome', :as => 'administrator_welcome'
+  get '/administrator/administrator_welcome_view' => 'administrator#administrator_welcome_view', :as => 'administrator_welcome_view'
 
-  get '/administrator/add_user' => 'administrator#add_user',  :as => 'add_user'
-  post '/administrator/add_user' => 'administrator#create_user'
+  get '/administrator/add_user_view' => 'administrator#add_user_view',  :as => 'add_user_view'
+  post '/administrator/add_user_view' => 'administrator#create_user'
 
   post '/administrator/update_user_password' => 'administrator#update_user_password'
-  get '/administrator/edit_user' => 'administrator#edit_user', :as => 'edit_user'
+  get '/administrator/edit_user_view' => 'administrator#edit_user_view', :as => 'edit_user_view'
 
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
 

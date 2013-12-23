@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       if !current_user.isAdmin
         redirect_to :user_welcome
       else
-        redirect_to :administrator_welcome
+        redirect_to :administrator_welcome_view
       end
     end
   end
