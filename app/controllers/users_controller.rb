@@ -4,14 +4,23 @@ class UsersController < ApplicationController
   def login
     session[:user] = nil
     session[:answer] = nil
-    determine_whether_the_user_login
+    if current_user
+      if current_user.isAdmin
+        redirect_to :administrator_welcome_view
+      else
+        redirect_to :user_welcome
+      end
+    end
   end
 
   def register
     session[:user] = nil
     session[:answer] = nil
-    determine_whether_the_user_login
-    @user = User.new
+    if current_user
+      redirect_to :login
+    else
+      @user =User.new
+    end
   end
 
   def create_login_session

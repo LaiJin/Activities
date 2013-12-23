@@ -4,7 +4,9 @@ class ResetPasswordController < ApplicationController
     if session[:user]
       redirect_to :check_user_answer_view
     end
-    determine_whether_the_user_login
+    if current_user
+     redirect_to :login
+    end
   end
 
   def check_user_answer_view

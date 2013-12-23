@@ -62,8 +62,7 @@ class AdministratorController < ApplicationController
     else
       flash[:reset_password_error] = user.errors.full_messages.first
       redirect_to :edit_user_view
-    end
-
+      end
   end
 
   private
