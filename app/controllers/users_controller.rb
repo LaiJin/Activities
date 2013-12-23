@@ -23,13 +23,7 @@ class UsersController < ApplicationController
     user = User.find_by_name(params[:name])
     if user && user.authenticate(params[:password])
       cookies.permanent[:token] = user.token
-
-      if user.isAdmin
-        redirect_to :administrator_welcome_view
-      else
-        redirect_to :user_welcome
-      end
-
+      current_user_is_admin
     else
       flash[:login_error] = "用户名或密码错误"
       redirect_to login_url
