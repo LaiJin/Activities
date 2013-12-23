@@ -29,7 +29,11 @@ class AdministratorController < ApplicationController
   end
 
   def add_user_view
-    @user = User.new
+    if !current_user || !current_user.isAdmin
+      redirect_to :login
+    else
+      @user = User.new
+    end
   end
 
   def delete_user

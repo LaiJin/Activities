@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     session[:user] = nil
     session[:answer] = nil
     determine_whether_the_user_login
-
   end
 
   def register
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def user_welcome
-    if !current_user
+    if !current_user || current_user.isAdmin
       redirect_to :login
     end
   end
