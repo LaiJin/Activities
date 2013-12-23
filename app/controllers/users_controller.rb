@@ -5,11 +5,7 @@ class UsersController < ApplicationController
     session[:user] = nil
     session[:answer] = nil
     if current_user
-      if current_user.isAdmin
-        redirect_to :administrator_welcome_view
-      else
-        redirect_to :user_welcome
-      end
+      current_user_is_admin
     end
   end
 
@@ -62,5 +58,13 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
 
+  private
+  def current_user_is_admin
+    if current_user.isAdmin
+      redirect_to :administrator_welcome_view
+    else
+      redirect_to :user_welcome
+    end
+  end
 
 end

@@ -21,6 +21,7 @@ class AdministratorController < ApplicationController
     if params[:updated_user_id]
     session[:updated_user_id] = params[:updated_user_id]
     end
+
     if session[:updated_user_id]
     @user_name = User.find(session[:updated_user_id]).name
     else
@@ -62,7 +63,7 @@ class AdministratorController < ApplicationController
     else
       flash[:reset_password_error] = user.errors.full_messages.first
       redirect_to :edit_user_view
-      end
+    end
   end
 
 

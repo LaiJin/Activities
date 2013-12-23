@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
   end
 
+  #可用于View中
   helper_method :current_user
 
 end
