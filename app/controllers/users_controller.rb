@@ -2,16 +2,14 @@
 class UsersController < ApplicationController
 
   def login
-    session[:user] = nil
-    session[:answer] = nil
+    reset_session_of_user_and_answer
     if current_user
       current_user_is_admin
     end
   end
 
   def register
-    session[:user] = nil
-    session[:answer] = nil
+    reset_session_of_user_and_answer
     if current_user
       redirect_to :login
     else

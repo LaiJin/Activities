@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
     params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
   end
 
+  def reset_session_of_user_and_answer
+    session[:user]   = nil
+    session[:answer] = nil
+  end
+
   #可用于View中
   helper_method :current_user
 

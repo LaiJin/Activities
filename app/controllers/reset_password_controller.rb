@@ -57,8 +57,9 @@ class ResetPasswordController < ApplicationController
       user.password = params[:password]
       user.password_confirmation = params[:password_confirmation]
       if user.save
-        session[:user] = nil
-        session[:answer] = nil
+        #session[:user] = nil
+        #session[:answer] = nil
+        reset_session_of_user_and_answer
         cookies.permanent[:token] = user.token
         if user.isAdmin
           redirect_to :administrator_welcome
