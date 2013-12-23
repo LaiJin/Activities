@@ -62,9 +62,5 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
-  end
 
 end

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user, :determine_whether_the_user_login
+  def user_params
+    params.require(:user).permit(:name, :password, :password_confirmation, :question, :answer)
+  end
+
+  helper_method :current_user
 
 end
