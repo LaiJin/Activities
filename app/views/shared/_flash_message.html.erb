@@ -18,3 +18,9 @@
       <%= flash[:reset_password_error] %>
     </div>
 <% end %>
+
+<% if flash[:phone_user_login_error] %>
+    <div class="flash-error text-center" style ="width:400px ;margin: auto auto auto auto ">
+      <%= flash[:phone_user_login_error] %>
+    </div>
+<% end %>

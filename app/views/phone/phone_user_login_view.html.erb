@@ -1,0 +1,18 @@
+<div style="background: #F5F5F5; width: 500px; margin-left: 20px">
+  <div class= "form-group" style="padding: 50px 50px 50px 50px;width:500px ;margin:auto auto">
+    <%= form_tag :url => 'phone_user_login_view' do %>
+        <div class="input-group" style="margin:20px auto auto auto; width: 400px">
+          <%= text_field_tag :name, params[:name], :class => "form-control", :style => "width:400px", :placeholder => "请输入帐号" %>
+        </div>
+        <div class="input-group" style="margin:20px auto auto auto; width: 400px">
+          <%= password_field_tag :password, params[:password], :class => "form-control", :style => "width:400px", :placeholder => "请输入密码"%>
+        </div>
+      </div>
+        <%= render 'shared/flash_message' %>
+        <div class="form-group" style="padding:30px 50px 20px 50px;width:500px ;margin:auto auto">
+          <div class="text-center">
+            <%= submit_tag "登录", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
+          </div>
+        </div>
+    <% end %>
+</div>

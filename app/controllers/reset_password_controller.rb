@@ -50,10 +50,10 @@ class ResetPasswordController < ApplicationController
 
   def setup_user_new_password
     user = User.find(session[:user])
-    if params[:password].empty?
-      flash[:reset_password_error] = "密码不能为空"
-      redirect_to :setup_user_new_password_view
-    else
+    #if params[:password].empty?
+    #  flash[:reset_password_error] = "密码不能为空"
+    #  redirect_to :setup_user_new_password_view
+    #else
       user.password = params[:password]
       user.password_confirmation = params[:password_confirmation]
       if user.save
@@ -64,6 +64,7 @@ class ResetPasswordController < ApplicationController
         flash[:reset_password_error] = user.errors.full_messages.first
         redirect_to :setup_user_new_password_view
       end
-    end
+    #end
   end
+
 end
