@@ -1,9 +1,7 @@
 <div style="background: #F5F5F5; width: 659px; margin:auto auto auto auto">
   <div class= "form-group" style="padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
     <h4>重置密码</h4>
-    <div class="col-sm-offset-2 col-sm-10 text-right" >
-      <%= link_to "用户登录", login_path, :style=> "color: #1E90FF" %>
-    </div>
+    <%= render 'shared/link_to_login' %>
     <%= form_tag "check_user_answer_view" do %>
         <div class="input-group" style="margin:20px auto auto auto; width: 559px">
           <span class="input-group-addon text-center" style="width: 120px">忘记密码问题</span>

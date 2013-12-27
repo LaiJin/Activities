@@ -3,35 +3,28 @@
     <%= form_for @user do |form| %>
 
         <h4>新用户注册</h4>
-        <div class="col-sm-offset-2 col-sm-10 text-right" >
-          <%= link_to "用户登陆", :login, :style=> "color: #1E90FF" %>
-        </div>
+        <%= render 'shared/link_to_login' %>
+        <%= render :partial => 'shared/text_field', :locals => {:form => form,
+                                                                :span_text => '帐号',
+                                                                :user_attribute => :name,
+                                                                :placeholder_show => '请输入帐号'} %>
 
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">帐号</span>
-          <%= form.text_field :name, :class => "form-control", :style => "width:450px"%>
-        </div>
-
-
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">请设置密码</span>
-          <%= form.password_field :password, :class => "form-control", :style => "width:450px"%>
-        </div>
-
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">请确认密码</span>
-          <%= form.password_field :password_confirmation, :class => "form-control", :style => "width:450px"%>
-        </div>
-
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">忘记密码问题</span>
-          <%= form.text_field :question, :class => "form-control", :style => "width:450px"%>
-        </div>
-
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">忘记密码答案</span>
-          <%= form.text_field :answer, :class => "form-control", :style => "width:450px"%>
-        </div>
+        <%= render :partial => 'shared/password_field', :locals => {:form => form,
+                                                                    :span_text => '请设置密码',
+                                                                    :user_attribute => :password,
+                                                                    :placeholder_show => '请输入密码'} %>
+        <%= render :partial => 'shared/password_field', :locals => {:form => form,
+                                                                    :span_text => '请确认密码',
+                                                                    :user_attribute => :password_confirmation,
+                                                                    :placeholder_show => '请再次输入密码'} %>
+        <%= render :partial => 'shared/text_field', :locals => {:form => form,
+                                                                :span_text => '忘记密码问题',
+                                                                :user_attribute => :question,
+                                                                :placeholder_show => '请输入忘记密码问题'} %>
+        <%= render :partial => 'shared/text_field', :locals => {:form => form,
+                                                                :span_text => '忘记密码答案',
+                                                                :user_attribute => :answer,
+                                                                :placeholder_show => '请输入忘记密码答案'} %>
           <% if @user.errors.any? %>
               <dd class="flash-error text-center" style="margin-top: 15px"><%= @user.errors.full_messages.first %></dd>
           <% end %>
