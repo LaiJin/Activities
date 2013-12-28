@@ -1,21 +1,12 @@
 <div style="background: #F5F5F5; width: 659px; margin:auto auto auto auto">
   <div class= "form-group" style="padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
     <h4>重置密码</h4>
-    <%= render 'shared/link_to_login' %>
+    <%= render :partial => 'shared/link_to', :locals => {:link_to_text => '用户登录', :url_or_path => login_path} %>
     <%= form_tag "check_user_answer_view" do %>
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">忘记密码问题</span>
-          <!--<input class="form-control" style ="width:450px" id="disabledInput" type="text" placeholder=<%=@question %> disabled>-->
-          <%= text_field_tag :question, params[:question], :class => "form-control", :style => "width: 450px", :placeholder => @question, :disabled => "disabledInput" %>
-        </div>
-        <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-          <span class="input-group-addon text-center" style="width: 120px">忘记密码答案</span>
-          <%= text_field_tag :answer, params[:answer], :class => "form-control", :style => "width:450px",:placeholder =>"请输入答案"%>
-        </div>
+        <%= render :partial => 'shared/text_field_tag', :locals => {:span_text => '忘记密码问题', :user_attribute => :question, :placeholder_show => @question, :disabled => 'disabledInput'} %>
+        <%= render :partial => 'shared/text_field_tag', :locals => {:span_text => '忘记密码答案', :user_attribute => :answer, :placeholder_show => '请输入答案', :disabled => nil} %>
         <%= render 'shared/flash_message' %>
-        <div class="text-center">
-          <%= submit_tag "下一步", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
-        </div>
+        <%= render :partial => 'shared/submit_tag_button', :locals => {:submit_tag_button_text => '下一步'} %>
     <% end %>
   </div>
 </div>

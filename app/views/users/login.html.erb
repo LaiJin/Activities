@@ -1,27 +1,15 @@
 <div style="background: #F5F5F5; width: 659px; margin:auto auto auto auto">
-<div class= "form-group" style="padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
-  <h4>用户登陆</h4>
-    <div class="col-sm-offset-2 col-sm-10 text-right" >
-      <%= link_to "用户注册",register_path, :style=> "color: #1E90FF"%>
-    </div>
-   <%= form_tag "create_login_session" do %>
-    <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-      <span class="input-group-addon text-center" style="width: 120px">帐号</span>
-      <%= text_field_tag :name, params[:name], :class => "form-control", :style => "width:450px"%>
-    </div>
-    <div class="input-group" style="margin:20px auto auto auto; width: 559px">
-      <span class="input-group-addon text-center" style="width: 120px">密码</span>
-      <%= password_field_tag :password, params[:password], :class => "form-control", :style => "width:450px"%>
-    </div>
-</div>
-     <%= render 'shared/flash_message' %>
-<div class="form-group" style="padding:30px 50px 20px 50px;width:659px ;margin:auto auto">
-  <div class="col-sm-offset-2 col-sm-10 text-right">
-    <%= link_to "忘记密码",check_user_name_view_path, :style=> "color: #1E90FF"%>
+  <div class= "form-group" style="padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
+    <h4>用户登陆</h4>
+    <%= render :partial => 'shared/link_to', :locals => {:link_to_text => '用户注册', :url_or_path => register_path} %>
+    <%= form_tag "create_login_session" do %>
+    <%= render :partial => 'shared/text_field_tag', :locals => {:span_text => '帐号', :user_attribute => :name, :placeholder_show => '请输入帐号', :disabled => nil} %>
+    <%= render :partial => 'shared/password_field_tag', :locals => {:span_text => '密码', :user_attribute => :password, :placeholder_show => '请输入密码'} %>
   </div>
-  <div class="text-center">
-    <%= submit_tag "登录", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
-  </div>
-  <% end %>
-</div>
+    <%= render 'shared/flash_message' %>
+  <div class="form-group" style="padding:30px 50px 20px 50px;width:659px ;margin:auto auto">
+    <%= render :partial => 'shared/link_to', :locals => {:link_to_text => '忘记密码', :url_or_path => check_user_name_view_path} %>
+    <%= render :partial => 'shared/submit_tag_button', :locals => {:submit_tag_button_text => '登录'} %>
+    <% end %>
+   </div>
 </div>

@@ -1,0 +1,3 @@
+<% if user.errors.any? %>
+    <dd class="flash-error text-center" style="margin-top: 15px"><%= user.errors.full_messages.first %></dd>
+<% end %>

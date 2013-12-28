@@ -6,15 +6,8 @@
   <div class= "form-group" style=" padding: 50px 50px 50px 50px;width:659px ;margin:auto auto">
     <%= form_for @user, :url => 'add_user_view'  do |form| %>
         <%= render :partial => 'shared/register_and_add', :locals => {:form => form} %>
-        <% if @user.errors.any? %>
-            <dd class="flash-error text-center" style="margin-top: 15px"><%= @user.errors.full_messages.first %></dd>
-        <% end %>
-        <div class="text-center">
-          <%= form.submit "确认添加", :class => "btn btn-default", :style => 'margin:20px auto auto auto ;width:150px' %>
-        </div>
-
+        <%= render :partial => 'shared/submit_button', :locals => {:form => form, :submit_button_text => "确认添加"} %>
     <% end %>
-
   </div>
 </div>
 
