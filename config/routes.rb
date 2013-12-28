@@ -28,8 +28,7 @@ Activities::Application.routes.draw do
 
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
 
-  get 'mobile_client/mobile_client_user_login_view' => 'mobile_client#mobile_client_user_login_view', :as => 'mobile_client_user_login_view'
-  post 'mobile_client/mobile_client_user_login_view' => 'mobile_client#mobile_client_user_login'
+  post '/users/mobile_client_user_login'
 
 end
 

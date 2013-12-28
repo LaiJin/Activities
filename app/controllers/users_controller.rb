@@ -1,6 +1,8 @@
 #encoding: utf-8
 class UsersController < ApplicationController
 
+skip_before_filter :verify_authenticity_token,:only => [:mobile_client_user_login]
+
   def login
     reset_session_of_user_and_answer
     if current_user
@@ -49,6 +51,17 @@ class UsersController < ApplicationController
   def logout
     cookies.delete(:token)
     redirect_to login_url
+  end
+
+  def mobile_client_user_login
+    user= User.find_by_name(params[:name])
+    respond_to do |format|
+      if user&&user.authenticate(params[:password])
+        format.json {render :json=> true}
+      else
+        format.json {render :json=> false}
+      end
+    end
   end
 
   private
