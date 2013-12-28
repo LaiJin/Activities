@@ -4,7 +4,7 @@
     <list default="true" id="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" name="Default" comment="" />
     <ignored path="Activities.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388137996569" ignored="false" />
+    <file path="/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388200540203" ignored="false" />
     <file path="/Dummy.txt" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388196695470" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/views/layouts/application.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385958240169" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/assets/stylesheets/shared/common.css.scss" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385958234927" ignored="false" />
@@ -15,7 +15,7 @@
     <file path="/_header.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040527155" ignored="false" />
     <file path="/reset_password.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1387174434179" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/app/controllers/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385991455928" ignored="false" />
-    <file path="/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388197007738" ignored="false" />
+    <file path="/users_controller.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388201313993" ignored="false" />
     <file path="/register.html.erb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388123810980" ignored="false" />
     <file path="/20131125063737_create_users.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385987099711" ignored="false" />
     <file path="$PROJECT_DIR$/../episode-84-demo/baby/db/migrate/20131125063737_create_users.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1385987106686" ignored="false" />
@@ -76,7 +76,7 @@
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/config/application.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/models/sign_ups.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/views/manager/edit_user.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
-    <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/config/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
+    <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/config/routes.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388200488925" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/views/layouts/_password_field_row.html.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/models/biddings.rb" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/views/layouts/_text_field_row.html.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388040883905" ignored="false" />
@@ -98,9 +98,11 @@
     <file path="/mobile_client_user_login_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388134243783" ignored="false" />
     <file path="$PROJECT_DIR$/../Accupass/www/pages/mobile_client_user_login_view.html" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388134322373" ignored="false" />
     <file path="/mobile_client_user_login_view.html" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388132198677" ignored="false" />
-    <file path="/mobile_client_user_login_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388197195545" ignored="false" />
-    <file path="/activity_list_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388198501465" ignored="false" />
+    <file path="/mobile_client_user_login_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388200287739" ignored="false" />
+    <file path="/activity_list_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388200162232" ignored="false" />
     <file path="/routes.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388198111301" ignored="false" />
+    <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/.rvmrc" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388199303874" ignored="false" />
+    <file path="/activity_list_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388199547209" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,16 +130,25 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="25" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0">
+            <state line="31" column="44" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mobile_client_user_login_controller.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".rvmrc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/.rvmrc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="13" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mobile_client_user_login_controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="38" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+            <state line="17" column="46" selection-start="514" selection-end="514" vertical-scroll-proportion="0.42218542">
               <folding />
             </state>
           </provider>
@@ -146,16 +157,18 @@
       <file leaf-file-name="activity_list_view.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/pages/activity_list_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="436" selection-end="436" vertical-scroll-proportion="-8.125">
-              <folding />
+            <state line="5" column="13" selection-start="148" selection-end="148" vertical-scroll-proportion="-3.125">
+              <folding>
+                <marker date="1388200383000" expanded="true" signature="72:115" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="9" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.7461929">
+            <state line="31" column="31" selection-start="1646" selection-end="1646" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +177,7 @@
       <file leaf-file-name="activity_list_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="1" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+            <state line="19" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,7 +195,7 @@
       <file leaf-file-name="activity_list_view.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_list_view.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="61" selection-start="567" selection-end="567" vertical-scroll-proportion="-10.625">
+            <state line="4" column="33" selection-start="80" selection-end="96" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
@@ -229,13 +242,13 @@
         <option value="$PROJECT_DIR$/app/views/users/register.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administrator/add_user_view.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/sections/layout.css.scss" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml" />
         <option value="$PROJECT_DIR$/public/www/js/routes.js" />
-        <option value="$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js" />
-        <option value="$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js" />
         <option value="$PROJECT_DIR$/public/www/hamls/pages/activity_list_view.haml" />
+        <option value="$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js" />
       </list>
     </option>
   </component>
@@ -247,7 +260,6 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
@@ -478,6 +490,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1061,14 +1091,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="22" width="1280" height="729" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1280" height="729" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12722853" sideWeight="0.64398736" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23419774" sideWeight="0.64398736" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23419774" sideWeight="0.64398736" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35601267" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1147,13 +1177,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_link_to_login.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/sections/signup.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1205,23 +1228,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/public/www/pages/activity_list_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="25" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="5" column="13" selection-start="148" selection-end="148" vertical-scroll-proportion="-3.125">
+          <folding>
+            <marker date="1388200383000" expanded="true" signature="72:115" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml">
+    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_list_view.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="124" selection-start="620" selection-end="620" vertical-scroll-proportion="-4.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="1" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+        <state line="4" column="33" selection-start="80" selection-end="96" vertical-scroll-proportion="-2.5">
           <folding />
         </state>
       </provider>
@@ -1233,30 +1251,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_list_view.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="61" selection-start="567" selection-end="567" vertical-scroll-proportion="-10.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/pages/activity_list_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="436" selection-end="436" vertical-scroll-proportion="-8.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="9" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.7461929">
+        <state line="31" column="31" selection-start="1646" selection-end="1646" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="40" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/.rvmrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="124" selection-start="620" selection-end="620" vertical-scroll-proportion="-4.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="46" selection-start="514" selection-end="514" vertical-scroll-proportion="0.42218542">
           <folding />
         </state>
       </provider>

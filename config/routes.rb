@@ -29,6 +29,7 @@ Activities::Application.routes.draw do
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
 
   post '/users/mobile_client_user_login'
+  post '/users/synchronous_data'
 
 end
 
