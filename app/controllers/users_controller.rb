@@ -1,6 +1,9 @@
 #encoding: utf-8
 class UsersController < ApplicationController
 
+  PER_PAGE_COUNT = 10
+  USER_NUMBER_INIT = 0
+
   skip_before_filter :verify_authenticity_token,:only => [:mobile_client_user_login, :synchronous_data]
 
   def login
@@ -45,6 +48,12 @@ class UsersController < ApplicationController
   def user_welcome
     if !current_user || current_user.isAdmin
       redirect_to :login
+    else
+      @activity_infos = ActivityInfo.where(:user_name => current_user.name).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||ActivityInfo.new
+      @count = USER_NUMBER_INIT
+      if params[:page]
+        @count=Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
+      end
     end
   end
 
@@ -66,6 +75,9 @@ class UsersController < ApplicationController
 
   def synchronous_data
     user = User.find_by_name(params[:name])
+    activity_infos = params[:activity_infos]
+    ActivityInfo.delete_all(:user_name => current_user.name)
+    ActivityInfo.update_user_activity_info(activity_infos)
     respond_to do |format|
       if user
         format.json {render :json => true}

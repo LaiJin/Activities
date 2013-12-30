@@ -2,7 +2,7 @@
 class AdministratorController < ApplicationController
 
   PER_PAGE_COUNT = 10
-  USER_NUMBER = 0
+  USER_NUMBER_INIT = 0
 
   def administrator_welcome_view
     session[:updated_user_id] = nil
@@ -10,7 +10,7 @@ class AdministratorController < ApplicationController
       redirect_to :login
     else
       @users = User.where(:isAdmin=>false).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||User.new
-      @count = 0
+      @count = USER_NUMBER_INIT
       if params[:page]
         @count=Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
       end

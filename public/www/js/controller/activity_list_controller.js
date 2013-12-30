@@ -10,7 +10,13 @@ function ActivityListController($scope, $http)
     $scope.synchronous_data = function() {
 
         var user_name = localStorage.current_user
-        $http.post('/users/synchronous_data', {name: user_name})
+        var activity_infos = []
+        for(var i=0; i<20; i++) {
+            var ac = new ActivityInfo(user_name, JSON.stringify(i))
+            activity_infos.push(ac)
+        }
+
+        $http.post('/users/synchronous_data', {name: user_name, activity_infos:activity_infos})
             .success(function(response) {
 
                 if(JSON.parse(response) == true) {

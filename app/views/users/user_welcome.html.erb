@@ -1,3 +1,23 @@
-<div class="container">
-  <h1 class="welcome">Welcome</h1>
+<div class="panel panel-default" style="margin-left: 180px; margin-right: 180px">
+  <div class="panel-heading">
+    活动信息
+    <a class="btn btn-default" style="margin-left: 700px; margin-right: 46px" href="add_user_view">同步展示</a>
+  </div>
+  <table class="table">
+    <tr>
+      <td>编号</td>
+      <td>活动名称</td>
+      <td>报名人数</td>
+      <td>竞价次数</td>
+    </tr>
+    <% @activity_infos.each do |activity_info| %>
+    <tr>
+      <td> <%= @count += 1 %> </td>
+      <td><%= activity_info.name %></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
+<%= will_paginate @activity_infos, :previous_label =>"上一页", :next_label => "下一页", :style => "margin-left:900px" %>
