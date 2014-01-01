@@ -76,7 +76,7 @@ class UsersController < ApplicationController
   def synchronous_data
     user = User.find_by_name(params[:name])
     activity_infos = params[:activity_infos]
-    ActivityInfo.delete_all(:user_name => current_user.name)
+    ActivityInfo.delete_all(:user_name => user.name)
     ActivityInfo.update_user_activity_info(activity_infos)
     respond_to do |format|
       if user
