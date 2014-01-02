@@ -3,8 +3,14 @@ myModule.config(function($routeProvider) {
         templateUrl: "pages/mobile_client_user_login_view.html",
         controller: MobileClientUserLoginController
     }).when("/activity_list_view", {
-            templateUrl:"pages/activity_list_view.html",
+            templateUrl: "pages/activity_list_view.html",
             controller: ActivityListController
+        }).when("/create_activity_view", {
+            templateUrl: "pages/create_activity_view.html",
+            controller: CreateActivityController
+        }).when("/activity_sign_up_view", {
+            templateUrl: "pages/activity_sign_up_view.html",
+            controller: ActivitySignUpController
         }).otherwise({
             redirectTo:"/"
         });

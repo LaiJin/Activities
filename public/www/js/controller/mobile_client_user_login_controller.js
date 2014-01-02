@@ -18,7 +18,7 @@ function MobileClientUserLoginController($scope,$navigate,$http)
                 if(JSON.parse(response) == true) {
                     localStorage.current_user = $scope.name
                     $navigate.go('/activity_list_view', 'slide')
-                }else {
+                } else {
                     alert("用户名或密码错误");
                 }
             }).error(function() {
