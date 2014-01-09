@@ -8,21 +8,16 @@
 function ActivityListController($scope, $http, $navigate)
 {
 
-    $scope.go_to_create_activity_view = function() {
+    $scope.jump_to_create_activity_view = function() {
         $navigate.go('/create_activity_view','slide')
     }
 
     $scope.activity_array = ActivityInfo.get_activity_array()
     $scope.is_btn_click = function () {
-
-        if(ActivityInfo.get_activity_array().length == 0) {
-            return false
-        } else {
-            return true
-        }
+        return ActivityInfo.get_activity_array().length != 0
     }
 
-    $scope.go_to_detail_activity = function(activity) {
+    $scope.jump_to_detail_activity = function(activity) {
         ActivityInfo.set_current_activity(activity)
         $navigate.go('/activity_sign_up_view', 'slide')
     }

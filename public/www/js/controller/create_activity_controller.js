@@ -9,14 +9,11 @@ function CreateActivityController($scope, $navigate, $http) {
 
     $scope.is_show_back_btn = function() {
 
-        if(ActivityInfo.get_activity_array().length == 0) {
-            return false
-        } else {
-            return true
-        }
+        return ActivityInfo.get_activity_array().length != 0
     }
 
     $scope.jump_to_activity_list_view = function() {
+
         $navigate.go('/activity_list_view', 'slide')
     }
 

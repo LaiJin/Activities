@@ -2,23 +2,23 @@
   .header-left
     %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   报名
-  .header-right(ng-switch="true")
-    %a.btn-style.btn-4(ng-tap="start_activity()" ng-show="is_btn_show()") 开始
-    %a.btn-style.btn-4( ng-hide="is_btn_show()" ng-tap="finish_activity()" ng-Switch-when="true")结束
-    %a.btn-style.btn-4.disabled(ng-hide="is_btn_show()" ng-Switch-default)结束
+  .header-right(ng-switch="is_activity_start")
+    %a.btn-style.btn-4(ng-tap="start_activity()" ng-show="is_show_btn()") 开始
+    %a.btn-style.btn-4(ng-hide="is_show_btn()" ng-tap="finish_activity()" ng-Switch-when="true")结束
+    %a.btn-style.btn-4.disabled(ng-hide="is_show_btn()" ng-Switch-default)结束
 .wrapper
   .ui-content
     %ul.list-style-2
       %center
         %li(ng-repeat="sign in signs")
-          Name: {{sign["name"]}}  Phone: {{sign["phone"]}}
+          -#Name: {{sign["name"]}}  Phone: {{sign["phone"]}}
   %footer
     %ul.footer-nav.footer-nav-2tabs
       %li.active
         %a
           报名
       %li
-        %a(ng-Tap ="goto_price_list()" ng-hide="bids_disable()")
+        %a(ng-tap ="jump_to_price_list()" ng-hide="bids_disable()")
           竞价
         %a(ng-show="bids_disable()")
           竞价

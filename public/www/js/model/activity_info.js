@@ -13,17 +13,21 @@ function ActivityInfo(user_name, name) {
 
 ActivityInfo.get_activity_array = function() {
 //    return JSON.parse(localStorage.getItem("activity_array")) || [];
-    return JSON.parse(localStorage.activity_array) || []
+    return JSON.parse(localStorage.activity_array || '[]')
 }
 
 ActivityInfo.set_new_activity_to_array = function(new_activity) {
 
     var activity_array = ActivityInfo.get_activity_array()
     activity_array.push(new_activity)
-    localStorage.activity_name = new_activity.name
     localStorage.activity_array = JSON.stringify(activity_array)
 //    localStorage.setItem("activity_name", new_activity.name);
 //    localStorage.setItem("activity_array", JSON.stringify(activity_array));
+}
+
+ActivityInfo.update_activity_array = function(activity_array) {
+//    localStorage.setItem("activity_array", JSON.stringify(activity_array))
+    localStorage.activity_array = JSON.stringify(activity_array)
 }
 
 ActivityInfo.set_current_activity = function(activity) {

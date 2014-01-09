@@ -7,12 +7,12 @@
     .header-right(ng-switch="is_btn_click()")
       %a.btn-style.btn-4.disabled(ng-Switch-default)
         创建活动
-      %a.btn-style.btn-4(ng-tap="go_to_create_activity_view()" ng-Switch-when="true")
+      %a.btn-style.btn-4(ng-tap="jump_to_create_activity_view()" ng-Switch-when="true")
         创建活动
   .wrapper
     %ul.list-style-2
       %center
         %li(ng-repeat="activity_info in activity_array")
-          %a(ng-tap="go_to_detail_activity({{activity_info}})")
+          %a(ng-tap="jump_to_detail_activity({{activity_info}})")
             %h3
               {{activity_info.name}}
