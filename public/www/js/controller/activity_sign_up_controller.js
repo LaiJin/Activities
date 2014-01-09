@@ -7,4 +7,11 @@
  */
 function ActivitySignUpController($scope, $navigate) {
 
+    $scope.jump_to_activity_list_view = function() {
+        $navigate.go('/activity_list_view', 'slide')
+    }
+
+    $scope.is_show_btn = function() {
+
+    }
 }

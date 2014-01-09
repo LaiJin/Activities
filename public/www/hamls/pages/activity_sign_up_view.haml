@@ -1,11 +1,11 @@
 %header
   .header-left
-    %a.btn-style.btn-4(ng-Tap = "go_activity_list()") 返回
+    %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   报名
-  .header-right(ng-switch="btn_flag")
-    %a.btn-style.btn-4(ng-tap="activity_start()" ng-show="btn_show()") 开始
-    %a.btn-style.btn-4( ng-hide="btn_show()" ng-tap="activity_end()" ng-Switch-when = "true")结束
-    %a.btn-style.btn-4.disabled(ng-hide="btn_show()" ng-Switch-default)结束
+  .header-right(ng-switch="true")
+    %a.btn-style.btn-4(ng-tap="start_activity()" ng-show="is_btn_show()") 开始
+    %a.btn-style.btn-4( ng-hide="is_btn_show()" ng-tap="finish_activity()" ng-Switch-when="true")结束
+    %a.btn-style.btn-4.disabled(ng-hide="is_btn_show()" ng-Switch-default)结束
 .wrapper
   .ui-content
     %ul.list-style-2

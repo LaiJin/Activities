@@ -9,20 +9,25 @@ function ActivityListController($scope, $http, $navigate)
 {
 
     $scope.go_to_create_activity_view = function() {
-
         $navigate.go('/create_activity_view','slide')
     }
 
-    $scope.current_activity_array = ActivityInfo.get_current_activity_array()
+    $scope.activity_array = ActivityInfo.get_activity_array()
+    $scope.is_btn_click = function () {
+
+        if(ActivityInfo.get_activity_array().length == 0) {
+            return false
+        } else {
+            return true
+        }
+    }
 
     $scope.go_to_detail_activity = function(activity) {
-
         ActivityInfo.set_current_activity(activity)
-        $navigate.go('/sign_up_view', 'slide')
+        $navigate.go('/activity_sign_up_view', 'slide')
     }
 
     $scope.synchronous_data = function() {
-
         var user_name = localStorage.current_user
         var activity_infos = []
         for(var i=0; i<20; i++) {

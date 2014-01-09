@@ -2,16 +2,13 @@
   %header
     创建活动
     .header-left
-      %a.btn-style.btn-4(ng-Tap = "jump_to_activity_list_view()") 返回
+      %a.btn-style.btn-4(ng-show="is_show_back_btn()" ng-tap="jump_to_activity_list_view()") 返回
   .wrapper
     %form.wrapper-inner
-    .ui-content(style = "text-align:center" )
+    .ui-content(style="text-align:center" )
       %h5活动名称
     %center
       .ui-content
-        %input.input-full(ng-model = "input_activity_name" type = "text" ng-change = "VerificationOfEmpty()")
-      .ui-content(ng-switch = "btn_flag")
-        %a.btn-style.btn-2.disabled(ng-Switch-default)
-          创建
-        %a.btn-style.btn-2(ng-tap = "jump_to_activity_sign_up_view()" ng-Switch-when = "true" )
+        %input.input-full(ng-model="input_activity_name" type="text")
+        %button.btn.btn-large(ng-tap="jump_to_activity_sign_up_view()" ng-disabled="!input_activity_name")
           创建

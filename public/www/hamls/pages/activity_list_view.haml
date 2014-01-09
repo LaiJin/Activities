@@ -4,7 +4,7 @@
     .header-left
       %a.btn-style.btn-4(ng-tap="synchronous_data()")
         数据同步
-    .header-right(ng-switch="btn_disable_flag")
+    .header-right(ng-switch="is_btn_click()")
       %a.btn-style.btn-4.disabled(ng-Switch-default)
         创建活动
       %a.btn-style.btn-4(ng-tap="go_to_create_activity_view()" ng-Switch-when="true")
@@ -12,7 +12,7 @@
   .wrapper
     %ul.list-style-2
       %center
-        %li(class="{{activity_info.status|status}}" ng-repeat="activity_info in current_activity_array")
+        %li(ng-repeat="activity_info in activity_array")
           %a(ng-tap="go_to_detail_activity({{activity_info}})")
             %h3
               {{activity_info.name}}
