@@ -2,7 +2,7 @@
   .header-left
     %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   报名
-  .header-right(ng-switch="is_activity_start")
+  .header-right(ng-switch="is_activity_end()")
     %a.btn-style.btn-4(ng-tap="start_activity()" ng-show="is_show_btn()") 开始
     %a.btn-style.btn-4(ng-hide="is_show_btn()" ng-tap="finish_activity()" ng-Switch-when="true")结束
     %a.btn-style.btn-4.disabled(ng-hide="is_show_btn()" ng-Switch-default)结束

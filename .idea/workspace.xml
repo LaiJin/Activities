@@ -99,7 +99,7 @@
     <file path="$PROJECT_DIR$/../Accupass/www/pages/mobile_client_user_login_view.html" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388134322373" ignored="false" />
     <file path="/mobile_client_user_login_view.html" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388132198677" ignored="false" />
     <file path="/mobile_client_user_login_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389238001418" ignored="false" />
-    <file path="/activity_list_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389250007577" ignored="false" />
+    <file path="/activity_list_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389261929658" ignored="false" />
     <file path="/routes.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388646786533" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/.rvmrc" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388199303874" ignored="false" />
     <file path="/activity_list_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389249992958" ignored="false" />
@@ -146,11 +146,11 @@
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/app/views/layouts/application.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388561929034" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/js/controller/activity_list.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388642856570" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/hamls/pages/create_activity.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388643913421" ignored="false" />
-    <file path="/create_activity_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389257526856" ignored="false" />
+    <file path="/create_activity_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389261702174" ignored="false" />
     <file path="/create_activity_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389257113496" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/activity/public/www/hamls/pages/create_activity_list.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1388644942802" ignored="false" />
-    <file path="/activity_sign_up_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389256649927" ignored="false" />
-    <file path="/activity_sign_up_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389249350558" ignored="false" />
+    <file path="/activity_sign_up_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389259123288" ignored="false" />
+    <file path="/activity_sign_up_view.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389259133637" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/js/controller/create_activity_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389235473812" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/js/controller/activity_sign_up_controller.js" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389246814713" ignored="false" />
     <file path="$PROJECT_DIR$/../lunajin/Download/RubyOnRailsDemo/ActivityServer/public/www/hamls/pages/activity_sign_up.haml" changelist="dfef39d1-5f37-4573-8c95-b8a53e1ce6bd" time="1389246976081" ignored="false" />
@@ -178,10 +178,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="mobile_client_user_login_view.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="create_activity_controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/js/controller/create_activity_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="60" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+            <state line="9" column="42" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc;n#CreateActivityController#0" expanded="false" />
               </folding>
@@ -189,32 +198,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_sign_up_controller.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js">
+      <file leaf-file-name="sms.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/js/plugins/sms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="96" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc;n#ActivitySignUpController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gemfile.lock" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/www/Gemfile.lock">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="21" column="113" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_info.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/www/js/model/activity_info.js">
+      <file leaf-file-name="activity_sign_up_controller.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="22" selection-start="926" selection-end="926" vertical-scroll-proportion="0.54635763">
+            <state line="32" column="99" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="n#!!doc;n#ActivityInfo#0" expanded="false" />
+                <element signature="n#!!doc;n#ActivitySignUpController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -223,13 +221,46 @@
       <file leaf-file-name="sign_up.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/js/model/sign_up.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
+            <state line="8" column="12" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#Signup#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/js/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="8" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="activity_info.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/js/model/activity_info.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="77" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#ActivityInfo#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_list_controller.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="62" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#ActivityListController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/www/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -238,40 +269,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_sign_up_view.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_sign_up_view.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="31" selection-start="171" selection-end="187" vertical-scroll-proportion="-3.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_list_controller.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="41" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="create_activity_view.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/create_activity_view.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="43" selection-start="309" selection-end="309" vertical-scroll-proportion="-6.875">
+            <state line="13" column="26" selection-start="455" selection-end="455" vertical-scroll-proportion="-8.125">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mobile_client_user_login_controller.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="28" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc;n#MobileClientUserLoginController#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -290,7 +292,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/users/user_welcome.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mobile_client_info_show/detailed_once_bid_view.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mobile_client_info_show/bid_list_view.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mobile_client_info_show/sign_up_list_view.html.erb" />
@@ -299,13 +300,14 @@
         <option value="$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml" />
         <option value="$PROJECT_DIR$/public/www/hamls/index.haml" />
         <option value="$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js" />
-        <option value="$PROJECT_DIR$/public/www/hamls/pages/activity_sign_up_view.haml" />
         <option value="$PROJECT_DIR$/public/www/hamls/pages/activity_list_view.haml" />
-        <option value="$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js" />
-        <option value="$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js" />
         <option value="$PROJECT_DIR$/public/www/hamls/pages/create_activity_view.haml" />
-        <option value="$PROJECT_DIR$/public/www/js/controller/create_activity_controller.js" />
         <option value="$PROJECT_DIR$/public/www/js/model/activity_info.js" />
+        <option value="$PROJECT_DIR$/public/www/hamls/pages/activity_sign_up_view.haml" />
+        <option value="$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js" />
+        <option value="$PROJECT_DIR$/public/www/js/plugins/sms.js" />
+        <option value="$PROJECT_DIR$/public/www/js/controller/create_activity_controller.js" />
+        <option value="$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js" />
       </list>
     </option>
   </component>
@@ -317,6 +319,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="6" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
@@ -466,6 +469,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -541,20 +570,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1232,7 +1247,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="729" extended-state="6" />
+    <frame x="6" y="22" width="1280" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1319,28 +1334,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/www/pages/mobile_client_user_login_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="38" selection-start="321" selection-end="321" vertical-scroll-proportion="-3.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/application.js">
+    <entry file="file://$PROJECT_DIR$/app/views/users/login.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/routes.js">
+    <entry file="file://$PROJECT_DIR$/public/www/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="350" selection-end="371" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml">
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="28" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#MobileClientUserLoginController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/sign_up.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -1354,28 +1371,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/login.html.erb">
+    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_sign_up_view.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="12" column="23" selection-start="474" selection-end="474" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/model/activity_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="77" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc;n#ActivityInfo#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/mobile_client_user_login_controller.js">
+    <entry file="file://$PROJECT_DIR$/public/www/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="28" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
+        <state line="36" column="8" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/model/sign_up.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="12" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc;n#MobileClientUserLoginController#0" expanded="false" />
+            <element signature="n#!!doc;n#Signup#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/Gemfile.lock">
+    <entry file="file://$PROJECT_DIR$/public/www/js/plugins/sms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="113" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/create_activity_view.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="26" selection-start="455" selection-end="455" vertical-scroll-proportion="-8.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/mobile_client_user_login_view.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/create_activity_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="42" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#CreateActivityController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="99" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#ActivitySignUpController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="62" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#ActivityListController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1383,61 +1455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/activity_sign_up_view.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="171" selection-end="187" vertical-scroll-proportion="-3.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/hamls/pages/create_activity_view.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="309" selection-end="309" vertical-scroll-proportion="-6.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_list_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="41" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/activity_sign_up_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="96" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc;n#ActivitySignUpController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/controller/create_activity_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="60" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc;n#CreateActivityController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/model/sign_up.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/www/js/model/activity_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="22" selection-start="926" selection-end="926" vertical-scroll-proportion="0.54635763">
-          <folding>
-            <element signature="n#!!doc;n#ActivityInfo#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

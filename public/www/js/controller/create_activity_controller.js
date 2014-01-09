@@ -8,8 +8,7 @@
 function CreateActivityController($scope, $navigate, $http) {
 
     $scope.is_show_back_btn = function() {
-
-        return ActivityInfo.get_activity_array().length != 0
+        return !_.isEmpty(ActivityInfo.get_activity_array())
     }
 
     $scope.jump_to_activity_list_view = function() {

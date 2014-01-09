@@ -14,7 +14,8 @@ function ActivityListController($scope, $http, $navigate)
 
     $scope.activity_array = ActivityInfo.get_activity_array()
     $scope.is_btn_click = function () {
-        return ActivityInfo.get_activity_array().length != 0
+//        return ActivityInfo.get_activity_array().length != 0
+        return !(_.isEmpty(ActivityInfo.get_activity_array()))
     }
 
     $scope.jump_to_detail_activity = function(activity) {
