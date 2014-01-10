@@ -6,8 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 function ActivityInfo(user_name, name) {
-    this.user_name = user_name;
-    this.name = name;
+    this.user_name = user_name
+    this.name = name
     this.status = "un_start"
 }
 
