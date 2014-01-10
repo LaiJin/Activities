@@ -54,4 +54,10 @@ function ActivitySignUpController($scope, $navigate) {
 
     }
 
+    $scope.data_init = function() {
+        $scope.sign_up_infos = Signup.get_sign_up_info_array()
+    }
+
+    $scope.data_init()
+
 }

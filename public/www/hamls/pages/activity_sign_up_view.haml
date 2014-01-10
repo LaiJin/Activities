@@ -1,4 +1,4 @@
-%header
+%header#sign_up
   .header-left
     %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   报名
@@ -10,8 +10,8 @@
   .ui-content
     %ul.list-style-2
       %center
-        %li(ng-repeat="sign in signs")
-          -#Name: {{sign["name"]}}  Phone: {{sign["phone"]}}
+        %li(ng-repeat="sign_up_info in sign_up_infos")
+          姓名: {{sign_up_info.name}}  手机号: {{sign_up_info.phone}}
   %footer
     %ul.footer-nav.footer-nav-2tabs
       %li.active

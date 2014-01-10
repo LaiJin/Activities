@@ -34,6 +34,13 @@ add_new_sign_up_info = function(message) {
     var sign_up_person_name = get_sign_up_person_name(message.content)
     var new_sign_up_info = new Signup(sign_up_person_name, message.phone)
     Signup.set_new_sign_up_info_to_array(new_sign_up_info)
+    var a = document.getElementById("sign_up")
+    if(a) {
+        var scope = angular.element(a).scope()
+        scope.$apply(function(){
+            scope.data_init()
+        })
+    }
     console.log("恭喜，您已经成功报名")
 }
 
