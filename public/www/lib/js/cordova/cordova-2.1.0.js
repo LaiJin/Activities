@@ -170,7 +170,7 @@ function createEvent(type, data) {
 
 if(typeof window.console === "undefined") {
     window.console = {
-        log:function(){}
+        log:function (s){}
     };
 }
 

@@ -25,6 +25,10 @@ ActivityInfo.set_new_activity_to_array = function(new_activity) {
 //    localStorage.setItem("activity_array", JSON.stringify(activity_array));
 }
 
+//ActivityInfo.prototype.ssss  = function () {
+//
+//}
+
 ActivityInfo.update_activity_array = function(activity_array) {
 //    localStorage.setItem("activity_array", JSON.stringify(activity_array))
     localStorage.activity_array = JSON.stringify(activity_array)

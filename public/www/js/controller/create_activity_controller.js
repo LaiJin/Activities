@@ -12,7 +12,6 @@ function CreateActivityController($scope, $navigate, $http) {
     }
 
     $scope.jump_to_activity_list_view = function() {
-
         $navigate.go('/activity_list_view', 'slide')
     }
 
@@ -29,12 +28,9 @@ function CreateActivityController($scope, $navigate, $http) {
 }
 
 function check_name_is_same(activity_array, new_activity) {
-
     var is_name_same = false
     _.each(activity_array, function(activity) {
-
         if(activity.name == new_activity.name) {
-
             alert("活动名称重复, 请重新输入！")
             is_name_same = true
         }
