@@ -18,6 +18,7 @@ function CreateActivityController($scope, $navigate, $http) {
     $scope.jump_to_activity_sign_up_view = function() {
 
         var new_activity = new ActivityInfo(localStorage.current_user, $scope.input_activity_name)
+        $scope.is_show_name_repeat_warning = check_name_is_same(ActivityInfo.get_activity_array(), new_activity)
         if(!check_name_is_same(ActivityInfo.get_activity_array(), new_activity)) {
             ActivityInfo.set_current_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
@@ -31,7 +32,6 @@ function check_name_is_same(activity_array, new_activity) {
     var is_name_same = false
     _.each(activity_array, function(activity) {
         if(activity.name == new_activity.name) {
-            alert("活动名称重复, 请重新输入！")
             is_name_same = true
         }
     })

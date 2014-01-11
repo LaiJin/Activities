@@ -10,7 +10,7 @@
   .ui-content
     %ul.list-style-2
       %center
-        %li(ng-repeat="sign_up_info in sign_up_infos")
+        %li(ng-repeat="sign_up_info in sign_up_infos_for_current_activity")
           姓名: {{sign_up_info.name}}  手机号: {{sign_up_info.phone}}
   %footer
     %ul.footer-nav.footer-nav-2tabs

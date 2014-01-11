@@ -55,7 +55,7 @@ function ActivitySignUpController($scope, $navigate) {
     }
 
     $scope.data_init = function() {
-        $scope.sign_up_infos = Signup.get_sign_up_info_array()
+        $scope.sign_up_infos_for_current_activity =  Signup.get_sign_up_infos_for_current_activity()
     }
 
     $scope.data_init()

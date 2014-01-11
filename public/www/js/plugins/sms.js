@@ -14,6 +14,7 @@ var native_accessor = {
     process_received_message: function(json_message) {
 
         process_message(json_message)
+//        ProcessMessage()
 //        var message = json_message.messages[0]
 //        message.content = trim(message.content)
 //        if(message.content.substring(0, 2).toUpperCase() == "BM") {

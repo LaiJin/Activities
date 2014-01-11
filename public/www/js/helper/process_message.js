@@ -6,6 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 
+
+//function process_message(json_message) {
+//
+//         console.log("i can")
+//}
+
 process_message = function(json_message) {
     var message = json_message.messages[0]
 //    var check_activity = {}
@@ -21,8 +27,8 @@ process_message = function(json_message) {
 }
 
 check_message_phone_is_repeat = function(message) {
-    var sign_up_info_array = Signup.get_sign_up_info_array()
-    if(_.find(sign_up_info_array, function(sign_up_info) {return sign_up_info.phone == message.phone}) == undefined) {
+    var sign_up_infos = Signup.get_sign_up_info_array()
+    if(_.find(sign_up_infos, function(sign_up_info) {return sign_up_info.phone == message.phone}) == undefined) {
         add_new_sign_up_info(message)
     } else {
 //        native_accessor.send_sms(message.phone, "您已经报名成功，请勿重复报名！")
