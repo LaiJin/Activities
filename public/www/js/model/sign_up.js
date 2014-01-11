@@ -18,7 +18,7 @@ Signup.get_sign_up_info_array = function() {
 
 Signup.set_new_sign_up_info_to_array = function(new_sign_up_info) {
     var sign_up_info_array = Signup.get_sign_up_info_array()
-    sign_up_info_array.push(new_sign_up_info)
+    sign_up_info_array.unshift(new_sign_up_info)
     localStorage.sign_up_info_array = JSON.stringify(sign_up_info_array)
 }
 
