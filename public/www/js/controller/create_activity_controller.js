@@ -21,6 +21,7 @@ function CreateActivityController($scope, $navigate, $http) {
         $scope.is_show_name_repeat_warning = check_name_is_same(ActivityInfo.get_activity_array(), new_activity)
         if(!check_name_is_same(ActivityInfo.get_activity_array(), new_activity)) {
             ActivityInfo.set_click_activity(new_activity)
+            ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
             $navigate.go('/activity_sign_up_view', 'slide')
         }
