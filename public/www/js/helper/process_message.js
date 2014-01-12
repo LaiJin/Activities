@@ -14,11 +14,10 @@
 
 process_message = function(json_message) {
     var message = json_message.messages[0]
-//    var check_activity = {}
-    if(ActivityInfo.get_current_activity().status == "un_start") {
+    if(_.isEmpty(ActivityInfo.get_starting_activity()) || ActivityInfo.get_starting_activity().status == "un_start") {
 //        native_accessor.send_sms(message.phone, "活动报名还未开始, 请稍后再试。")
         console.log("活动报名还未开始, 请稍后再试。")
-    } else if (ActivityInfo.get_current_activity().status == "end") {
+    } else if (ActivityInfo.get_starting_activity().status == "end") {
 //        native_accessor.send_sms(message.phone, "抱歉，活动报名已经结束。")
         console.log("抱歉，活动报名已经结束。")
     } else {
@@ -28,7 +27,8 @@ process_message = function(json_message) {
 
 check_message_phone_is_repeat = function(message) {
     var sign_up_infos = Signup.get_sign_up_info_array()
-    if(_.find(sign_up_infos, function(sign_up_info) {return sign_up_info.phone == message.phone}) == undefined) {
+    var starting_activity = ActivityInfo.get_starting_activity()
+    if(_.find(sign_up_infos, function(sign_up_info) {return sign_up_info.phone == message.phone && sign_up_info.activity_name == starting_activity.name}) == undefined) {
         add_new_sign_up_info(message)
     } else {
 //        native_accessor.send_sms(message.phone, "您已经报名成功，请勿重复报名！")

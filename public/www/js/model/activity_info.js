@@ -30,10 +30,18 @@ ActivityInfo.update_activity_array = function(activity_array) {
     localStorage.activity_array = JSON.stringify(activity_array)
 }
 
-ActivityInfo.set_current_activity = function(activity) {
-    localStorage.current_activity = JSON.stringify(activity)
+ActivityInfo.set_click_activity = function(activity) {
+    localStorage.click_activity = JSON.stringify(activity)
 }
 
-ActivityInfo.get_current_activity = function() {
-    return JSON.parse(localStorage.current_activity)
+ActivityInfo.get_click_activity = function() {
+    return JSON.parse(localStorage.click_activity)
+}
+
+ActivityInfo.set_starting_activity = function(activity) {
+    localStorage.starting_activity = JSON.stringify(activity)
+}
+
+ActivityInfo.get_starting_activity = function() {
+    return JSON.parse(localStorage.starting_activity || '{}')
 }

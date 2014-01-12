@@ -8,7 +8,7 @@
 function Signup(name, phone){
     this.name = name;
     this.phone = phone;
-    this.activity_name = ActivityInfo.get_current_activity().name;
+    this.activity_name = ActivityInfo.get_starting_activity().name;
     this.user_name = localStorage.current_user
 }
 
@@ -22,8 +22,9 @@ Signup.set_new_sign_up_info_to_array = function(new_sign_up_info) {
     localStorage.sign_up_info_array = JSON.stringify(sign_up_info_array)
 }
 
-Signup.get_sign_up_infos_for_current_activity = function() {
+Signup.get_sign_up_infos_for_click_activity = function() {
     var sign_up_infos = Signup.get_sign_up_info_array()
-    return _.where(sign_up_infos, {activity_name: ActivityInfo.get_current_activity().name, user_name:localStorage.current_user}) || {}
+    return _.where(sign_up_infos, {activity_name: ActivityInfo.get_click_activity().name, user_name:localStorage.current_user}) || {}
 }
+
 

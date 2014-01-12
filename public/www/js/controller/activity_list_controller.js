@@ -19,7 +19,11 @@ function ActivityListController($scope, $http, $navigate)
     }
 
     $scope.jump_to_detail_activity = function(activity) {
-        ActivityInfo.set_current_activity(activity)
+
+        ActivityInfo.set_click_activity(activity)
+        if(ActivityInfo.get_starting_activity().status != "start" ) {
+            ActivityInfo.set_starting_activity(activity)
+        }
         $navigate.go('/activity_sign_up_view', 'slide')
     }
 
