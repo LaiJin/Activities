@@ -40,11 +40,11 @@ add_new_sign_up_info = function(message) {
     var sign_up_person_name = get_sign_up_person_name(message.content)
     var new_sign_up_info = new Signup(sign_up_person_name, message.phone)
     Signup.set_new_sign_up_info_to_array(new_sign_up_info)
-    var a = document.getElementById("sign_up")
-    if(a) {
-        var scope = angular.element(a).scope()
+    var sig_up_view_element = document.getElementById("sign_up")
+    if(sig_up_view_element) {
+        var scope = angular.element(sig_up_view_element).scope()
         scope.$apply(function(){
-            scope.data_init()
+            scope.refresh_sigu_up_infos()
         })
     }
     console.log("恭喜，您已经成功报名")

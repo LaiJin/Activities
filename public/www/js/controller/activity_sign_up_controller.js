@@ -17,8 +17,8 @@ function ActivitySignUpController($scope, $navigate) {
 
     $scope.is_show_btn = function() {
         var click_activity = ActivityInfo.get_click_activity()
-        var judge_activity_status = {start: false, un_start: true, end: false}
-        return judge_activity_status[click_activity.status]
+        var check_activity_status = {start: false, un_start: true, end: false}
+        return check_activity_status[click_activity.status]
     }
 
     $scope.is_have_activity_starting = function() {
@@ -35,13 +35,6 @@ function ActivitySignUpController($scope, $navigate) {
             ActivityInfo.set_starting_activity(click_activity)
             ActivityInfo.set_click_activity(click_activity)
             _.find(activity_array, function(activity) {return activity.name == click_activity.name}).status = "start"
-//        _.map(activity_array, function(activity) {
-//            if (activity.name == current_activity.name) {
-//                activity.status = current_activity.status
-//                return activity
-//            }
-//            return activity
-//        })
             ActivityInfo.update_activity_array(activity_array)
         }
 
@@ -61,11 +54,11 @@ function ActivitySignUpController($scope, $navigate) {
 
     }
 
-    $scope.data_init = function() {
+    $scope.refresh_sigu_up_infos = function() {
         $scope.sign_up_infos_for_current_activity =  Signup.get_sign_up_infos_for_click_activity()
         $scope.stats_sign_up_person = $scope.sign_up_infos_for_current_activity.length
     }
 
-    $scope.data_init()
+    $scope.refresh_sigu_up_infos()
 
 }
