@@ -40,3 +40,12 @@ $(document).ready(function () {
 
 
 });
+
+myModule.filter('status',function(){
+    return function(status) {
+        if(status == 'start'){
+            return 'active'
+//            return "background : yellow"
+        }
+    };
+})

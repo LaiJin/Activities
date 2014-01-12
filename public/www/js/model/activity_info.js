@@ -19,7 +19,7 @@ ActivityInfo.get_activity_array = function() {
 ActivityInfo.set_new_activity_to_array = function(new_activity) {
 
     var activity_array = ActivityInfo.get_activity_array()
-    activity_array.push(new_activity)
+    activity_array.unshift(new_activity)
     localStorage.activity_array = JSON.stringify(activity_array)
 //    localStorage.setItem("activity_name", new_activity.name);
 //    localStorage.setItem("activity_array", JSON.stringify(activity_array));

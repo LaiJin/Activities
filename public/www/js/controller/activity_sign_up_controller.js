@@ -21,6 +21,11 @@ function ActivitySignUpController($scope, $navigate) {
         return judge_activity_status[current_activity.status]
     }
 
+    $scope.is_have_activity_starting = function() {
+        var activity_array = ActivityInfo.get_activity_array()
+        return _.some(activity_array, function(activity) {return activity.status == "start"})
+    }
+
     $scope.start_activity = function() {
 
         if(confirm("确定要开始活动吗?")) {
