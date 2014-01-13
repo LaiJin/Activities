@@ -1,0 +1,40 @@
+%header#bid_sign_up
+  .header-left
+    %a.btn-style.btn-4(ng-tap="jump_to_bid_list_view()") 返回
+  {{bid_name}}
+  %span ({{stats_bid_sign_up_person}}人)
+  .header-right(ng-switch="is_biding_end()")
+    %a.btn-style.btn-4(ng-tap="finish_biding()" ng-Switch-default)
+      结束
+    %a.btn-style.btn-4(ng-Switch-when="false" ng-tap="jump_to_price_statistics()")
+      统计
+%wrapper.wrapper-scrollable( style='position: relative; top: 50px')
+  %ul.list-style-2
+    %li(ng-repeat="bid_sign_up_info in bid_sign_up_infos" style="height:42px; font-size:18px; word-spacing: 20px")
+      {{$index+1}}
+      {{bid_sign_up_info.name}}
+      {{bid_sign_up_info.phone}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

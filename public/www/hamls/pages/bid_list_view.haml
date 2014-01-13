@@ -7,11 +7,13 @@
       开始新竞价
     %a.btn-style.btn-4(ng-tap="create_new_bid_sign_up()" ng-switch-when="true")
       开始新竞价
-#wrapper.wrapper-scrollable(style='position:relative;top:50px')
+.wrapper
   %ul.list-style-2
-    %li(ng-repeat="bid_list in bid_lists" style="{{bid_list.status|status}} ; height:42px;" ng-tap="bid_sign_up_detail(bid_list.name,bid_list.activity_name)")
-      {{bid_list.name}}
-
+    %center
+      %li(class="{{bid.status|status}}" ng-repeat="bid in bids")
+        %a(ng-tap="jump_to_detail_bid({{bid}})")
+          %h3
+            {{bid.name}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li

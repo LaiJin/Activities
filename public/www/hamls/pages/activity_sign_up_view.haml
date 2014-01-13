@@ -2,17 +2,17 @@
   .header-left
     %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   报名
-  %span {{stats_sign_up_person}}人
+  %span {{stats_activity_sign_up_person}}人
   .header-right(ng-switch="is_activity_end()")
     %a.btn-style.btn-4(ng-tap="start_activity()" ng-show="is_show_btn() && !is_have_activity_starting()") 开始
     %a.btn-style.btn-4.disabled(ng-show="is_have_activity_starting() && is_show_btn()")开始
     %a.btn-style.btn-4(ng-hide="is_show_btn()" ng-tap="finish_activity()" ng-Switch-when="true")结束
     %a.btn-style.btn-4.disabled(ng-hide="is_show_btn()" ng-Switch-default)结束
-#wrapper.wrapper-scrollable( style='position:relative;top:50px')
+%wrapper.wrapper-scrollable( style='position: relative; top: 50px')
   %ul.list-style-2
-    %li(ng-repeat="sign_up_info in sign_up_infos_for_current_activity"   style="height:42px ; word-spacing:20px ; font-size:18px")
-      {{sign_up_info.name}}
-      {{sign_up_info.phone}}
+    %li(ng-repeat="activity_sign_up_info in activity_sign_up_infos_for_current_activity" style="height:42px ; word-spacing:20px ; font-size:18px")
+      {{activity_sign_up_info.name}}
+      {{activity_sign_up_info.phone}}
 %footer
   %ul.footer-nav.footer-nav-2tabs
     %li.active
@@ -21,5 +21,3 @@
     %li
       %a(style="font-size: 25px" ng-tap="jump_to_bid_list_view()")
         竞价
-      -#%a(ng-show="bids_disable()")
-      -#  竞价
