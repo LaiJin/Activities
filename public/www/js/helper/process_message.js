@@ -44,7 +44,7 @@ add_new_sign_up_info = function(message) {
     if(sig_up_view_element) {
         var scope = angular.element(sig_up_view_element).scope()
         scope.$apply(function(){
-            scope.refresh_sign_up_infos()
+            scope.refresh_activity_sign_up_infos()
         })
     }
     console.log("恭喜，您已经成功报名")

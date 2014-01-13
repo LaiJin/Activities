@@ -40,3 +40,5 @@ ActivityInfo.set_starting_activity = function(activity) {
 ActivityInfo.get_starting_activity = function() {
     return JSON.parse(localStorage.starting_activity || '{}')
 }
+
+

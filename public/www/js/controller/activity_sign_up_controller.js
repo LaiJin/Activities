@@ -22,8 +22,9 @@ function ActivitySignUpController($scope, $navigate) {
     }
 
     $scope.is_have_activity_starting = function() {
-        var activity_array = ActivityInfo.get_activity_array()
-        return _.some(activity_array, function(activity) {return activity.status == "start"})
+        return ActivityInfo.get_starting_activity().status == "start"
+//        var activity_array = ActivityInfo.get_activity_array()
+//        return _.some(activity_array, function(activity) {return activity.status == "start"})
     }
 
     $scope.start_activity = function() {
@@ -54,7 +55,7 @@ function ActivitySignUpController($scope, $navigate) {
 
     }
 
-    $scope.refresh_sign_up_infos = function() {
+    $scope.refresh_activity_sign_up_infos = function() {
         $scope.activity_sign_up_infos_for_current_activity = ActivitySignUp.get_sign_up_infos_for_click_activity()
         $scope.stats_activity_sign_up_person = $scope.activity_sign_up_infos_for_current_activity.length
     }
@@ -68,6 +69,6 @@ function ActivitySignUpController($scope, $navigate) {
 
     }
 
-    $scope.refresh_sign_up_infos()
+    $scope.refresh_activity_sign_up_infos()
 
 }
