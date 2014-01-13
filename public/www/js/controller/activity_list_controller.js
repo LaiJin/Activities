@@ -16,8 +16,6 @@ function ActivityListController($scope, $http, $navigate)
 
     $scope.is_btn_click = function () {
         return ActivityInfo.get_starting_activity().status != "start"
-//        var activity_array = ActivityInfo.get_activity_array()
-//        return !_.some(activity_array, function(activity) {return activity.status == "start"})
     }
 
     $scope.jump_to_detail_activity = function(activity) {
