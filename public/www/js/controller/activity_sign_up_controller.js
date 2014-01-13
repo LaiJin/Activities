@@ -29,12 +29,7 @@ function ActivitySignUpController($scope, $navigate) {
 
         if(confirm("确定要开始活动吗?")) {
             var click_activity = ActivityInfo.get_click_activity()
-            var activity_array = ActivityInfo.get_activity_array()
-            click_activity.status = "start"
-            ActivityInfo.set_starting_activity(click_activity)
-            ActivityInfo.set_click_activity(click_activity)
-            _.find(activity_array, function(activity) {return activity.name == click_activity.name}).status = "start"
-            ActivityInfo.update_activity_array(activity_array)
+            ActivityInfo.update_activity_status(click_activity, "start")
         }
 
     }
@@ -43,12 +38,7 @@ function ActivitySignUpController($scope, $navigate) {
 
         if(confirm("确定要结束任务吗?")) {
             var starting_activity = ActivityInfo.get_starting_activity()
-            var activity_array = ActivityInfo.get_activity_array()
-            starting_activity.status = "end"
-            ActivityInfo.set_starting_activity(starting_activity)
-            ActivityInfo.set_click_activity(starting_activity)
-            _.find(activity_array, function(activity) {return activity.name == starting_activity.name}).status = "end"
-            ActivityInfo.update_activity_array(activity_array)
+            ActivityInfo.update_activity_status(starting_activity, "end")
         }
 
     }

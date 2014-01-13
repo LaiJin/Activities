@@ -15,14 +15,14 @@ ActivityInfo.get_activity_array = function() {
     return JSON.parse(localStorage.activity_array || '[]')
 }
 
-ActivityInfo.set_new_activity_to_array = function(new_activity) {
-    var activity_array = ActivityInfo.get_activity_array()
-    activity_array.unshift(new_activity)
+ActivityInfo.save_activity_array = function(activity_array) {
     localStorage.activity_array = JSON.stringify(activity_array)
 }
 
-ActivityInfo.update_activity_array = function(activity_array) {
-    localStorage.activity_array = JSON.stringify(activity_array)
+ActivityInfo.set_new_activity_to_array = function(new_activity) {
+    var activity_array = ActivityInfo.get_activity_array()
+    activity_array.unshift(new_activity)
+    ActivityInfo.save_activity_array(activity_array)
 }
 
 ActivityInfo.set_click_activity = function(activity) {
@@ -41,4 +41,12 @@ ActivityInfo.get_starting_activity = function() {
     return JSON.parse(localStorage.starting_activity || '{}')
 }
 
+ActivityInfo.update_activity_status = function(changed_activity, status) {
+    var activity_array = ActivityInfo.get_activity_array()
+    changed_activity.status = status
+    ActivityInfo.set_starting_activity(changed_activity)
+    ActivityInfo.set_click_activity(changed_activity)
+    _.find(activity_array, function(activity) {return activity.name == changed_activity.name}).status = status
+    ActivityInfo.save_activity_array(activity_array)
+}
 
