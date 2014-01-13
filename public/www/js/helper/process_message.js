@@ -26,7 +26,7 @@ process_message = function(json_message) {
 }
 
 check_message_phone_is_repeat = function(message) {
-    var sign_up_infos = Signup.get_sign_up_info_array()
+    var sign_up_infos = ActivitySignUp.get_sign_up_info_array()
     var starting_activity = ActivityInfo.get_starting_activity()
     if(_.find(sign_up_infos, function(sign_up_info) {return sign_up_info.phone == message.phone && sign_up_info.activity_name == starting_activity.name}) == undefined) {
         add_new_sign_up_info(message)
@@ -38,8 +38,8 @@ check_message_phone_is_repeat = function(message) {
 
 add_new_sign_up_info = function(message) {
     var sign_up_person_name = get_sign_up_person_name(message.content)
-    var new_sign_up_info = new Signup(sign_up_person_name, message.phone)
-    Signup.set_new_sign_up_info_to_array(new_sign_up_info)
+    var new_sign_up_info = new ActivitySignUp(sign_up_person_name, message.phone)
+    ActivitySignUp.set_new_sign_up_info_to_array(new_sign_up_info)
     var sig_up_view_element = document.getElementById("sign_up")
     if(sig_up_view_element) {
         var scope = angular.element(sig_up_view_element).scope()

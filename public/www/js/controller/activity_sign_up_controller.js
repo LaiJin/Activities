@@ -55,7 +55,7 @@ function ActivitySignUpController($scope, $navigate) {
     }
 
     $scope.refresh_sign_up_infos = function() {
-        $scope.sign_up_infos_for_current_activity =  Signup.get_sign_up_infos_for_click_activity()
+        $scope.sign_up_infos_for_current_activity = ActivitySignUp.get_sign_up_infos_for_click_activity()
         $scope.stats_sign_up_person = $scope.sign_up_infos_for_current_activity.length
     }
 

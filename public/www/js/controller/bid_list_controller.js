@@ -15,4 +15,11 @@ function BidListController($scope, $navigate) {
         $navigate.go('activity_sign_up_view', 'slide')
     }
 
+    $scope.is_can_create_new_bid_click = function() {
+        return true
+    }
+
+    $scope.create_new_bid_sign_up = function() {
+
+    }
 }
