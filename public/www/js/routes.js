@@ -11,6 +11,9 @@ myModule.config(function($routeProvider) {
         }).when("/activity_sign_up_view", {
             templateUrl: "pages/activity_sign_up_view.html",
             controller: ActivitySignUpController
+        }).when("/bid_list_view", {
+            templateUrl: "pages/bid_list_view.html",
+            controller: BidListController
         }).otherwise({
             redirectTo:"/"
         });

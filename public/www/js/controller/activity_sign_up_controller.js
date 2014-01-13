@@ -54,11 +54,20 @@ function ActivitySignUpController($scope, $navigate) {
 
     }
 
-    $scope.refresh_sigu_up_infos = function() {
+    $scope.refresh_sign_up_infos = function() {
         $scope.sign_up_infos_for_current_activity =  Signup.get_sign_up_infos_for_click_activity()
         $scope.stats_sign_up_person = $scope.sign_up_infos_for_current_activity.length
     }
 
-    $scope.refresh_sigu_up_infos()
+    $scope.jump_to_bid_list_view = function() {
+        if(ActivityInfo.get_starting_activity().status != "end") {
+            alert("抱歉，报名活动还为结束，无法进入竞价页面！")
+        } else {
+            $navigate.go('/bid_list_view', 'slide')
+        }
+
+    }
+
+    $scope.refresh_sign_up_infos()
 
 }

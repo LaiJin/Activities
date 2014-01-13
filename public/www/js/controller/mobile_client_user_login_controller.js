@@ -12,24 +12,23 @@ function MobileClientUserLoginController($scope,$navigate,$http)
 
         var name = $scope.name
         var password = $scope.password
-        $http.post('/users/mobile_client_user_login',{name: name, password: password})
+        $http.post('/users/mobile_client_user_login', {name: name, password: password})
             .success(function(response) {
 
                 if(JSON.parse(response) == true) {
                     localStorage.current_user = $scope.name
-                    if(ActivityInfo.get_activity_array() == null) {
-
-                        alert("请创建活动")
+                    if(_.isEmpty(ActivityInfo.get_activity_array())) {
+                        alert("活动列表未空，请您先创建活动。")
                         $navigate.go('/create_activity_view', 'slide')
                     } else {
                         $navigate.go('/activity_list_view', 'slide')
                     }
 
                 } else {
-                    alert("用户名或密码错误");
+                    alert("用户名或密码错误！");
                 }
             }).error(function() {
-                alert("请求服务器端出现错误")
+                alert("请求服务器端出现错误！")
             })
     }
 
