@@ -12,22 +12,7 @@ var native_accessor = {
     },
 
     process_received_message: function(json_message) {
-
         process_message(json_message)
-//        ProcessMessage()
-//        var message = json_message.messages[0]
-//        message.content = trim(message.content)
-//        if(message.content.substring(0, 2).toUpperCase() == "BM") {
-//            var sign_up_person_name = message.content.substring(2, message.content.length)
-//            sign_up_person_name = trim(sign_up_person_name)
-//            console.log(sign_up_person_name)
-//        } else if (message.content.substring(0, 2).toUpperCase() == "JJ") {
-//            var bid_price = message.content.substring(2, message.content.length)
-//            bid_price = trim(bid_price)
-//            bid_price = left_trim(bid_price)
-//            console.log(bid_price)
-//        }
-
     }
 
 };

@@ -79,38 +79,62 @@ function process_message(json_message) {
     }
 
     function process_bid_sign_up_message() {
-        if(_.isEmpty(Bid.get_biding()) || Bid.get_biding().status == "un_start") {
-            console.log("竞价报名还未开始, 请稍后再试。")
-        }
 
-        if(Bid.get_biding().status == "end") {
-            console.log("抱歉，竞价报名已经结束。")
-        }
+        judge_bid_status()
 
-        if(Bid.get_biding().status == "start") {
-            var bid_sign_up_infos = BidSignUp.get_bid_sign_up_info_array()
-            var biding = Bid.get_biding()
-            var repeatedly_bid_sign_up_info = _.find(bid_sign_up_infos, function(bid_sign_up_info) {
-                return bid_sign_up_info.phone == message.phone && bid_sign_up_info.activity_name == biding.activity_name && bid_sign_up_info.bid_name == biding.name})
-            if(repeatedly_bid_sign_up_info == undefined) {
-                var activity_sign_up_info = _.find(ActivitySignUp.get_activity_sign_up_for_biding_activity(), function(activity_sign_up_info) {
-                    return activity_sign_up_info.phone  == message.phone
-                })
-
-                if(activity_sign_up_info == undefined) {
-                    console.log("您没有参加活动报名，无法进行竞价报名！")
-                } else {
-                    var bid_sign_up_price = trim(message.content.substring(2, message.content.length))
-                    var new_bid_sign_up_info = new BidSignUp(activity_sign_up_info.name, message.phone, bid_sign_up_price)
-                    BidSignUp.set_new_bid_sign_up_info_to_array(new_bid_sign_up_info)
-                    refresh_sign_up_info("bid_sign_up")
-                    console.log("恭喜，您竞价报名成功。")
-                }
+        function judge_bid_status() {
+            var judge_bid_status = {
+                start: function() {process_message_when_bid_status_start()},
+                  end: function() {console.log("抱歉，竞价报名已经结束。")}
+            }
+            if(judge_bid_status[Bid.get_biding().status]) {
+                judge_bid_status[Bid.get_biding().status]()
             } else {
-                console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
+                console.log("竞价报名还未开始, 请稍后再试。")
             }
         }
 
+        function process_message_when_bid_status_start() {
+            var activity_sign_up_info = check_whether_event_registration()
+            if (activity_sign_up_info) {
+                var repeat_bid_sign_up_info = find_repeat_bid_sign_up_info()
+                if(repeat_bid_sign_up_info == undefined) {
+                    add_new_bid_sign_up_info(activity_sign_up_info)
+
+                } else {
+                    console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
+                }
+            }
+        }
+
+        function check_whether_event_registration() {
+            var activity_sign_up_info = _.find(ActivitySignUp.get_activity_sign_up_for_biding_activity(), function(activity_sign_up_info) {
+                return activity_sign_up_info.phone  == message.phone
+            })
+            if(activity_sign_up_info == undefined) {
+                console.log("您没有参加活动报名，无法进行竞价报名！")
+                return false
+            }
+            return activity_sign_up_info
+        }
+
+        function find_repeat_bid_sign_up_info() {
+            var bid_sign_up_infos = BidSignUp.get_bid_sign_up_info_array()
+            var biding = Bid.get_biding()
+            var repeatedly_bid_sign_up_info = _.find(bid_sign_up_infos, function(bid_sign_up_info) {
+                return bid_sign_up_info.phone == message.phone
+                    && bid_sign_up_info.activity_name == biding.activity_name
+                    && bid_sign_up_info.bid_name == biding.name})
+            return repeatedly_bid_sign_up_info
+        }
+
+        function add_new_bid_sign_up_info(activity_sign_up_info) {
+            var bid_sign_up_price = trim(message.content.substring(2, message.content.length))
+            var new_bid_sign_up_info = new BidSignUp(activity_sign_up_info.name, message.phone, bid_sign_up_price)
+            BidSignUp.set_new_bid_sign_up_info_to_array(new_bid_sign_up_info)
+            refresh_sign_up_info("bid_sign_up")
+            console.log("恭喜，您竞价报名成功。")
+        }
     }
 
     function refresh_sign_up_info(view_id) {
