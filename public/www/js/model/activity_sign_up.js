@@ -30,4 +30,12 @@ ActivitySignUp.get_activity_sign_up_infos_for_click_activity = function() {
     })
 }
 
+ActivitySignUp.get_activity_sign_up_for_biding_activity = function() {
+    var activity_sign_up_infos = ActivitySignUp.get_activity_sign_up_info_array()
+    return _.where(activity_sign_up_infos, {
+        activity_name: Bid.get_biding().activity_name,
+        user_name:localStorage.current_user
+    })
+}
+
 
