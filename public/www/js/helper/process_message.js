@@ -15,10 +15,8 @@
 process_message = function(json_message) {
     var message = json_message.messages[0]
     if(_.isEmpty(ActivityInfo.get_starting_activity()) || ActivityInfo.get_starting_activity().status == "un_start") {
-//        native_accessor.send_sms(message.phone, "活动报名还未开始, 请稍后再试。")
         console.log("活动报名还未开始, 请稍后再试。")
     } else if (ActivityInfo.get_starting_activity().status == "end") {
-//        native_accessor.send_sms(message.phone, "抱歉，活动报名已经结束。")
         console.log("抱歉，活动报名已经结束。")
     } else {
         check_message_phone_is_repeat(message)
@@ -29,16 +27,14 @@ check_message_phone_is_repeat = function(message) {
     var sign_up_infos = ActivitySignUp.get_sign_up_info_array()
     var starting_activity = ActivityInfo.get_starting_activity()
     if(_.find(sign_up_infos, function(sign_up_info) {return sign_up_info.phone == message.phone && sign_up_info.activity_name == starting_activity.name}) == undefined) {
-        add_new_sign_up_info(message)
+        get_sign_up_person_name(message)
     } else {
-//        native_accessor.send_sms(message.phone, "您已经报名成功，请勿重复报名！")
         console.log("您已经报名成功，请勿重复报名！")
     }
 }
 
-add_new_sign_up_info = function(message) {
-    var sign_up_person_name = get_sign_up_person_name(message.content)
-    var new_sign_up_info = new ActivitySignUp(sign_up_person_name, message.phone)
+add_new_sign_up_info = function(sign_up_person_name, message_phone) {
+    var new_sign_up_info = new ActivitySignUp(sign_up_person_name, message_phone)
     ActivitySignUp.set_new_sign_up_info_to_array(new_sign_up_info)
     var sig_up_view_element = document.getElementById("sign_up")
     if(sig_up_view_element) {
@@ -50,13 +46,16 @@ add_new_sign_up_info = function(message) {
     console.log("恭喜，您已经成功报名")
 }
 
-get_sign_up_person_name = function(message_content) {
+get_sign_up_person_name = function(message) {
 
-    message_content = trim(message_content)
+   var message_content = trim(message.content)
     if(message_content.substring(0, 2).toUpperCase() == "BM") {
         var sign_up_person_name = message_content.substring(2, message_content.length)
-         return trim(sign_up_person_name)
+          add_new_sign_up_info(trim(sign_up_person_name), message.phone)
+    } else {
+        console.log("报名格式不正确。")
     }
+
 }
 
 
