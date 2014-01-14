@@ -19,13 +19,7 @@ function BidSignUpController($scope, $navigate) {
 
     $scope.finish_biding = function() {
         if(confirm("确定要结束任务吗?")) {
-            var biding = Bid.get_biding()
-            var bids = Bid.get_bid_array()
-            biding.status = "end"
-            Bid.set_biding(biding)
-            Bid.set_click_bid(biding)
-            _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
-            Bid.update_bid_array(bids)
+            Bid.update_biding_status()
         }
     }
 

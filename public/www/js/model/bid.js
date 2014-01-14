@@ -19,10 +19,10 @@ Bid.get_bid_array = function() {
 Bid.set_new_bid_to_array = function(new_bid) {
     var bid_array = Bid.get_bid_array()
     bid_array.unshift(new_bid)
-    localStorage.bid_array = JSON.stringify(bid_array)
+    Bid.save_bid_array(bid_array)
 }
 
-Bid.update_bid_array = function(bid_array) {
+Bid.save_bid_array = function(bid_array) {
     localStorage.bid_array = JSON.stringify(bid_array)
 }
 
@@ -45,5 +45,15 @@ Bid.get_biding = function() {
 Bid.get_bids_for_current_click_activity = function() {
     var bids = Bid.get_bid_array()
     return _.where(bids, {activity_name: ActivityInfo.get_click_activity().name, user_name: localStorage.user_name})
+}
+
+Bid.update_biding_status = function() {
+    var biding = Bid.get_biding()
+    var bids = Bid.get_bid_array()
+    biding.status = "end"
+    Bid.set_biding(biding)
+    Bid.set_click_bid(biding)
+    _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
+    Bid.save_bid_array(bids)
 }
 

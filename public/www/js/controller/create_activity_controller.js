@@ -5,7 +5,7 @@
  * Time: 下午2:23
  * To change this template use File | Settings | File Templates.
  */
-function CreateActivityController($scope, $navigate, $http) {
+function CreateActivityController($scope, $navigate) {
 
     $scope.is_show_back_btn = function() {
         return !_.isEmpty(ActivityInfo.get_activity_array())

@@ -23,7 +23,6 @@ function BidListController($scope, $navigate) {
             Bid.set_biding(bid)
         }
         $navigate.go('/bid_sign_up_view', 'slide')
-
     }
 
     $scope.is_can_create_new_bid_click = function() {
