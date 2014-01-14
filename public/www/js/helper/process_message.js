@@ -10,26 +10,48 @@
 function process_message(json_message) {
     var message = json_message.messages[0]
     message.content = trim(message.content)
-    if(message.content.substring(0, 2).toUpperCase() == "BM") {
-         process_activity_sign_up_message()
-    }
+    var fore_two_string = message.content.substring(0, 2).toUpperCase()
 
-    if(message.content.substring(0, 2).toUpperCase() == "JJ") {
-        process_bid_sign_up_message()
-    }
+    judge_message()
 
-    if(message.content.substring(0, 2).toUpperCase() != "BM" && message.content.substring(0, 2).toUpperCase() != "JJ") {
-        if(ActivityInfo.get_starting_activity().status == "start") {
-            console.log("活动报名格式不正确。请按格式：“BM ＋ 你的姓名” 发送短信。")
-        } else if(Bid.get_biding().status == "start") {
-            console.log("竞价报名格式不正确。请按格式：“JJ ＋ 你的出价” 发送短信。")
-        } else {
-            console.log("无效短信！")
+    function judge_message() {
+        var judge_message = {
+            BM: function() { process_activity_sign_up_message() } ,
+            JJ: function() { process_bid_sign_up_message() }
+        }
+        if(judge_message[fore_two_string]) {
+            judge_message[fore_two_string]()
+        }
+        else {
+            prompt_message_format()
         }
 
+        function prompt_message_format() {
+            if(fore_two_string != "BM" && fore_two_string != "JJ") {
+                if(ActivityInfo.get_starting_activity().status == "start") {
+                    console.log("活动报名格式不正确。请按格式：“BM ＋ 您的姓名” 发送短信。")
+                }
+                else if(Bid.get_biding().status == "start") {
+                    console.log("竞价报名格式不正确。请按格式：“JJ ＋ 您的出价” 发送短信。")
+                }
+                else {
+                    console.log("当前没有活动报名和竞价报名！")
+                }
+            }
+        }
     }
 
+
+
+//    if(message.content.substring(0, 2).toUpperCase() == "BM") {
+//         process_activity_sign_up_message()
+//    }
+//
+//    if(message.content.substring(0, 2).toUpperCase() == "JJ") {
+//        process_bid_sign_up_message()
+//    }
     function process_activity_sign_up_message() {
+
         if(ActivityInfo.get_starting_activity().status == "un_start") {
             console.log("活动报名还未开始, 请稍后再试。")
         }
