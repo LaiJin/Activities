@@ -12,6 +12,14 @@ function Bid(name) {
     this.activity_name = ActivityInfo.get_click_activity().name
 }
 
+Bid.create_new_bid = function() {
+    var bids = Bid.get_bids_for_current_click_activity()
+    var new_bid = new Bid("竞价" + (parseInt(bids.length) + 1))
+    Bid.set_new_bid_to_array(new_bid)
+    Bid.set_click_bid(new_bid)
+    Bid.set_biding(new_bid)
+}
+
 Bid.get_bid_array = function() {
     return JSON.parse(localStorage.bid_array || '[]' )
 }
@@ -47,7 +55,7 @@ Bid.get_bids_for_current_click_activity = function() {
     return _.where(bids, {activity_name: ActivityInfo.get_click_activity().name, user_name: localStorage.user_name})
 }
 
-Bid.update_biding_status = function() {
+Bid.update_bid_status = function() {
     var biding = Bid.get_biding()
     var bids = Bid.get_bid_array()
     biding.status = "end"
@@ -56,4 +64,6 @@ Bid.update_biding_status = function() {
     _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
     Bid.save_bid_array(bids)
 }
+
+
 

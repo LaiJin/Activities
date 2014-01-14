@@ -29,12 +29,8 @@ function BidListController($scope, $navigate) {
         return Bid.get_biding().status != "start"
     }
 
-    $scope.create_new_bid_sign_up = function() {
-        var bids = Bid.get_bids_for_current_click_activity()
-        var new_bid = new Bid("竞价" + (parseInt(bids.length) + 1))
-        Bid.set_new_bid_to_array(new_bid)
-        Bid.set_click_bid(new_bid)
-        Bid.set_biding(new_bid)
+    $scope.create_new_bid = function() {
+        Bid.create_new_bid()
         $navigate.go('/bid_sign_up_view', 'slide')
     }
 

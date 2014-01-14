@@ -26,22 +26,18 @@ function ActivitySignUpController($scope, $navigate) {
     }
 
     $scope.start_activity = function() {
-
         if(confirm("确定要开始活动吗?")) {
             var click_activity = ActivityInfo.get_click_activity()
             ActivityInfo.update_activity_status(click_activity, "start")
         }
-
     }
 
     $scope.finish_activity = function() {
-
         if(confirm("确定要结束任务吗?")) {
             var starting_activity = ActivityInfo.get_starting_activity()
             ActivityInfo.update_activity_status(starting_activity, "end")
             $navigate.go('/bid_list_view', 'slide')
         }
-
     }
 
     $scope.refresh_sign_up_infos = function() {
