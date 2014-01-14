@@ -10,13 +10,23 @@
 function process_message(json_message) {
     var message = json_message.messages[0]
     message.content = trim(message.content)
-
     if(message.content.substring(0, 2).toUpperCase() == "BM") {
          process_activity_sign_up_message()
     }
 
     if(message.content.substring(0, 2).toUpperCase() == "JJ") {
         process_bid_sign_up_message()
+    }
+
+    if(message.content.substring(0, 2).toUpperCase() != "BM" && message.content.substring(0, 2).toUpperCase() != "JJ") {
+        if(ActivityInfo.get_starting_activity().status == "start") {
+            console.log("活动报名格式不正确。请按格式：“BM ＋ 你的姓名” 发送短信。")
+        } else if(Bid.get_biding().status == "start") {
+            console.log("竞价报名格式不正确。请按格式：“JJ ＋ 你的出价” 发送短信。")
+        } else {
+            console.log("无效短信！")
+        }
+
     }
 
     function process_activity_sign_up_message() {
@@ -42,17 +52,55 @@ function process_message(json_message) {
                     var scope = angular.element(activity_sig_up_view_element).scope()
                     scope.$apply(function(){
                         scope.refresh_activity_sign_up_infos()
+                        console.log("恭喜，您活动报名成功。")
                     })
                 }
-                console.log("恭喜，您已经成功报名")
             } else {
-                console.log("您已经报名成功，请勿重复报名！")
+                console.log("您已经活动报名成功，请勿重复进行活动报名！")
             }
         }
 
     }
 
     function process_bid_sign_up_message() {
+        if(_.isEmpty(Bid.get_biding()) || Bid.get_biding().status == "un_start") {
+            console.log("竞价报名还未开始, 请稍后再试。")
+        }
+
+        if(Bid.get_biding().status == "end") {
+            console.log("抱歉，竞价报名已经结束。")
+        }
+
+        if(Bid.get_biding().status == "start") {
+            var bid_sign_up_infos = BidSignUp.get_bid_sign_up_info_array()
+            var biding = Bid.get_biding()
+            var click_activity = ActivityInfo.get_click_activity()
+            var repeatedly_bid_sign_up_info = _.find(bid_sign_up_infos, function(bid_sign_up_info) {
+                return bid_sign_up_info.phone == message.phone && bid_sign_up_info.activity_name == click_activity.name && bid_sign_up_info.bid_name == biding.name})
+            if(repeatedly_bid_sign_up_info == undefined) {
+                var bid_sign_up_price = trim(message.content.substring(2, message.content.length))
+                var activity_sign_up_info = _.find(ActivitySignUp.get_activity_sign_up_infos_for_click_activity(), function(activity_sign_up_info) {
+                    return activity_sign_up_info.phone  == message.phone
+                })
+
+                if(activity_sign_up_info == undefined) {
+                    console.log("您没有参加活动报名，无法进行竞价报名！")
+                } else {
+                    var new_bid_sign_up_info = new BidSignUp(activity_sign_up_info.name, message.phone, bid_sign_up_price)
+                    BidSignUp.set_new_bid_sign_up_info_to_array(new_bid_sign_up_info)
+                    var bid_sign_up_view_element = document.getElementById("bid_sign_up")
+                    if(bid_sign_up_view_element) {
+                        var scope = angular.element(bid_sign_up_view_element).scope()
+                        scope.$apply(function() {
+                            scope.refresh_bid_sign_up_infos()
+                            console.log("恭喜，您竞价报名成功。")
+                        })
+                    }
+                }
+            } else {
+                console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
+            }
+        }
 
     }
 }

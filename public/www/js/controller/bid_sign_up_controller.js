@@ -29,4 +29,11 @@ function BidSignUpController($scope, $navigate) {
         }
     }
 
+    $scope.refresh_bid_sign_up_infos = function() {
+        $scope.bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
+        $scope.stats_bid_sign_up_person = $scope.bid_sign_up_infos_for_current_bid.length
+    }
+
+    $scope.refresh_bid_sign_up_infos()
+
 }

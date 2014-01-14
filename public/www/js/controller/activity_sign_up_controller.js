@@ -39,6 +39,7 @@ function ActivitySignUpController($scope, $navigate) {
         if(confirm("确定要结束任务吗?")) {
             var starting_activity = ActivityInfo.get_starting_activity()
             ActivityInfo.update_activity_status(starting_activity, "end")
+            $navigate.go('/bid_list_view', 'slide')
         }
 
     }

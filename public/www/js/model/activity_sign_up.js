@@ -13,18 +13,21 @@ function ActivitySignUp(name, phone){
 }
 
 ActivitySignUp.get_activity_sign_up_info_array = function() {
-    return JSON.parse(localStorage.sign_up_info_array || '[]')
+    return JSON.parse(localStorage.activity_sign_up_info_array || '[]')
 }
 
-ActivitySignUp.set_new_activity_sign_up_info_to_array = function(new_sign_up_info) {
-    var sign_up_info_array = ActivitySignUp.get_activity_sign_up_info_array()
-    sign_up_info_array.unshift(new_sign_up_info)
-    localStorage.sign_up_info_array = JSON.stringify(sign_up_info_array)
+ActivitySignUp.set_new_activity_sign_up_info_to_array = function(new_activity_sign_up_info) {
+    var activity_sign_up_info_array = ActivitySignUp.get_activity_sign_up_info_array()
+    activity_sign_up_info_array.unshift(new_activity_sign_up_info)
+    localStorage.activity_sign_up_info_array = JSON.stringify(activity_sign_up_info_array)
 }
 
 ActivitySignUp.get_activity_sign_up_infos_for_click_activity = function() {
     var activity_sign_up_infos = ActivitySignUp.get_activity_sign_up_info_array()
-    return _.where(activity_sign_up_infos, {activity_name: ActivityInfo.get_click_activity().name, user_name:localStorage.current_user}) || {}
+    return _.where(activity_sign_up_infos, {
+        activity_name: ActivityInfo.get_click_activity().name,
+        user_name:localStorage.current_user
+    })
 }
 
 
