@@ -22,7 +22,7 @@ function ActivitySignUpController($scope, $navigate) {
     }
 
     $scope.is_have_activity_starting = function() {
-        return ActivityInfo.get_starting_activity().status == "start"
+        return (ActivityInfo.get_starting_activity().status == "start" || Bid.get_biding().status == "start")
     }
 
     $scope.start_activity = function() {
