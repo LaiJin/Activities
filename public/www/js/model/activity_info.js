@@ -50,3 +50,7 @@ ActivityInfo.update_activity_status = function(changed_activity, status) {
     ActivityInfo.save_activity_array(activity_array)
 }
 
+ActivityInfo.check_activity_name_is_same = function(new_activity) {
+   return _.some(ActivityInfo.get_activity_array(), function(activity) {return activity.name == new_activity.name })
+}
+

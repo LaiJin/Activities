@@ -18,24 +18,12 @@ function CreateActivityController($scope, $navigate) {
     $scope.jump_to_activity_sign_up_view = function() {
 
         var new_activity = new ActivityInfo(localStorage.current_user, $scope.input_activity_name)
-        $scope.is_show_name_repeat_warning = check_name_is_same(ActivityInfo.get_activity_array(), new_activity)
-        if(!check_name_is_same(ActivityInfo.get_activity_array(), new_activity)) {
+        $scope.is_show_name_repeat_warning = ActivityInfo.check_activity_name_is_same(new_activity)
+        if(!$scope.is_show_name_repeat_warning) {
             ActivityInfo.set_click_activity(new_activity)
             ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
             $navigate.go('/activity_sign_up_view', 'slide')
         }
     }
-
-}
-
-function check_name_is_same(activity_array, new_activity) {
-    var is_name_same = false
-    _.each(activity_array, function(activity) {
-        if(activity.name == new_activity.name) {
-            is_name_same = true
-        }
-    })
-
-    return is_name_same
 }
