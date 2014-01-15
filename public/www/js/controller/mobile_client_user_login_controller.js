@@ -23,7 +23,6 @@ function MobileClientUserLoginController($scope,$navigate,$http)
                     } else {
                         $navigate.go('/activity_list_view', 'slide')
                     }
-
                 } else {
                     alert("用户名或密码错误！");
                 }

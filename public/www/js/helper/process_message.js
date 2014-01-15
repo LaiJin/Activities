@@ -100,7 +100,6 @@ function process_message(json_message) {
                 var repeat_bid_sign_up_info = find_repeat_bid_sign_up_info()
                 if(repeat_bid_sign_up_info == undefined) {
                     add_new_bid_sign_up_info(activity_sign_up_info)
-
                 } else {
                     console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
                 }
