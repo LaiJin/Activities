@@ -9,7 +9,6 @@ function BidSignUpController($scope, $navigate) {
 
     $scope.jump_to_bid_list_view = function() {
         $navigate.go('bid_list_view', 'slide')
-        BidSignUp.analysis_out_winner_for_current_activity_biding()
     }
 
     $scope.bid_name = Bid.get_click_bid().name
@@ -21,9 +20,9 @@ function BidSignUpController($scope, $navigate) {
     $scope.finish_biding = function() {
         if(confirm("确定要结束任务吗?")) {
             Bid.update_bid_status()
-
+            BidSignUp.analysis_out_winner_for_current_activity_biding()
+            $navigate.go('/bid_result_view', 'slide')
         }
-
     }
 
     $scope.refresh_sign_up_infos = function() {

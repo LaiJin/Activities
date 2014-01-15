@@ -3,7 +3,7 @@
   .header-left
     %a.btn-style.btn-4(ng-tap="jump_to_activity_list_view()") 返回
   .header-right(ng-switch="is_can_create_new_bid_click()")
-    %a.btn-style.btn-4.disabled(ng-Switch-default)
+    %a.btn-style.btn-4.disabled(ng-switch-default)
       开始新竞价
     %a.btn-style.btn-4(ng-tap="create_new_bid()" ng-switch-when="true")
       开始新竞价

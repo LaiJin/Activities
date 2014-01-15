@@ -1,0 +1,46 @@
+%header
+  {{bid_name}}
+  %span ({{stats_bid_sign_up_person}}人)
+  .header-right
+    %a.btn-style.btn-4(ng-tap="jump_to_bid_statistics_view()")
+      统计
+  .header-left
+    %a.btn-style.btn-4(ng-tap="jump_to_bid_list_view()")
+      返回
+%wrapper.wrapper-scrollable(style="position:relative;top:50px")
+  %ul.list-style-2
+    %li(ng-repeat="bid_sign_up_result_info in bid_sign_up_result_infos"  style="height: 42px; font-size: 18px; word-spacing: 20px")
+      {{$index+1}}
+      {{bid_sign_up_result_info.name}}
+      {{bid_sign_up_result_info.phone}}
+      ${{bid_sign_up_result_info.price}}
+%footer
+  %div
+    %h3
+      {{show_winner_info}}
+
+#myModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times
+        .modal-title.question_size
+      .modal-body
+        %div(style='text-align: center')
+          %div
+            %h4
+              {{show_winner_info}}
+      .modal-footer
+        %button.btn.btn-default(type='button' data-dismiss='modal') {{'close'}}
+%div(ng-class="pop_out_result" id="pop_out_result"  class="modal fade in"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" )
+  %center
+    %div(class="modal-header")
+  %button(ng-tap="close_pop()" class="close" data-dismiss="modal" aria-hidden="true" style="float:right" )X &nbsp&nbsp
+  %center
+    %div(class="modal-body" style="text-align:center;")
+      %div
+        %h4
+          {{show_winner_info}}
+    %div(class="modal-footer")
+      恭喜竞价成功!
+%div(class="modal-backdrop fade in" id="back_hide" ng-class="back_hide")

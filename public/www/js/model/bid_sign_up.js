@@ -42,8 +42,9 @@ BidSignUp.analysis_out_winner_for_current_activity_biding = function() {
     var bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
     var group_bid_sign_up_infos_by_price =  _.groupBy(bid_sign_up_infos_for_current_bid, function(bid_sign_up_info) {return bid_sign_up_info.price})
     var winner_bid_sign_up_info_for_current_bid = _.first(_.find(group_bid_sign_up_infos_by_price, function(bid_sign_up_info) {return _.size(bid_sign_up_info) == 1}))
-    BidSignUp.update_winner_bid_sign_up_info_property_is_winner(winner_bid_sign_up_info_for_current_bid)
-    return winner_bid_sign_up_info_for_current_bid
+    if(winner_bid_sign_up_info_for_current_bid) {
+        BidSignUp.update_winner_bid_sign_up_info_property_is_winner(winner_bid_sign_up_info_for_current_bid)
+    }
 }
 
 BidSignUp.update_winner_bid_sign_up_info_property_is_winner = function(winner_info) {
@@ -53,4 +54,11 @@ BidSignUp.update_winner_bid_sign_up_info_property_is_winner = function(winner_in
             && bid_sign_up_info.bid_name == winner_info.bid_name
             && bid_sign_up_info.price == winner_info.price }).is_winner = true
     BidSignUp.save_bid_sign_up_info_array(bid_sign_up_info_array)
+}
+
+BidSignUp.get_winner_for_current_bid = function() {
+    var bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
+    return _.find(bid_sign_up_infos_for_current_bid, function(bid_sign_up_info){
+        return bid_sign_up_info.is_winner == true
+    })
 }
