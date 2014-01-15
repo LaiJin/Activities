@@ -62,3 +62,13 @@ BidSignUp.get_winner_for_current_bid = function() {
         return bid_sign_up_info.is_winner == true
     })
 }
+
+BidSignUp.statistics_bid_price_count_for_current_activity_bid = function() {
+    var statistics_price_count = _.countBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(num) {return num.price})
+    var statistics_results = []
+    for(var key in statistics_price_count) {
+        var price_count = {price: key, count: statistics_price_count[key]}
+        statistics_results.push(price_count)
+    }
+    return statistics_results
+}

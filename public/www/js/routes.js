@@ -20,6 +20,9 @@ myModule.config(function($routeProvider) {
         }).when("/bid_result_view", {
             templateUrl: "pages/bid_result_view.html",
             controller: BidResultController
+        }).when("/bid_statistics_view", {
+            templateUrl: "pages/bid_statistics_view.html",
+            controller: BidStatisticsController
         }).otherwise({
             redirectTo:"/"
         });

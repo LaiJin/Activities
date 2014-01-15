@@ -1,0 +1,18 @@
+%header
+  {{bid_name}}
+  %span ({{stats_bid_sign_up_person}}人)
+  .header-right
+    %a.btn-style.btn-4(ng-tap="jump_to_bid_result_view()")
+      列表
+  .header-left
+    %a.btn-style.btn-4(ng-tap="jump_to_bid_list_view()")
+      返回
+%wrapper.wrapper-scrollable(style='position:relative;top:50px')
+  %ul.list-style-2
+    %li(ng-repeat="statistics_result in statistics_results"  style="height: 42px; font-size: 18px; word-spacing: 20px")
+      ￥{{statistics_result.price}}元
+      {{statistics_result.count}}人
+%footer
+  %div
+    %h3
+      {{show_winner_info}}

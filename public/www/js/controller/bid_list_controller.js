@@ -8,11 +8,11 @@
 function BidListController($scope, $navigate) {
 
     $scope.jump_to_activity_list_view = function() {
-        $navigate.go('activity_list_view', 'slide')
+        $navigate.go('/activity_list_view', 'slide')
     }
 
     $scope.jump_to_activity_sign_up_view = function() {
-        $navigate.go('activity_sign_up_view', 'slide')
+        $navigate.go('/activity_sign_up_view', 'slide')
     }
 
     $scope.bids = Bid.get_bids_for_current_click_activity()

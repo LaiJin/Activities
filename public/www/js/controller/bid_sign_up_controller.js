@@ -8,7 +8,11 @@
 function BidSignUpController($scope, $navigate) {
 
     $scope.jump_to_bid_list_view = function() {
-        $navigate.go('bid_list_view', 'slide')
+        $navigate.go('/bid_list_view', 'slide')
+    }
+
+    $scope.jump_to_bid_statistics_view = function() {
+        $navigate.go('/bid_statistics_view', 'slide')
     }
 
     $scope.bid_name = Bid.get_click_bid().name
