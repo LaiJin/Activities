@@ -28,19 +28,8 @@
       .modal-body
         %div(style='text-align:center')
           %div
-            %h4
+            %h4(style="font-size: 30px")
               {{show_winner_info}}
-      -#.modal-footer
-      -#  %button.btn.btn-default(type='button' data-dismiss='modal')
--#%div(ng-class="pop_out_result" id="pop_out_result"  class="modal fade in"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" )
--#  %center
--#    %div(class="modal-header")
--#  %button(ng-tap="close_pop()" class="close" data-dismiss="modal" aria-hidden="true" style="float:right" )X &nbsp&nbsp
--#  %center
--#    %div(class="modal-body" style="text-align:center;")
--#      %div
--#        %h4
--#          {{show_winner_info}}
--#    %div(class="modal-footer")
--#      恭喜竞价成功!
--#%div(class="modal-backdrop fade in" id="back_hide" ng-class="back_hide")
+      .modal-footer
+        %h4.text-center(style="font-size: 30px" )
+          恭喜竞价成功！

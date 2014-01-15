@@ -30,24 +30,11 @@ function BidResultController($scope, $navigate, $timeout) {
 
     $scope.judge_show_winner_info()
 
-//    $scope.close_pop = function() {
-//        $scope.pop_out_result = "hide modal fade";
-//        $scope.back_hide = "hide modal-backdrop fade";
-//    }
-//
-//    $timeout(function() {
-//        $scope.pop_out_result = "hide modal fade";
-//        $scope.back_hide = "hide modal-backdrop fade";
-//    },3000)
-
     $timeout(function() {
         $('#myModal').modal('show');
         $timeout(function() {
             $('#myModal').modal('hide');
         }, 3000)
     }, 1)
-
-
-
 
 }
