@@ -7,7 +7,7 @@
  */
 function BidResultController($scope, $navigate, $timeout) {
 
-    scope_function_in.same_bids($scope, $navigate)
+    scope_function_in_controller.same_bids($scope, $navigate)
 
     same_between_bid_statistics_and_bid_result_methods($scope)
 

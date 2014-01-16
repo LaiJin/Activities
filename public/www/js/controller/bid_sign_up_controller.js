@@ -7,7 +7,7 @@
  */
 function BidSignUpController($scope, $navigate) {
 
-    scope_function_in.same_bids($scope, $navigate)
+    scope_function_in_controller.same_bids($scope, $navigate)
 
     $scope.bid_name = Bid.get_click_bid().name
 

@@ -17,16 +17,11 @@ function MobileClientUserLoginController($scope,$navigate,$http)
 
                 if(JSON.parse(response) == true) {
                     localStorage.current_user = $scope.name
-//                    jump_to($scope, $navigate)
-                    scope_function_in.user_login($scope, $navigate)
+                    scope_function_in_controller.user_login($scope, $navigate)
                     if(_.isEmpty(ActivityInfo.get_activity_array())) {
                         alert("活动列表未空，请您先创建活动。")
-//                        $navigate.go('/create_activity_view', 'slide')
-//                        navigate_go.create_activity_view($navigate)
                         $scope.jump_to_create_activity_view()
                     } else {
-//                        $navigate.go('/activity_list_view', 'slide')
-//                        navigate_go.activity_list_view($navigate)
                         $scope.jump_to_activity_list_view()
                     }
                 } else {

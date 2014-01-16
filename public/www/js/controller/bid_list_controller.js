@@ -7,7 +7,7 @@
  */
 function BidListController($scope, $navigate) {
 
-    scope_function_in.bid_list($scope, $navigate)
+    scope_function_in_controller.bid_list($scope, $navigate)
 
     $scope.bids = Bid.get_bids_for_current_click_activity()
 

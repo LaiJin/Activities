@@ -7,7 +7,7 @@
  */
 function ActivityListController($scope, $http, $navigate) {
 
-    scope_function_in.activity_list($scope, $navigate)
+    scope_function_in_controller.activity_list($scope, $navigate)
 
     $scope.activity_array = ActivityInfo.get_activity_array()
 
@@ -20,7 +20,6 @@ function ActivityListController($scope, $http, $navigate) {
         if(ActivityInfo.get_starting_activity().status != "start" ) {
             ActivityInfo.set_starting_activity(activity)
         }
-
         $scope.jump_to_activity_sign_up_view()
     }
 

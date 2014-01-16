@@ -10,11 +10,8 @@ function CreateActivityController($scope, $navigate) {
     $scope.is_show_back_btn = function() {
         return !_.isEmpty(ActivityInfo.get_activity_array())
     }
-     scope_function_in.create_activity($scope, $navigate)
-//    $scope.jump_to_activity_list_view = function() {
-//        navigate_go.activity_list_view($navigate)
-//    }
-//    jump_to($scope, $navigate)
+
+    scope_function_in_controller.create_activity($scope, $navigate)
 
     $scope.create_activity = function() {
         var new_activity = new ActivityInfo(localStorage.current_user, $scope.input_activity_name)
@@ -24,7 +21,6 @@ function CreateActivityController($scope, $navigate) {
             ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
             $scope.jump_to_activity_sign_up_view()
-//            navigate_go.activity_sign_up_view($navigate)
         }
     }
 }

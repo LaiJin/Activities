@@ -8,6 +8,7 @@
 
 
 function process_message(json_message) {
+
     var message = json_message.messages[0]
     message.content = trim(message.content)
     var fore_two_string = message.content.substring(0, 2).toUpperCase()
@@ -16,24 +17,28 @@ function process_message(json_message) {
 
     function judge_message() {
         var judge_message = {
-            BM: function() { process_activity_sign_up_message() } ,
+            BM: function() { process_activity_sign_up_message() },
             JJ: function() { process_bid_sign_up_message() }
         }
 
         if(judge_message[fore_two_string]) {
             judge_message[fore_two_string]()
-        }else {
-            prompt_message_format()
+            return
         }
+        prompt_message_format()
 
         function prompt_message_format() {
+
             if(ActivityInfo.get_starting_activity().status == "start") {
                 console.log("活动报名格式不正确。请按格式：“BM ＋ 您的姓名” 发送短信。")
-            }else if(Bid.get_biding().status == "start") {
-                console.log("竞价报名格式不正确。请按格式：“JJ ＋ 您的出价” 发送短信。")
-            }else {
-                console.log("当前没有活动报名和竞价报名！")
+                return
             }
+
+            if(Bid.get_biding().status == "start") {
+                console.log("竞价报名格式不正确。请按格式：“JJ ＋ 您的出价” 发送短信。")
+                return
+            }
+            console.log("当前没有活动报名和竞价报名, 短信无效！")
         }
 
     }
@@ -44,9 +49,9 @@ function process_message(json_message) {
 
         function judge_activity_status() {
             var judge_activity_status = {
-                un_start: function() {console.log("活动报名还未开始, 请稍后再试。")},
-                     end: function() {console.log("抱歉，活动报名已经结束。")},
-                   start: function() {process_message_when_activity_status_start()}
+                un_start: function() { console.log("活动报名还未开始, 请稍后再试。") },
+                     end: function() { console.log("抱歉，活动报名已经结束。") },
+                   start: function() { process_message_when_activity_status_start() }
             }
             judge_activity_status[ActivityInfo.get_starting_activity().status]()
         }
@@ -55,9 +60,9 @@ function process_message(json_message) {
             var repeat_activity_sign_up_info = find_repeat_activity_sign_up()
             if(repeat_activity_sign_up_info == undefined) {
                 add_new_activity_sign_up_info()
-            } else {
-                console.log("您已经活动报名成功，请勿重复进行活动报名！")
+                return
             }
+            console.log("您已经活动报名成功，请勿重复进行活动报名！")
         }
 
         function find_repeat_activity_sign_up() {
@@ -84,26 +89,18 @@ function process_message(json_message) {
 
         function judge_bid_status() {
             var judge_bid_status = {
-                start: function() {process_message_when_bid_status_start()},
-                  end: function() {console.log("抱歉，竞价报名已经结束。")}
+                start: function() { process_message_when_bid_status_start() },
+                  end: function() { console.log("抱歉，竞价报名已经结束。") }
             }
             if(judge_bid_status[Bid.get_biding().status]) {
                 judge_bid_status[Bid.get_biding().status]()
-            } else {
-                console.log("竞价报名还未开始, 请稍后再试。")
+                return
             }
+            console.log("竞价报名还未开始, 请稍后再试。")
         }
 
         function process_message_when_bid_status_start() {
-            var activity_sign_up_info = check_whether_event_registration()
-            if (activity_sign_up_info) {
-                var repeat_bid_sign_up_info = find_repeat_bid_sign_up_info()
-                if(repeat_bid_sign_up_info == undefined) {
-                    add_new_bid_sign_up_info(activity_sign_up_info)
-                } else {
-                    console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
-                }
-            }
+            check_whether_event_registration()
         }
 
         function check_whether_event_registration() {
@@ -112,19 +109,23 @@ function process_message(json_message) {
             })
             if(activity_sign_up_info == undefined) {
                 console.log("您没有参加活动报名，无法进行竞价报名！")
-                return false
+                return
             }
-            return activity_sign_up_info
+            find_repeat_bid_sign_up_info(activity_sign_up_info)
         }
 
-        function find_repeat_bid_sign_up_info() {
+        function find_repeat_bid_sign_up_info(activity_sign_up_info) {
             var bid_sign_up_infos = BidSignUp.get_bid_sign_up_info_array()
             var biding = Bid.get_biding()
-            var repeatedly_bid_sign_up_info = _.find(bid_sign_up_infos, function(bid_sign_up_info) {
+            var repeat_bid_sign_up_info = _.find(bid_sign_up_infos, function(bid_sign_up_info) {
                 return bid_sign_up_info.phone == message.phone
                     && bid_sign_up_info.activity_name == biding.activity_name
                     && bid_sign_up_info.bid_name == biding.name})
-            return repeatedly_bid_sign_up_info
+            if(repeat_bid_sign_up_info == undefined) {
+                add_new_bid_sign_up_info(activity_sign_up_info)
+                return
+            }
+            console.log("您已经竞价报名成功，请勿重复进行竞价报名！")
         }
 
         function add_new_bid_sign_up_info(activity_sign_up_info) {
@@ -145,6 +146,7 @@ function process_message(json_message) {
             })
         }
     }
+
 }
 
 function trim(string) {      //删除左右两端的空格

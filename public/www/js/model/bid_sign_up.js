@@ -74,7 +74,7 @@ BidSignUp.statistics_bid_price_count_for_current_activity_bid = function() {
     _.map(statistics_price_count, function(value, key) {
         price_counts.push({price: key, count: value})
     })
-//    for(var key in statistics_price_count) {
+    //    for(var key in statistics_price_count) {
 //        var price_count = {price: key, count: statistics_price_count[key]}
 //        statistics_results.push(price_count)
 //    }
