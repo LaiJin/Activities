@@ -63,7 +63,7 @@ BidSignUp.get_winner_for_current_bid = function() {
     })
 }
 
-BidSignUp.get_bid_sign_up_results_infos = function() {
+BidSignUp.get_bid_sign_up_result_infos = function() {
    return _.sortBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(bid_sign_up_info) {
        return bid_sign_up_info.price})
 }
