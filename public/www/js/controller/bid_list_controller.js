@@ -8,11 +8,11 @@
 function BidListController($scope, $navigate) {
 
     $scope.jump_to_activity_list_view = function() {
-        $navigate.go('/activity_list_view', 'slide')
+        navigate_go.activity_list_view($navigate)
     }
 
     $scope.jump_to_activity_sign_up_view = function() {
-        $navigate.go('/activity_sign_up_view', 'slide')
+        navigate_go.activity_sign_up_view($navigate)
     }
 
     $scope.bids = Bid.get_bids_for_current_click_activity()
@@ -23,6 +23,7 @@ function BidListController($scope, $navigate) {
             Bid.set_biding(bid)
         }
         $navigate.go('/bid_sign_up_view', 'slide')
+        navigate_go.bid_sign_up_view($navigate)
     }
 
     $scope.is_can_create_new_bid_click = function() {
@@ -31,7 +32,7 @@ function BidListController($scope, $navigate) {
 
     $scope.create_new_bid = function() {
         Bid.create_new_bid()
-        $navigate.go('/bid_sign_up_view', 'slide')
+        navigate_go.bid_sign_up_view($navigate)
     }
 
 }

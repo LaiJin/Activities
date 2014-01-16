@@ -9,11 +9,11 @@
 function BidStatisticsController($scope, $navigate) {
 
     $scope.jump_to_bid_result_view = function() {
-        $navigate.go('/bid_result_view', 'slide')
+        navigate_go.bid_result_view($navigate)
     }
 
     $scope.jump_to_bid_list_view = function(){
-        $navigate.go('/bid_list_view', 'slide')
+        navigate_go.bid_list_view($navigate)
     }
 
     $scope.bid_name = Bid.get_click_bid().name

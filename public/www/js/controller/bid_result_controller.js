@@ -8,11 +8,11 @@
 function BidResultController($scope, $navigate, $timeout) {
 
     $scope.jump_to_bid_list_view = function() {
-        $navigate.go('/bid_list_view', 'slide')
+        navigate_go.bid_list_view($navigate)
     }
 
     $scope.jump_to_bid_statistics_view = function() {
-        $navigate.go('/bid_statistics_view', 'slide')
+        navigate_go.bid_statistics_view($navigate)
     }
 
     $scope.bid_name = $scope.bid_name = Bid.get_click_bid().name

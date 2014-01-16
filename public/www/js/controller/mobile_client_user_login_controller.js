@@ -19,9 +19,11 @@ function MobileClientUserLoginController($scope,$navigate,$http)
                     localStorage.current_user = $scope.name
                     if(_.isEmpty(ActivityInfo.get_activity_array())) {
                         alert("活动列表未空，请您先创建活动。")
-                        $navigate.go('/create_activity_view', 'slide')
+//                        $navigate.go('/create_activity_view', 'slide')
+                        navigate_go.create_activiy_view($navigate)
                     } else {
-                        $navigate.go('/activity_list_view', 'slide')
+//                        $navigate.go('/activity_list_view', 'slide')
+                        navigate_go.activity_list_view($navigate)
                     }
                 } else {
                     alert("用户名或密码错误！");

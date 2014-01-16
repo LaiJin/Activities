@@ -8,7 +8,7 @@
 function ActivitySignUpController($scope, $navigate) {
 
     $scope.jump_to_activity_list_view = function() {
-        $navigate.go('/activity_list_view', 'slide')
+        navigate_go.activity_list_view($navigate)
     }
 
     $scope.is_activity_end = function() {
@@ -36,7 +36,7 @@ function ActivitySignUpController($scope, $navigate) {
         if(confirm("确定要结束任务吗?")) {
             var starting_activity = ActivityInfo.get_starting_activity()
             ActivityInfo.update_activity_status(starting_activity, "end")
-            $navigate.go('/bid_list_view', 'slide')
+            navigate_go.bid_list_view($navigate)
         }
     }
 
@@ -51,7 +51,7 @@ function ActivitySignUpController($scope, $navigate) {
         if(ActivityInfo.get_click_activity().status != "end") {
             alert("抱歉，报名活动还为结束，无法进入竞价页面！")
         } else {
-            $navigate.go('/bid_list_view', 'slide')
+            navigate_go.bid_list_view($navigate)
         }
 
     }

@@ -9,7 +9,7 @@ function ActivityListController($scope, $http, $navigate)
 {
 
     $scope.jump_to_create_activity_view = function() {
-        $navigate.go('/create_activity_view','slide')
+        navigate_go.create_activity_view($navigate)
     }
 
     $scope.activity_array = ActivityInfo.get_activity_array()
@@ -23,7 +23,7 @@ function ActivityListController($scope, $http, $navigate)
         if(ActivityInfo.get_starting_activity().status != "start" ) {
             ActivityInfo.set_starting_activity(activity)
         }
-        $navigate.go('/activity_sign_up_view', 'slide')
+        navigate_go.activity_sign_up_view($navigate)
     }
 
     $scope.synchronous_data = function() {

@@ -12,7 +12,7 @@ function CreateActivityController($scope, $navigate) {
     }
 
     $scope.jump_to_activity_list_view = function() {
-        $navigate.go('/activity_list_view', 'slide')
+        navigate_go.activity_list_view($navigate)
     }
 
     $scope.jump_to_activity_sign_up_view = function() {
@@ -23,7 +23,7 @@ function CreateActivityController($scope, $navigate) {
             ActivityInfo.set_click_activity(new_activity)
             ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
-            $navigate.go('/activity_sign_up_view', 'slide')
+            navigate_go.activity_sign_up_view($navigate)
         }
     }
 }
