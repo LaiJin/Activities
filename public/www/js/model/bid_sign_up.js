@@ -40,8 +40,13 @@ BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid = function() {
 
 BidSignUp.analysis_out_winner_for_current_activity_biding = function() {
     var bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
-    var group_bid_sign_up_infos_by_price =  _.groupBy(bid_sign_up_infos_for_current_bid, function(bid_sign_up_info) {return bid_sign_up_info.price})
-    var winner_bid_sign_up_info_for_current_bid = _.first(_.find(group_bid_sign_up_infos_by_price, function(bid_sign_up_info) {return bid_sign_up_info.length == 1}))
+    var group_bid_sign_up_infos_by_price =  _.groupBy(bid_sign_up_infos_for_current_bid, function(bid_sign_up_info) {
+        return bid_sign_up_info.price
+    })
+    var winner_bid_sign_up_info_for_current_bid = _.find(group_bid_sign_up_infos_by_price, function(bid_sign_up_info) {
+        return bid_sign_up_info.length == 1
+    })
+    winner_bid_sign_up_info_for_current_bid = _.first(winner_bid_sign_up_info_for_current_bid)
     if(winner_bid_sign_up_info_for_current_bid) {
         BidSignUp.update_winner_bid_sign_up_info_property_is_winner(winner_bid_sign_up_info_for_current_bid)
     }

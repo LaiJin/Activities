@@ -46,11 +46,17 @@ ActivityInfo.update_activity_status = function(changed_activity, status) {
     changed_activity.status = status
     ActivityInfo.set_starting_activity(changed_activity)
     ActivityInfo.set_click_activity(changed_activity)
-    _.find(activity_array, function(activity) {return activity.name == changed_activity.name}).status = status
+
+    _.find(activity_array, function(activity) {
+        return activity.name == changed_activity.name
+    }).status = status
+
     ActivityInfo.save_activity_array(activity_array)
 }
 
 ActivityInfo.check_activity_name_is_same = function(new_activity) {
-   return _.some(ActivityInfo.get_activity_array(), function(activity) {return activity.name == new_activity.name })
+   return _.some(ActivityInfo.get_activity_array(), function(activity) {
+       return activity.name == new_activity.name
+   })
 }
 
