@@ -41,7 +41,7 @@ BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid = function() {
 BidSignUp.analysis_out_winner_for_current_activity_biding = function() {
     var bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
     var group_bid_sign_up_infos_by_price =  _.groupBy(bid_sign_up_infos_for_current_bid, function(bid_sign_up_info) {return bid_sign_up_info.price})
-    var winner_bid_sign_up_info_for_current_bid = _.first(_.find(group_bid_sign_up_infos_by_price, function(bid_sign_up_info) {return _.size(bid_sign_up_info) == 1}))
+    var winner_bid_sign_up_info_for_current_bid = _.first(_.find(group_bid_sign_up_infos_by_price, function(bid_sign_up_info) {return bid_sign_up_info.length == 1}))
     if(winner_bid_sign_up_info_for_current_bid) {
         BidSignUp.update_winner_bid_sign_up_info_property_is_winner(winner_bid_sign_up_info_for_current_bid)
     }
@@ -65,10 +65,19 @@ BidSignUp.get_winner_for_current_bid = function() {
 
 BidSignUp.statistics_bid_price_count_for_current_activity_bid = function() {
     var statistics_price_count = _.countBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(num) {return num.price})
-    var statistics_results = []
-    for(var key in statistics_price_count) {
-        var price_count = {price: key, count: statistics_price_count[key]}
-        statistics_results.push(price_count)
-    }
-    return statistics_results
+    var price_counts = []
+    _.map(statistics_price_count, function(value, key) {
+        price_counts.push({price: key, count: value})
+    })
+//    for(var key in statistics_price_count) {
+//        var price_count = {price: key, count: statistics_price_count[key]}
+//        statistics_results.push(price_count)
+//    }
+//    var price_counts = []
+//    var fa = _.groupBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(price){return price.price})
+//    _.map(fa, function(value, key) {
+//        price_counts.push({price: key, count:value.length})
+//    })
+//    console.log(statistics_results)
+    return price_counts
 }

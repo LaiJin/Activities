@@ -30,6 +30,35 @@ function BidStatisticsController($scope, $navigate) {
         $scope.show_winner_info = "竞价结果:  竞价无效"
         $scope.footer_tips = "没有竞价成功者！"
     }
+//    console.log(_.keys(_.countBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(af) { return af.price})))
+//    $scope.judge_show_winner_info()
+    //    console.log(_.keys(coun))
+//    console.log(_.values(coun))
+//    for(var key in coun) {
+//        console.log(key)
+//        console.log(coun[key])
+//    }
 
-    $scope.judge_show_winner_info()
 }
+
+
+
+//用hash表来替换掉 if
+
+//
+//
+//
+//    if(message.content.substring(0, 2).toUpperCase() == "BM") {
+//         process_activity_sign_up_message()
+//    }
+//
+//    if(message.content.substring(0, 2).toUpperCase() == "JJ") {
+//        process_bid_sign_up_message()
+//    }
+//        if(ActivityInfo.get_starting_activity().status == "un_start") {
+//            console.log("活动报名还未开始, 请稍后再试。")
+//        }
+//
+//        if(ActivityInfo.get_starting_activity().status == "end") {
+//            console.log("抱歉，活动报名已经结束。")
+//        }

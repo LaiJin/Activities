@@ -19,6 +19,7 @@ function process_message(json_message) {
             BM: function() { process_activity_sign_up_message() } ,
             JJ: function() { process_bid_sign_up_message() }
         }
+
         if(judge_message[fore_two_string]) {
             judge_message[fore_two_string]()
         }else {
@@ -26,16 +27,15 @@ function process_message(json_message) {
         }
 
         function prompt_message_format() {
-            if(fore_two_string != "BM" && fore_two_string != "JJ") {
-                if(ActivityInfo.get_starting_activity().status == "start") {
-                    console.log("活动报名格式不正确。请按格式：“BM ＋ 您的姓名” 发送短信。")
-                }else if(Bid.get_biding().status == "start") {
-                    console.log("竞价报名格式不正确。请按格式：“JJ ＋ 您的出价” 发送短信。")
-                }else {
-                    console.log("当前没有活动报名和竞价报名！")
-                }
+            if(ActivityInfo.get_starting_activity().status == "start") {
+                console.log("活动报名格式不正确。请按格式：“BM ＋ 您的姓名” 发送短信。")
+            }else if(Bid.get_biding().status == "start") {
+                console.log("竞价报名格式不正确。请按格式：“JJ ＋ 您的出价” 发送短信。")
+            }else {
+                console.log("当前没有活动报名和竞价报名！")
             }
         }
+
     }
 
     function process_activity_sign_up_message() {
@@ -160,21 +160,3 @@ function left_trim(string) { //删除左边的空格
 function right_trim(string) {  //删除右边的空格
     return string.replace(/(\s*$)/g,"");
 }
-
-//
-//
-//
-//    if(message.content.substring(0, 2).toUpperCase() == "BM") {
-//         process_activity_sign_up_message()
-//    }
-//
-//    if(message.content.substring(0, 2).toUpperCase() == "JJ") {
-//        process_bid_sign_up_message()
-//    }
-//        if(ActivityInfo.get_starting_activity().status == "un_start") {
-//            console.log("活动报名还未开始, 请稍后再试。")
-//        }
-//
-//        if(ActivityInfo.get_starting_activity().status == "end") {
-//            console.log("抱歉，活动报名已经结束。")
-//        }
