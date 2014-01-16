@@ -148,14 +148,14 @@ function process_message(json_message) {
 
         function add_new_bid_sign_up_info(activity_sign_up_info) {
             var bid_sign_up_price = trim_price_or_person_name()
-            if(Object.isNumber(bid_sign_up_price)) {
+            if(!isNaN(bid_sign_up_price)) {
                 var new_bid_sign_up_info = new BidSignUp(activity_sign_up_info.name, message.phone, bid_sign_up_price)
                 BidSignUp.set_new_bid_sign_up_info_to_array(new_bid_sign_up_info)
                 refresh_sign_up_info("bid_sign_up")
                 console.log("恭喜，您竞价报名成功。")
                 return
             }
-            console.log("价格必须位数字！")
+            console.log("价钱必须为数字！")
         }
     }
 
