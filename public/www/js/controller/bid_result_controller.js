@@ -7,13 +7,7 @@
  */
 function BidResultController($scope, $navigate, $timeout) {
 
-    $scope.jump_to_bid_list_view = function() {
-        navigate_go.bid_list_view($navigate)
-    }
-
-    $scope.jump_to_bid_statistics_view = function() {
-        navigate_go.bid_statistics_view($navigate)
-    }
+    scope_function_in.same_bids($scope, $navigate)
 
     same_between_bid_statistics_and_bid_result_methods($scope)
 

@@ -13,5 +13,5 @@
         %div(ng-show="is_show_name_repeat_warning")
           %p(style="color:red")
             活动名称重复, 请重新输入！
-        %button.btn.btn-large(ng-tap="jump_to_activity_sign_up_view()" ng-disabled="!input_activity_name")
+        %button.btn.btn-large(ng-tap="create_activity()" ng-disabled="!input_activity_name")
           创建

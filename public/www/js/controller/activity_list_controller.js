@@ -5,12 +5,9 @@
  * Time: 上午10:31
  * To change this template use File | Settings | File Templates.
  */
-function ActivityListController($scope, $http, $navigate)
-{
+function ActivityListController($scope, $http, $navigate) {
 
-    $scope.jump_to_create_activity_view = function() {
-        navigate_go.create_activity_view($navigate)
-    }
+    scope_function_in.activity_list($scope, $navigate)
 
     $scope.activity_array = ActivityInfo.get_activity_array()
 
@@ -23,7 +20,8 @@ function ActivityListController($scope, $http, $navigate)
         if(ActivityInfo.get_starting_activity().status != "start" ) {
             ActivityInfo.set_starting_activity(activity)
         }
-        navigate_go.activity_sign_up_view($navigate)
+
+        $scope.jump_to_activity_sign_up_view()
     }
 
     $scope.synchronous_data = function() {
