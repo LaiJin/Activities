@@ -41,11 +41,22 @@ $(document).ready(function () {
 
 });
 
-myModule.filter('status',function(){
+myModule.filter('status', function() {
     return function(status) {
-        if(status == 'start'){
+        if(status == 'start') {
             return 'active'
-//            return "background : yellow"
         }
-    };
+    }
 })
+
+
+
+myModule.filter('name', function() {
+    return function(name) {
+        if(Bid.get_biding().status == 'start' && name == Bid.get_biding().activity_name) {
+            return 'active'
+        }
+    }
+})
+
+

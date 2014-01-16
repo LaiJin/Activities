@@ -12,7 +12,7 @@
   .wrapper
     %ul.list-style-2
       %center
-        %li(class="{{activity_info.status|status}}" ng-repeat="activity_info in activity_array")
+        %li(class="{{activity_info.name|name}} || {{activity_info.status|status}}" ng-repeat="activity_info in activity_array")
           %a(ng-tap="jump_to_detail_activity({{activity_info}})")
             %h3
               {{activity_info.name}}

@@ -16,7 +16,7 @@ function BidResultController($scope, $navigate, $timeout) {
     }
 
     $scope.bid_name = $scope.bid_name = Bid.get_click_bid().name
-    $scope.bid_sign_up_result_infos = _.sortBy(BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid(), function(bid_sign_up_info) {return bid_sign_up_info.price})
+    $scope.bid_sign_up_result_infos = BidSignUp.get_bid_sign_up_results_infos()
     $scope.stats_bid_sign_up_person = $scope.bid_sign_up_result_infos.length
 
     $scope.judge_show_winner_info = function() {

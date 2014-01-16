@@ -16,7 +16,7 @@ function BidStatisticsController($scope, $navigate) {
         $navigate.go('/bid_list_view', 'slide')
     }
 
-    $scope.bid_name = $scope.bid_name = Bid.get_click_bid().name
+    $scope.bid_name = Bid.get_click_bid().name
     $scope.stats_bid_sign_up_person = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid().length
     $scope.statistics_results = BidSignUp.statistics_bid_price_count_for_current_activity_bid()
 
