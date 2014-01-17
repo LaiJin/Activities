@@ -16,10 +16,12 @@
       <td>姓名</td>
       <td>手机号</td>
     </tr>
+    <% @activity_sign_ups.each do |activity_sign_up| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= @count += 1 %></td>
+      <td><%= activity_sign_up.name %></td>
+      <td><%= activity_sign_up.phone %></td>
     </tr>
+    <% end %>
   </table>
 </div>
