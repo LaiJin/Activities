@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function MobileClientUserLoginController($scope,$navigate,$http)
+function MobileClientUserLoginController($scope, $navigate, $http)
 {
     $scope.login_party_bid = function() {
 
