@@ -14,7 +14,7 @@ function CreateActivityController($scope, $navigate) {
     scope_function_in_controller.create_activity($scope, $navigate)
 
     $scope.create_activity = function() {
-        var new_activity = new ActivityInfo(localStorage.current_user, $scope.input_activity_name)
+        var new_activity = new ActivityInfo(User.get_current_user_name(), $scope.input_activity_name)
         $scope.is_show_name_repeat_warning = ActivityInfo.check_activity_name_is_same(new_activity)
         if(!$scope.is_show_name_repeat_warning) {
             ActivityInfo.set_click_activity(new_activity)

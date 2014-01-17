@@ -24,7 +24,7 @@ function ActivityListController($scope, $http, $navigate) {
     }
 
     $scope.synchronous_data = function() {
-        var user_name = localStorage.current_user
+        var user_name = User.get_current_user_name()
         $http.post('/users/synchronous_data', {name: user_name, activity_infos: $scope.activity_array})
             .success(function(response) {
                 if(JSON.parse(response) == true) {

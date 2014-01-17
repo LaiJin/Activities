@@ -9,7 +9,7 @@ function ActivitySignUp(name, phone){
     this.name = name;
     this.phone = phone;
     this.activity_name = ActivityInfo.get_starting_activity().name;
-    this.user_name = localStorage.current_user
+    this.user_name = User.get_current_user_name()
 }
 
 ActivitySignUp.get_activity_sign_up_info_array = function() {
@@ -26,7 +26,7 @@ ActivitySignUp.get_activity_sign_up_infos_for_click_activity = function() {
     var activity_sign_up_infos = ActivitySignUp.get_activity_sign_up_info_array()
     return _.where(activity_sign_up_infos, {
         activity_name: ActivityInfo.get_click_activity().name,
-        user_name:localStorage.current_user
+        user_name:User.get_current_user_name()
     })
 }
 
@@ -34,7 +34,7 @@ ActivitySignUp.get_activity_sign_up_for_biding_activity = function() {
     var activity_sign_up_infos = ActivitySignUp.get_activity_sign_up_info_array()
     return _.where(activity_sign_up_infos, {
         activity_name: Bid.get_biding().activity_name,
-        user_name:localStorage.current_user
+        user_name: User.get_current_user_name()
     })
 }
 

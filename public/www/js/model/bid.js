@@ -8,7 +8,7 @@
 function Bid(name) {
     this.name = name
     this.status = "start"
-    this.user_name = localStorage.user_name
+    this.user_name = User.get_current_user_name()
     this.activity_name = ActivityInfo.get_click_activity().name
 }
 
@@ -54,7 +54,7 @@ Bid.get_bids_for_current_click_activity = function() {
     var bids = Bid.get_bid_array()
     return _.where(bids, {
         activity_name: ActivityInfo.get_click_activity().name,
-        user_name: localStorage.user_name
+        user_name: User.get_current_user_name()
     }) || []
 }
 

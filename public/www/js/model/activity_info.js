@@ -49,6 +49,7 @@ ActivityInfo.update_activity_status = function(changed_activity, status) {
 
     _.find(activity_array, function(activity) {
         return activity.name == changed_activity.name
+            && activity.user_name == changed_activity.user_name
     }).status = status
 
     ActivityInfo.save_activity_array(activity_array)
@@ -57,6 +58,7 @@ ActivityInfo.update_activity_status = function(changed_activity, status) {
 ActivityInfo.check_activity_name_is_same = function(new_activity) {
    return _.some(ActivityInfo.get_activity_array(), function(activity) {
        return activity.name == new_activity.name
+           && activity.user_name == new_activity.user_name
    })
 }
 

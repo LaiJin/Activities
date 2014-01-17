@@ -12,7 +12,7 @@ function BidSignUp(name, phone, price) {
     this.is_winner = false
     this.bid_name = Bid.get_biding().name
     this.activity_name = Bid.get_biding().activity_name
-    this.user_name = localStorage.user_name
+    this.user_name = User.get_current_user_name()
 }
 
 BidSignUp.get_bid_sign_up_info_array = function() {
@@ -33,7 +33,7 @@ BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid = function() {
     var bid_sign_up_info_array = BidSignUp.get_bid_sign_up_info_array()
     return _.where(bid_sign_up_info_array, {
         activity_name: ActivityInfo.get_click_activity().name,
-        user_name: localStorage.user_name,
+        user_name: User.get_current_user_name(),
         bid_name: Bid.get_click_bid().name
     })
 }

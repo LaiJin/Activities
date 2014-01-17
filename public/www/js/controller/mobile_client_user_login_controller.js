@@ -16,7 +16,7 @@ function MobileClientUserLoginController($scope,$navigate,$http)
             .success(function(response) {
 
                 if(JSON.parse(response) == true) {
-                    localStorage.current_user = $scope.name
+                    User.set_current_user_name($scope.name)
                     scope_function_in_controller.user_login($scope, $navigate)
                     if(_.isEmpty(ActivityInfo.get_activity_array())) {
                         alert("活动列表未空，请您先创建活动。")
