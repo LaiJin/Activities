@@ -6,7 +6,7 @@ class UserMobileClientInfoShowControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get sign_up_list_view" do
+  test "should get activity_sign_up_list_view" do
     get :sign_up_list_view
     assert_response :success
   end

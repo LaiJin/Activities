@@ -13,9 +13,10 @@
     <% @activity_infos.each do |activity_info| %>
     <tr>
       <td> <%= @count += 1 %> </td>
-      <td><%= link_to activity_info.name, bid_list_view_path, :style=> "color: #1E90FF" %></td>
-      <td></td>
-      <td></td>
+      <% @activity_sign_ups_count = ActivitySignUp.where(:user_name => current_user.name, :activity_name => activity_info.name).length %>
+      <td><%= link_to activity_info.name, bid_list_view_path(:activity_name => activity_info.name, :activity_sign_ups_count => @activity_sign_ups_count), :style=> "color: #1E90FF" %></td>
+      <td><%= link_to @activity_sign_ups_count, activity_sign_up_list_view_path(:activity_name => activity_info.name, :activity_sign_ups_count => @activity_sign_ups_count), :style=> "color: #1E90FF" %></td>
+      <td><%= link_to (Bid.where(:user_name => current_user.name, :activity_name => activity_info.name)).length, bid_list_view_path(:activity_name => activity_info.name, :activity_sign_ups_count => @activity_sign_ups_count), :style=> "color: #1E90FF" %></td>
     </tr>
     <% end %>
   </table>

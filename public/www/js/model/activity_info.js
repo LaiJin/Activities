@@ -19,12 +19,6 @@ ActivityInfo.save_activity_array = function(activity_array) {
     localStorage.activity_array = JSON.stringify(activity_array)
 }
 
-ActivityInfo.get_activities_for_current_user = function() {
-    return _.where(ActivityInfo.get_activity_array(), {
-        user_name: User.get_current_user_name()
-    }) || []
-}
-
 ActivityInfo.set_new_activity_to_array = function(new_activity) {
     var activity_array = ActivityInfo.get_activity_array()
     activity_array.unshift(new_activity)
@@ -66,5 +60,11 @@ ActivityInfo.check_activity_name_is_same = function(new_activity) {
        return activity.name == new_activity.name
            && activity.user_name == new_activity.user_name
    })
+}
+
+ActivityInfo.get_activities_for_current_user = function () {
+    return _.where(ActivityInfo.get_activity_array(), {
+        user_name: User.get_current_user_name()
+    }) || []
 }
 

@@ -68,5 +68,11 @@ Bid.update_bid_status = function() {
     Bid.save_bid_array(bids)
 }
 
+Bid.get_bids_for_current_user = function() {
+    return _.where(Bid.get_bid_array(), {
+        user_name: User.get_current_user_name()
+    }) || []
+}
+
 
 

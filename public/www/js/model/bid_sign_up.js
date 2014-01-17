@@ -61,7 +61,9 @@ BidSignUp.update_winner_bid_sign_up_info_property_is_winner = function(winner_in
     _.find(bid_sign_up_info_array, function(bid_sign_up_info) {
         return bid_sign_up_info.activity_name == winner_info.activity_name
             && bid_sign_up_info.bid_name == winner_info.bid_name
-            && bid_sign_up_info.price == winner_info.price }).is_winner = true
+            && bid_sign_up_info.price == winner_info.price
+            && bid_sign_up_info.user_name == winner_info.user_name
+    }).is_winner = true
     BidSignUp.save_bid_sign_up_info_array(bid_sign_up_info_array)
 }
 
@@ -84,4 +86,10 @@ BidSignUp.statistics_bid_price_count_for_current_activity_bid = function() {
         price_counts.push({price: key, count:value.length})
     })
     return price_counts
+}
+
+BidSignUp.get_bid_sign_up_infos_for_current_user = function() {
+    return _.where(BidSignUp.get_bid_sign_up_info_array(), {
+        user_name: User.get_current_user_name()
+    }) || []
 }

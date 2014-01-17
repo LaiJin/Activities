@@ -48,10 +48,10 @@ class UsersController < ApplicationController
     if !current_user || current_user.isAdmin
       redirect_to :login
     else
-      @activity_infos = ActivityInfo.where(:user_name => current_user.name).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||ActivityInfo.new
+      @activity_infos = ActivityInfo.where(:user_name => current_user.name).order("created_at").paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
       @count = USER_NUMBER_INIT
       if params[:page]
-        @count=Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
+        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
       end
     end
   end
@@ -62,9 +62,9 @@ class UsersController < ApplicationController
   end
 
   def mobile_client_user_login
-    user= User.find_by_name(params[:name])
+    user = User.find_by_name(params[:name])
     respond_to do |format|
-      if user&&user.authenticate(params[:password])
+      if user && user.authenticate(params[:password])
         format.json {render :json=> true}
       else
         format.json {render :json=> false}
@@ -73,16 +73,14 @@ class UsersController < ApplicationController
   end
 
   def synchronous_data
-    user = User.find_by_name(params[:name])
-    activity_infos = params[:activity_infos]
-    ActivityInfo.delete_all(:user_name => user.name)
-    ActivityInfo.update_user_activity_info(activity_infos)
+    update_activity_infos(params)
     respond_to do |format|
-      if user
-        format.json {render :json => true}
-      else
-        format.json {render :json => false}
-      end
+      format.json {render :json => true}
+      #if update_activity_infos(params)
+      #  format.json {render :json => true}
+      #else
+      #  format.json {render :json => false}
+      #end
     end
   end
 
@@ -93,6 +91,15 @@ class UsersController < ApplicationController
     else
       redirect_to :user_welcome
     end
+  end
+
+  private
+  def update_activity_infos(parmas)
+   #return ActivityInfo.update_user_activity_infos(parmas) && ActivitySignUp.update_user_activity_sign_ups(parmas) && Bid.update_user_bids(parmas) && BidSignUp.update_user_bid_sign_ups(parmas)
+  ActivityInfo.update_user_activity_infos(parmas)
+  ActivitySignUp.update_user_activity_sign_ups(parmas)
+  Bid.update_user_bids(parmas)
+  BidSignUp.update_user_bid_sign_ups(parmas)
   end
 
 end

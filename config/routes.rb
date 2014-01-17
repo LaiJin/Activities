@@ -32,7 +32,7 @@ Activities::Application.routes.draw do
   post '/users/synchronous_data'
 
   get 'user_mobile_client_info_show/bid_list_view' => 'user_mobile_client_info_show#bid_list_view', :as=> 'bid_list_view'
-  get 'user_mobile_client_info_show/sign_up_list_view' => 'user_mobile_client_info_show#sign_up_list_view', :as => 'sign_up_list_view'
+  get 'user_mobile_client_info_show/activity_sign_up_list_view' => 'user_mobile_client_info_show#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'
   get 'user_mobile_client_info_show/detailed_once_bid_view' => 'user_mobile_client_info_show#detailed_once_bid_view', :as => 'detailed_once_bid_view'
   get 'user_mobile_client_info_show/statistics_once_bid_view' => 'user_mobile_client_info_show#statistics_once_bid_view', :as => 'statistics_once_bid_view'
 

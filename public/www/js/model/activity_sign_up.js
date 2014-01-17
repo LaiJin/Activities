@@ -38,4 +38,10 @@ ActivitySignUp.get_activity_sign_up_for_biding_activity = function() {
     })
 }
 
+ActivitySignUp.get_activity_sign_up_infos_for_current_user = function() {
+    return _.where(ActivitySignUp.get_activity_sign_up_info_array(), {
+        user_name: User.get_current_user_name()
+    }) || []
+}
+
 
