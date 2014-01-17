@@ -1,10 +1,18 @@
-%header
-  活动通
-%div.text-center(style="background: #F5F5F5; width: 559px; margin-top: 20px")
-  %div.form-group(style="padding: 50px 50px 50px; width: 559px; margin: auto auto")
-    %div.input-group(style="margin: 20px auto auto auto; width: 459px" )
-      %input.form-control(ng-model="name" type="text"  style="width: 400px"  placeholder="请输入帐号")
-    %div.input-group(style="margin: 20px auto auto auto; width: 459px" )
-      %input.form-control(ng-model="password" type="password"  style="width: 400px" placeholder="请输入密码")
-    %button.btn.btn-default.btn-sm(ng-tap = "login_party_bid()" type="button" style="margin: auto auto auto auto; width:150px")
-      登录
+.no-footer
+  %header
+    活动通
+  .wrapper
+    %form.wrapper-inner
+    .ui-content(style="text-align:center" )
+      %h5
+        用户登录
+    %ui-content
+      用户名:
+      %input.input-full(ng-model="name" type="text")
+    .ui-content
+      密码:
+      %input.input-full(ng-model="password" type="password")
+    %center
+      .ui-content
+        %a.btn-style.btn-2(ng-tap="login_party_bid()")
+          登录

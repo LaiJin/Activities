@@ -50,6 +50,7 @@ function process_message(json_message) {
         judge_activity_status()
 
         function judge_activity_status() {
+
             var judge_activity_status = {
                 un_start: function() {
                     console.log("活动报名还未开始, 请稍后再试。")
@@ -99,8 +100,8 @@ function process_message(json_message) {
         judge_bid_status()
 
         function judge_bid_status() {
-            var judge_bid_status = {
 
+            var judge_bid_status = {
                 start: function() {
                     process_message_when_bid_status_start()
                 },

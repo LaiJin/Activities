@@ -32,7 +32,6 @@ class UsersController < ApplicationController
       flash[:login_error] = "用户名或密码错误"
       redirect_to login_url
     end
-
   end
 
   def create
