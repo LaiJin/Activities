@@ -31,7 +31,6 @@ class UserMobileClientInfoShowController < ApplicationController
     @statistics_bid_sign_ups.each do |bid_sign_up|
       @price_counts.push({price: bid_sign_up.price, count: @bid_sign_ups.where(:price => bid_sign_up.price).length})
     end
-
   end
 
   def statistics_once_bid_view
