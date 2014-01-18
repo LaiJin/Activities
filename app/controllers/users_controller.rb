@@ -95,11 +95,11 @@ class UsersController < ApplicationController
 
   private
   def update_activity_infos(parmas)
-   #return ActivityInfo.update_user_activity_infos(parmas) && ActivitySignUp.update_user_activity_sign_ups(parmas) && Bid.update_user_bids(parmas) && BidSignUp.update_user_bid_sign_ups(parmas)
-  ActivityInfo.update_user_activity_infos(parmas)
-  ActivitySignUp.update_user_activity_sign_ups(parmas)
-  Bid.update_user_bids(parmas)
-  BidSignUp.update_user_bid_sign_ups(parmas)
+    #return ActivityInfo.update_user_activity_infos(parmas) && ActivitySignUp.update_user_activity_sign_ups(parmas) && Bid.update_user_bids(parmas) && BidSignUp.update_user_bid_sign_ups(parmas)
+    ActivityInfo.update_user_activity_infos(parmas)
+    ActivitySignUp.update_user_activity_sign_ups(parmas)
+    Bid.update_user_bids(parmas)
+    BidSignUp.update_user_bid_sign_ups(parmas)
   end
 
 end

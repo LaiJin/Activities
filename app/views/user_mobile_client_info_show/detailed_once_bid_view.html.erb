@@ -1,2 +1,64 @@
-<h1>UserMobileClientInfoShow#detailed_bid_view</h1>
-<p>Find me in app/views/user_mobile_client_info_show/detailed_bid_view.html.erb</p>
+<ol class="breadcrumb" style="margin-right: 180px">
+  <li><%= link_to "首页", user_welcome_path, :style => "color: #1E90FF" %></li>
+  <li><%= link_to "竞价列表", bid_list_view_path(:activity_name => params[:activity_name], :activity_sign_ups_count => params[:activity_sign_ups_count]), :style => "color: #1E90FF" %></li>
+  <li class="active"><%= params[:bid_name] %></li>
+</ol>
+
+<div style="margin-right: 180px; background-color:#cccccc; height: 120px; text-align: center">
+  <% if @winner_info %>
+  <h4 style="padding-top: 20px"><%= "获胜者: " + @winner_info.name %></h4>
+  <h4><%= "出价: "   + @winner_info.price + "元" %></h4>
+  <h4><%= "手机号: " + @winner_info.phone %></h4>
+  <% else %>
+  <h4><%= "没有胜出者" %></h4>
+  <% end %>
+</div>
+
+<div style="margin-top: 1%; margin-right: 180px">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active" style="width: 50%; text-align: center">
+      <a href="#home" data-toggle="tab">
+        出价列表
+      </a>
+    </li>
+    <li style="width: 50%; text-align: center">
+      <a href="#profile" data-toggle="tab" style = "color: #1E90FF">
+        价格统计
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="home">
+      <table class="table table-hover" style="margin-top: 0px; text-align: center">
+        <tr>
+          <td>编号</td>
+          <td>姓名</td>
+          <td>价格/元</td>
+          <td>手机号</td>
+        </tr>
+        <% @bid_sign_ups.each do |bid_sign_up| %>
+        <tr >
+          <td><%= @count += 1%></td>
+          <td><%= bid_sign_up.name  %></td>
+          <td><%= bid_sign_up.price %></td>
+          <td><%= bid_sign_up.phone %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="tab-pane fade" id="profile">
+      <table class="table table-hover" style="margin-top: 0px; text-align: center">
+        <tr>
+          <td>价格/元</td>
+          <td>人数</td>
+        </tr>
+        <% @price_counts.each do |price_count| %>
+        <tr>
+          <td><%= price_count[:price] %></td>
+          <td><%= price_count[:count] %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

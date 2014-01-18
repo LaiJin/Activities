@@ -26,10 +26,10 @@ function ActivityListController($scope, $http, $navigate) {
     $scope.synchronous_data = function() {
 
         var         user_name = User.get_current_user_name()
-        var        activities = ActivityInfo.get_activities_for_current_user()
-        var activity_sign_ups = ActivitySignUp.get_activity_sign_up_infos_for_current_user()
-        var              bids = Bid.get_bids_for_current_user()
-        var      bid_sign_ups = BidSignUp.get_bid_sign_up_infos_for_current_user()
+        var        activities = ActivityInfo.get_activities_for_current_user().reverse()
+        var activity_sign_ups = ActivitySignUp.get_activity_sign_up_infos_for_current_user().reverse()
+        var              bids = Bid.get_bids_for_current_user().reverse()
+        var      bid_sign_ups = BidSignUp.get_bid_sign_up_infos_for_current_user().reverse()
 
         $http.post('/users/synchronous_data', {
                          user_name: user_name,
