@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       redirect_to :login
     else
       @activity_infos = ActivityInfo.where(:user_name => current_user.name).order("created_at").paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
+      @biding = Bid.where(:user_name => current_user.name, :status => "start").first
       @count = USER_NUMBER_INIT
       if params[:page]
         @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))

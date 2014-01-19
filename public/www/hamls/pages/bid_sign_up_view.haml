@@ -8,7 +8,7 @@
       结束
     %a.btn-style.btn-4(ng-Switch-when="false" ng-tap="jump_to_bid_statistics_view()")
       统计
-%wrapper.wrapper-scrollable(style='position: relative; top: 50px')
+.wrapper(style='top: 50px')
   %ul.list-style-2
     %li(ng-repeat="bid_sign_up_info in bid_sign_up_infos_for_current_bid" style="height:42px; font-size:18px; word-spacing: 20px")
       {{$index+1}}

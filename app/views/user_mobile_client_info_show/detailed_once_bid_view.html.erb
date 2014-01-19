@@ -4,25 +4,29 @@
   <li class="active"><%= params[:bid_name] %></li>
 </ol>
 
-<div style="margin-right: 180px; background-color:#cccccc; height: 120px; text-align: center">
-  <% if @winner_info %>
-  <h4 style="padding-top: 20px"><%= "获胜者: " + @winner_info.name %></h4>
-  <h4><%= "出价: "   + @winner_info.price + "元" %></h4>
-  <h4><%= "手机号: " + @winner_info.phone %></h4>
+<div style="margin-right: 180px; margin-left: 180px;  background-color:#cccccc; height: 120px; text-align: center">
+  <% if params[:bid_status] == "start" %>
+      <h4 style="padding-top: 40px; font-size: 30px">活动竞价正在进行中,请点击首页的同步展示按钮查看竞价信息。</h4>
   <% else %>
-  <h4 style="padding-top: 40px; font-size: 30px"><%= "竞价无效，没有胜出者" %></h4>
+      <% if @winner_info %>
+          <h4 style="padding-top: 20px"><%= "获胜者: " + @winner_info.name %></h4>
+          <h4><%= "出价: "   + @winner_info.price + "元" %></h4>
+          <h4><%= "手机号: " + @winner_info.phone %></h4>
+      <% else %>
+          <h4 style="padding-top: 40px; font-size: 30px">竞价无效，没有胜出者！</h4>
+      <% end %>
   <% end %>
 </div>
 
-<div style="margin-top: 1%; margin-right: 180px">
+<div style="margin-top: 1%; margin-right: 180px; margin-left: 180px">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active" style="width: 50%; text-align: center">
-      <a href="#home" data-toggle="tab">
+      <a href="#home" data-toggle="tab" >
         出价列表
       </a>
     </li>
     <li style="width: 50%; text-align: center">
-      <a href="#profile" data-toggle="tab" style = "color: #1E90FF">
+      <a href="#profile" data-toggle="tab">
         价格统计
       </a>
     </li>
@@ -45,6 +49,7 @@
         </tr>
         <% end %>
       </table>
+      <%= will_paginate @bid_sign_ups, :previous_label =>"上一页", :next_label => "下一页", :style => "margin-left:700px" %>
     </div>
     <div class="tab-pane fade" id="profile">
       <table class="table table-hover" style="margin-top: 0px; text-align: center">
@@ -60,5 +65,6 @@
         <% end %>
       </table>
     </div>
+    <%= will_paginate @statistics_bid_sign_ups, :previous_label =>"上一页", :next_label => "下一页", :style => "margin-left:900px" %>
   </div>
 </div>

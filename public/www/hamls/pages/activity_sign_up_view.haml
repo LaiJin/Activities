@@ -8,7 +8,7 @@
     %a.btn-style.btn-4.disabled(ng-show="is_have_activity_starting() && is_show_btn()")开始
     %a.btn-style.btn-4(ng-hide="is_show_btn()" ng-tap="finish_activity()" ng-Switch-when="true")结束
     %a.btn-style.btn-4.disabled(ng-hide="is_show_btn()" ng-Switch-default)结束
-%wrapper.wrapper-scrollable(style='position: relative; top: 50px')
+.wrapper(style='top: 50px')
   %ul.list-style-2
     %li(ng-repeat="activity_sign_up_info in activity_sign_up_infos_for_current_activity" style="height:42px ; word-spacing:20px ; font-size:18px")
       {{activity_sign_up_info.name}}

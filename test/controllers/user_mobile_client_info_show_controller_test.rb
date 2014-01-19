@@ -16,7 +16,7 @@ class UserMobileClientInfoShowControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get statistics_once_bid_view" do
+  test "should get synchronous_show_view" do
     get :statistics_once_bid_view
     assert_response :success
   end
