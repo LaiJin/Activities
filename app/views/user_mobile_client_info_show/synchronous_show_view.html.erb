@@ -3,8 +3,7 @@
   <div style="font-size: 80px">
     <%= params[:biding_activity_name] %>
   </div>
-  <div style="font-size: 30px; margin-right: 80px">参与人数：</div>
-
+  <div style="font-size: 30px; margin-right: 80px"><%= "参与人数：" + @biding_sign_ups.length.to_s + "/" + @activity_sign_ups.length.to_s %></div>
 </div>
 
 <div class="panel panel-default" style="margin: 30px 180px auto 180px">
@@ -13,5 +12,11 @@
         <td>姓名</td>
         <td>手机号</td>
       </tr>
+      <% @biding_sign_ups.each do |biding_sign_up| %>
+      <tr>
+        <td><%= biding_sign_up.name %></td>
+        <td><%= biding_sign_up.phone %></td>
+      </tr>
+      <% end %>
     </table>
 </div>

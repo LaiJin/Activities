@@ -152,7 +152,7 @@ function process_message(json_message) {
             if(!isNaN(bid_sign_up_price)) {
                 var new_bid_sign_up_info = new BidSignUp(activity_sign_up_info.name, message.phone, bid_sign_up_price)
                 BidSignUp.set_new_bid_sign_up_info_to_array(new_bid_sign_up_info)
-                refresh_sign_up_info("bid_sign_up")
+                refresh_sign_up_info("bid_sign_up", new_bid_sign_up_info)
                 console.log("恭喜，您竞价报名成功。")
                 return
             }
@@ -164,12 +164,12 @@ function process_message(json_message) {
         return trim(message.content.substring(2, message.content.length))
     }
 
-    function refresh_sign_up_info(view_id) {
+    function refresh_sign_up_info(view_id, new_bid_sign_up_info) {
         var sig_up_view_element = document.getElementById(view_id)
         if(sig_up_view_element) {
             var scope = angular.element(sig_up_view_element).scope()
             scope.$apply(function() {
-                scope.refresh_sign_up_infos()
+                scope.refresh_sign_up_infos(new_bid_sign_up_info)
             })
         }
     }

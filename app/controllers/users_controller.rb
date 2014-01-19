@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   end
 
   def synchronous_data
-    update_activity_infos(params)
+    update_data(params)
     respond_to do |format|
       format.json {render :json => true}
       #if update_activity_infos(params)
@@ -95,12 +95,12 @@ class UsersController < ApplicationController
   end
 
   private
-  def update_activity_infos(parmas)
-    #return ActivityInfo.update_user_activity_infos(parmas) && ActivitySignUp.update_user_activity_sign_ups(parmas) && Bid.update_user_bids(parmas) && BidSignUp.update_user_bid_sign_ups(parmas)
-    ActivityInfo.update_user_activity_infos(parmas)
-    ActivitySignUp.update_user_activity_sign_ups(parmas)
-    Bid.update_user_bids(parmas)
-    BidSignUp.update_user_bid_sign_ups(parmas)
+  def update_data(params)
+    #return ActivityInfo.update_user_activity_infos(params) && ActivitySignUp.update_user_activity_sign_ups(params) && Bid.update_user_bids(params) && BidSignUp.update_user_bid_sign_ups(params)
+    ActivityInfo.update_user_activity_infos(params)
+    ActivitySignUp.update_user_activity_sign_ups(params)
+    Bid.update_user_bids(params)
+    BidSignUp.update_user_bid_sign_ups(params)
   end
 
 end
