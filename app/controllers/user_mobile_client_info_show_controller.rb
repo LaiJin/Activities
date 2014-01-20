@@ -99,11 +99,14 @@ class UserMobileClientInfoShowController < ApplicationController
     biding.status = params_biding[:status]
     biding.save
 
-    params_winner_infos = params[:winner_info]
-    params_winner_info = params_winner_infos.first
-    winner_info = BidSignUp.where(:user_name => params_winner_info[:user_name], :activity_name => params_winner_info[:activity_name], :bid_name => params_winner_info[:bid_name], :phone => params_winner_info[:phone]).first
-    winner_info.is_winner = true
-    winner_info.save
+    if params[:winner_info]
+      params_winner_infos = params[:winner_info]
+      params_winner_info = params_winner_infos.first
+      winner_info = BidSignUp.where(:user_name => params_winner_info[:user_name], :activity_name => params_winner_info[:activity_name], :bid_name => params_winner_info[:bid_name], :phone => params_winner_info[:phone]).first
+      winner_info.is_winner = true
+      winner_info.save
+    end
+
 
     respond_to do |format|
       format.json {render :json => true}
