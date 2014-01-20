@@ -12,12 +12,25 @@ function Bid(name) {
     this.activity_name = ActivityInfo.get_click_activity().name
 }
 
-Bid.create_new_bid = function() {
+Bid.create_new_bid = function($http) {
     var bids = Bid.get_bids_for_current_click_activity()
     var new_bid = new Bid("竞价" + (parseInt(bids.length) + 1))
     Bid.set_new_bid_to_array(new_bid)
     Bid.set_click_bid(new_bid)
     Bid.set_biding(new_bid)
+    var new_bids = [new_bid]
+    $http.post('/user_mobile_client_info_show/add_new_bid', {
+        new_bids: new_bids
+    })
+        .success(function(response) {
+            if(JSON.parse(response) == true) {
+                alert("同步数据成功")
+            }else {
+                alert("同步数据失败")
+            }
+        }).error(function() {
+            alert("请求服务器端出现问题")
+        })
 }
 
 Bid.get_bid_array = function() {
