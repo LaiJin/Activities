@@ -80,8 +80,10 @@ Bid.update_bid_status = function($http) {
     _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
     Bid.save_bid_array(bids)
     var biding = [biding]
-    $http.post('/user_mobile_client_info_show/update_biding_status', {
-        biding: biding
+    var winner_info = [BidSignUp.get_winner_for_current_bid()]
+    $http.post('/user_mobile_client_info_show/update_biding_status_and_winner_info', {
+             biding: biding,
+        winner_info: winner_info
     })
         .success(function(response) {
             if(JSON.parse(response) == true) {
@@ -99,6 +101,7 @@ Bid.get_bids_for_current_user = function() {
         user_name: User.get_current_user_name()
     }) || []
 }
+
 
 
 

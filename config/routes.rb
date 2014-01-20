@@ -6,7 +6,7 @@ Activities::Application.routes.draw do
   get 'user_welcome' => 'users#user_welcome', :as => 'user_welcome'
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
-
+                                                             2
   get  'reset_password/check_user_name_view' => 'reset_password#check_user_name_view', :as => 'check_user_name_view'
   post 'reset_password/check_user_name_view' => 'reset_password#check_user_name'
 
@@ -34,7 +34,7 @@ Activities::Application.routes.draw do
   post 'user_mobile_client_info_show/add_new_activity_info'
   post 'user_mobile_client_info_show/add_new_activity_sign_up_info'
   post 'user_mobile_client_info_show/add_new_bid'
-  post 'user_mobile_client_info_show/update_biding_status'
+  post 'user_mobile_client_info_show/update_biding_status_and_winner_info'
 
   get 'user_mobile_client_info_show/bid_list_view' => 'user_mobile_client_info_show#bid_list_view', :as=> 'bid_list_view'
   get 'user_mobile_client_info_show/activity_sign_up_list_view' => 'user_mobile_client_info_show#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'

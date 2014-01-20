@@ -1,7 +1,7 @@
 #encoding: utf-8
 class UserMobileClientInfoShowController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info, :add_new_activity_sign_up_info, :add_new_bid, :update_biding_status]
+  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info, :add_new_activity_sign_up_info, :add_new_bid, :update_biding_status_and_winner_info]
 
   PER_PAGE_COUNT = 10
   USER_NUMBER_INIT = 0
@@ -92,12 +92,19 @@ class UserMobileClientInfoShowController < ApplicationController
     end
   end
 
-  def update_biding_status
+  def update_biding_status_and_winner_info
     params_bidings = params[:biding]
     params_biding = params_bidings.first
     biding = Bid.where(:user_name => params_biding[:user_name], :activity_name => params_biding[:activity_name], :name => params_biding[:name]).first
     biding.status = params_biding[:status]
     biding.save
+
+    params_winner_infos = params[:winner_info]
+    params_winner_info = params_winner_infos.first
+    winner_info = BidSignUp.where(:user_name => params_winner_info[:user_name], :activity_name => params_winner_info[:activity_name], :bid_name => params_winner_info[:bid_name], :phone => params_winner_info[:phone]).first
+    winner_info.is_winner = true
+    winner_info.save
+
     respond_to do |format|
       format.json {render :json => true}
     end
