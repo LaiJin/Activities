@@ -52,7 +52,7 @@ function BidSignUpController($scope, $navigate, $http) {
         if(new_bid_sign_up_info) {
             var new_bid_sign_ups = [new_bid_sign_up_info]
             $http.post('/user_mobile_client_info_show/update_synchronous_show_bid_sign_up_info', {
-                new_bid_sign_up: new_bid_sign_ups
+                new_bid_sign_ups: new_bid_sign_ups
             })
                 .success(function(response) {
                     if(JSON.parse(response) == true) {

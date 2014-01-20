@@ -31,7 +31,7 @@ Activities::Application.routes.draw do
   post 'users/mobile_client_user_login'
   post 'users/synchronous_data'
   post 'user_mobile_client_info_show/update_synchronous_show_bid_sign_up_info'
-
+  post 'user_mobile_client_info_show/add_new_activity_info'
   get 'user_mobile_client_info_show/bid_list_view' => 'user_mobile_client_info_show#bid_list_view', :as=> 'bid_list_view'
   get 'user_mobile_client_info_show/activity_sign_up_list_view' => 'user_mobile_client_info_show#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'
   get 'user_mobile_client_info_show/detailed_once_bid_view' => 'user_mobile_client_info_show#detailed_once_bid_view', :as => 'detailed_once_bid_view'

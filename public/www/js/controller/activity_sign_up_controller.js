@@ -5,7 +5,7 @@
  * Time: 下午3:10
  * To change this template use File | Settings | File Templates.
  */
-function ActivitySignUpController($scope, $navigate) {
+function ActivitySignUpController($scope, $navigate, $http) {
 
     scope_function_in_controller.activity_sign_up($scope, $navigate)
 
@@ -38,9 +38,24 @@ function ActivitySignUpController($scope, $navigate) {
         }
     }
 
-    $scope.refresh_sign_up_infos = function() {
+    $scope.refresh_sign_up_infos = function(new_activity_sign_up_info) {
         $scope.activity_sign_up_infos_for_current_activity = ActivitySignUp.get_activity_sign_up_infos_for_click_activity()
         $scope.stats_activity_sign_up_person = $scope.activity_sign_up_infos_for_current_activity.length
+        if(new_activity_sign_up_info) {
+            var new_activity_sign_ups = [new_activity_sign_up_info]
+            $http.post('/user_mobile_client_info_show/update_synchronous_show_bid_sign_up_info', {
+                new_activity_sign_up: new_activity_sign_ups
+            })
+                .success(function(response) {
+                    if(JSON.parse(response) == true) {
+                        alert("同步数据成功")
+                    }else {
+                        alert("同步数据失败")
+                    }
+                }).error(function() {
+                    alert("请求服务器端出现问题")
+                })
+        }
     }
 
     $scope.refresh_sign_up_infos()

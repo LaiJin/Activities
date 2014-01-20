@@ -1,7 +1,7 @@
 #encoding: utf-8
 class UserMobileClientInfoShowController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info]
+  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info]
 
   PER_PAGE_COUNT = 10
   USER_NUMBER_INIT = 0
@@ -37,15 +37,22 @@ class UserMobileClientInfoShowController < ApplicationController
   end
 
   def synchronous_show_view
-    @activity_sign_ups = ActivitySignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name])
-    @biding_sign_ups = BidSignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name], :bid_name => params[:biding_name])
+    if params[:biding_activity_name]
+      @biding = Bid.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name], :name => params[:biding_name]).first
+      @activity_sign_ups = ActivitySignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name])
+      @biding_sign_ups = BidSignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name], :bid_name => params[:biding_name])
+      @winner_info = @biding_sign_ups.where(:is_winner => true).first
+    else
+      redirect_to :user_welcome
+    end
+
 
   end
 
   def update_synchronous_show_bid_sign_up_info
-
-    new_bid_sign_ups = params[:new_bid_sign_up]
+    new_bid_sign_ups = params[:new_bid_sign_ups]
     new_bid_sign_up = BidSignUp.new(new_bid_sign_ups.first)
+    new_bid_sign_up.save
     #new_bid_sign_up.name = params[:new_bid_sign_up][:name]
     #new_bid_sign_up.phone = params[:new_bid_sign_up][:phone]
     #new_bid_sign_up.price = params[:new_bid_sign_up][:price]
@@ -53,7 +60,15 @@ class UserMobileClientInfoShowController < ApplicationController
     #new_bid_sign_up.bid_name = params[:new_bid_sign_up][:bid_name]
     #new_bid_sign_up.activity_name = params[:new_bid_sign_up][:activity_name]
     #new_bid_sign_up.user_name = params[:new_bid_sign_up][:user_name]
-    new_bid_sign_up.save
+    respond_to do |format|
+      format.json {render :json => true}
+    end
+  end
+
+  def add_new_activity_info
+    new_activities = params[:new_activities]
+    new_activity = ActivityInfo.new(new_activities.first)
+    new_activity.save
     respond_to do |format|
       format.json {render :json => true}
     end

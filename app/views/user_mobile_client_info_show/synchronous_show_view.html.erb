@@ -1,11 +1,15 @@
-<!--<meta http-equiv="refresh" content="3">-->
+<meta http-equiv="refresh" content="3">
+<ol class="breadcrumb" style="margin-right: 180px">
+  <li><%= link_to "首页", user_welcome_path, :style => "color: #1E90FF" %></li>
+  <li class="active">同步展示</li>
+</ol>
 <div style="margin: auto 180px auto 180px; background-color: #cccccc; text-align: center; padding-top: 20px;padding-bottom: 20px">
   <div style="font-size: 80px">
     <%= params[:biding_activity_name] %>
   </div>
+  <% if @biding.status == "start" %>
   <div style="font-size: 30px; margin-right: 80px"><%= "参与人数：" + @biding_sign_ups.length.to_s + "/" + @activity_sign_ups.length.to_s %></div>
 </div>
-
 <div class="panel panel-default" style="margin: 30px 180px auto 180px">
     <table class="table table-hover" style="text-align: center">
       <tr>
@@ -19,4 +23,14 @@
       </tr>
       <% end %>
     </table>
+  <% else %>
+      <h4 style="font-size: 30px">比赛结果</h4>
+      <% if @winner_info %>
+          <h4><%= "获胜者: " + @winner_info.name %></h4>
+          <h4><%= "出价: "   + @winner_info.price + "元" %></h4>
+          <h4><%= "手机号: " + @winner_info.phone %></h4>
+      <% else %>
+          <h4 style="padding-top: 40px; font-size: 30px">竞价无效，没有胜出者！</h4>
+      <% end %>
+  <% end %>
 </div>
