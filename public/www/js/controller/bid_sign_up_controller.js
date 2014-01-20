@@ -17,8 +17,8 @@ function BidSignUpController($scope, $navigate, $http) {
 
     $scope.finish_biding = function() {
         if(confirm("确定要结束任务吗?")) {
-            Bid.update_bid_status($http)
             BidSignUp.analysis_out_winner_for_current_activity_biding()
+            Bid.update_bid_status($http)
             $scope.jump_to_bid_result_view()
         }
     }
