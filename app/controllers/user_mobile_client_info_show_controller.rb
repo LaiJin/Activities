@@ -1,7 +1,7 @@
 #encoding: utf-8
 class UserMobileClientInfoShowController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info, :add_new_activity_sign_up_info, :add_new_bid]
+  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info, :add_new_activity_sign_up_info, :add_new_bid, :update_biding_status]
 
   PER_PAGE_COUNT = 10
   USER_NUMBER_INIT = 0
@@ -87,6 +87,17 @@ class UserMobileClientInfoShowController < ApplicationController
     new_bids = params[:new_bids]
     new_bid  = Bid.new(new_bids.first)
     new_bid.save
+    respond_to do |format|
+      format.json {render :json => true}
+    end
+  end
+
+  def update_biding_status
+    params_bidings = params[:biding]
+    params_biding = params_bidings.first
+    biding = Bid.where(:user_name => params_biding[:user_name], :activity_name => params_biding[:activity_name], :name => params_biding[:name]).first
+    biding.status = params_biding[:status]
+    biding.save
     respond_to do |format|
       format.json {render :json => true}
     end

@@ -71,7 +71,7 @@ Bid.get_bids_for_current_click_activity = function() {
     }) || []
 }
 
-Bid.update_bid_status = function() {
+Bid.update_bid_status = function($http) {
     var biding = Bid.get_biding()
     var bids = Bid.get_bid_array()
     biding.status = "end"
@@ -79,6 +79,19 @@ Bid.update_bid_status = function() {
     Bid.set_click_bid(biding)
     _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
     Bid.save_bid_array(bids)
+    var biding = [biding]
+    $http.post('/user_mobile_client_info_show/update_biding_status', {
+        biding: biding
+    })
+        .success(function(response) {
+            if(JSON.parse(response) == true) {
+                alert("同步数据成功")
+            }else {
+                alert("同步数据失败")
+            }
+        }).error(function() {
+            alert("请求服务器端出现问题")
+        })
 }
 
 Bid.get_bids_for_current_user = function() {
