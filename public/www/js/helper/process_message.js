@@ -89,7 +89,7 @@ function process_message(json_message) {
             var activity_sign_up_person_name = trim_price_or_person_name()
             var new_activity_sign_up_info = new ActivitySignUp(activity_sign_up_person_name, message.phone)
             ActivitySignUp.set_new_activity_sign_up_info_to_array(new_activity_sign_up_info)
-            refresh_sign_up_info("activity_sign_up")
+            refresh_sign_up_info("activity_sign_up", new_activity_sign_up_info)
             console.log("恭喜，您活动报名成功。")
         }
 
@@ -164,12 +164,12 @@ function process_message(json_message) {
         return trim(message.content.substring(2, message.content.length))
     }
 
-    function refresh_sign_up_info(view_id, new_bid_sign_up_info) {
+    function refresh_sign_up_info(view_id, new_sign_up_info) {
         var sig_up_view_element = document.getElementById(view_id)
         if(sig_up_view_element) {
             var scope = angular.element(sig_up_view_element).scope()
             scope.$apply(function() {
-                scope.refresh_sign_up_infos(new_bid_sign_up_info)
+                scope.refresh_sign_up_infos(new_sign_up_info)
             })
         }
     }

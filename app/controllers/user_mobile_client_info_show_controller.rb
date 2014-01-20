@@ -1,7 +1,7 @@
 #encoding: utf-8
 class UserMobileClientInfoShowController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info]
+  skip_before_filter :verify_authenticity_token,:only => [:update_synchronous_show_bid_sign_up_info, :add_new_activity_info, :add_new_activity_sign_up_info]
 
   PER_PAGE_COUNT = 10
   USER_NUMBER_INIT = 0
@@ -69,6 +69,15 @@ class UserMobileClientInfoShowController < ApplicationController
     new_activities = params[:new_activities]
     new_activity = ActivityInfo.new(new_activities.first)
     new_activity.save
+    respond_to do |format|
+      format.json {render :json => true}
+    end
+  end
+
+  def add_new_activity_sign_up_info
+    new_activity_sign_ups = params[:new_activity_sign_ups]
+    new_activity_sign_up = ActivitySignUp.new(new_activity_sign_ups.first)
+    new_activity_sign_up.save
     respond_to do |format|
       format.json {render :json => true}
     end
