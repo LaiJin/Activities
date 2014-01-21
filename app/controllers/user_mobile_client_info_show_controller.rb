@@ -37,10 +37,10 @@ class UserMobileClientInfoShowController < ApplicationController
   end
 
   def synchronous_show_view
-    if params[:biding_activity_name]
-      @biding = Bid.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name], :name => params[:biding_name]).first
-      @activity_sign_ups = ActivitySignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name])
-      @biding_sign_ups = BidSignUp.where(:user_name => current_user.name, :activity_name => params[:biding_activity_name], :bid_name => params[:biding_name])
+    @biding = Bid.where(:user_name => current_user.name).last
+    if @biding
+      @activity_sign_ups = ActivitySignUp.where(:user_name => current_user.name, :activity_name => @biding.activity_name)
+      @biding_sign_ups = BidSignUp.where(:user_name => current_user.name, :activity_name => @biding.activity_name, :bid_name => @biding.name)
       @winner_info = @biding_sign_ups.where(:is_winner => true).first
     else
       redirect_to :user_welcome

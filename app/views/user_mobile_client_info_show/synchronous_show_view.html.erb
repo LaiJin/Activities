@@ -5,7 +5,7 @@
 </ol>
 <div style="margin: auto 180px auto 180px; background-color: #cccccc; text-align: center; padding-top: 20px;padding-bottom: 20px">
   <div style="font-size: 80px">
-    <%= params[:biding_activity_name] %>
+    <%= @biding.activity_name %>
   </div>
   <% if @biding.status == "start" %>
   <div style="font-size: 30px; margin-right: 80px"><%= "参与人数：" + @biding_sign_ups.length.to_s + "/" + @activity_sign_ups.length.to_s %></div>
