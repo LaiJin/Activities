@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ResetPasswordController < ApplicationController
 
   def check_user_name_view

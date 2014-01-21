@@ -122,9 +122,13 @@ class UsersController < ApplicationController
   def synchronous_show_view
     @biding = Bid.where(:user_name => session[:user_name]).last
     if @biding
-      @activity_sign_ups = ActivitySignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name)
-      @biding_sign_ups = BidSignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name, :bid_name => @biding.name)
+      @activity_sign_ups_lenght = ActivitySignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name).length
+      @biding_sign_ups = BidSignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name, :bid_name => @biding.name).order("price").paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
       @winner_info = @biding_sign_ups.where(:is_winner => true).first
+      @count = USER_NUMBER_INIT
+      if params[:page]
+        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
+      end
       return
     end
     redirect_to :user_welcome

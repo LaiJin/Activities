@@ -39,9 +39,7 @@ class DataSynchronousController < ApplicationController
   end
 
   def add_new_activity_info
-    new_activities = params[:new_activities]
-    new_activity = ActivityInfo.new(new_activities.first)
-    new_activity.save
+    ActivityInfo.create_new_activity_info(params)
     respond_to do |format|
       format.json {render :json => true}
     end
@@ -86,7 +84,6 @@ class DataSynchronousController < ApplicationController
 
   private
   def update_data(params)
-    #return ActivityInfo.update_user_activity_infos(params) && ActivitySignUp.update_user_activity_sign_ups(params) && Bid.update_user_bids(parsms) && BidSignUp.update_user_bid_sign_ups(parmas)
     ActivityInfo.update_user_activity_infos(params)
     ActivitySignUp.update_user_activity_sign_ups(params)
     Bid.update_user_bids(params)
