@@ -26,7 +26,6 @@ function BidSignUpController($scope, $navigate, $http) {
     $scope.refresh_sign_up_infos = function(new_bid_sign_up_info) {
         $scope.bid_sign_up_infos_for_current_bid = BidSignUp.get_bid_sign_up_infos_for_current_activity_clicked_bid()
         $scope.stats_bid_sign_up_person = $scope.bid_sign_up_infos_for_current_bid.length
-//        console.log(new_bid_sign_up_info)
         if(new_bid_sign_up_info) {
             var new_bid_sign_ups = [new_bid_sign_up_info]
             $http.post('/data_synchronous/update_synchronous_show_bid_sign_up_info', {

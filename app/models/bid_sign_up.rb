@@ -18,7 +18,6 @@ class BidSignUp < ActiveRecord::Base
   end
 
   def self.update_winner_info(params)
-    if params[:winner_info]
       params_winner_infos = params[:winner_info]
       params_winner_info = params_winner_infos.first
       winner_info = BidSignUp.where(:user_name => params_winner_info[:user_name],
@@ -27,7 +26,6 @@ class BidSignUp < ActiveRecord::Base
                                     :phone => params_winner_info[:phone]).first
       winner_info.is_winner = true
       winner_info.save
-    end
   end
 
 end

@@ -58,7 +58,9 @@ class DataSynchronousController < ApplicationController
 
   def update_biding_status_and_winner_info
     Bid.update_biding_status(params)
-    BidSignUp.update_winner_info(params)
+    if params[:winner_info]
+      BidSignUp.update_winner_info(params)
+    end
     respond_to do |format|
       format.json {render :json => true}
     end
