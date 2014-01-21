@@ -1,0 +1,2 @@
+class DataSynchronousControllerController < ApplicationController
+end

@@ -53,13 +53,6 @@ class UserMobileClientInfoShowController < ApplicationController
     new_bid_sign_ups = params[:new_bid_sign_ups]
     new_bid_sign_up = BidSignUp.new(new_bid_sign_ups.first)
     new_bid_sign_up.save
-    #new_bid_sign_up.name = params[:new_bid_sign_up][:name]
-    #new_bid_sign_up.phone = params[:new_bid_sign_up][:phone]
-    #new_bid_sign_up.price = params[:new_bid_sign_up][:price]
-    #new_bid_sign_up.is_winner = params[:new_bid_sign_up][:is_winner]
-    #new_bid_sign_up.bid_name = params[:new_bid_sign_up][:bid_name]
-    #new_bid_sign_up.activity_name = params[:new_bid_sign_up][:activity_name]
-    #new_bid_sign_up.user_name = params[:new_bid_sign_up][:user_name]
     respond_to do |format|
       format.json {render :json => true}
     end
