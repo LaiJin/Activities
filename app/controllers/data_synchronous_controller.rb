@@ -10,9 +10,9 @@ class DataSynchronousController < ApplicationController
     respond_to do |format|
       if user && user.authenticate(params[:password])
         format.json {render :json=> true}
-      else
-        format.json {render :json=> false}
+        return
       end
+      format.json {render :json=> false}
     end
   end
 
@@ -28,16 +28,6 @@ class DataSynchronousController < ApplicationController
     end
   end
 
-
-  def update_synchronous_show_bid_sign_up_info
-    new_bid_sign_ups = params[:new_bid_sign_ups]
-    new_bid_sign_up = BidSignUp.new(new_bid_sign_ups.first)
-    new_bid_sign_up.save
-    respond_to do |format|
-      format.json {render :json => true}
-    end
-  end
-
   def add_new_activity_info
     ActivityInfo.create_new_activity_info(params)
     respond_to do |format|
@@ -46,37 +36,29 @@ class DataSynchronousController < ApplicationController
   end
 
   def add_new_activity_sign_up_info
-    new_activity_sign_ups = params[:new_activity_sign_ups]
-    new_activity_sign_up = ActivitySignUp.new(new_activity_sign_ups.first)
-    new_activity_sign_up.save
+    ActivitySignUp.create_new_activity_sign_up(params)
     respond_to do |format|
       format.json {render :json => true}
     end
   end
 
   def add_new_bid
-    new_bids = params[:new_bids]
-    new_bid  = Bid.new(new_bids.first)
-    new_bid.save
+    Bid.create_new_bid(params)
+    respond_to do |format|
+      format.json {render :json => true}
+    end
+  end
+
+  def update_synchronous_show_bid_sign_up_info
+    BidSignUp.create_new_bid_sign_up(params)
     respond_to do |format|
       format.json {render :json => true}
     end
   end
 
   def update_biding_status_and_winner_info
-    params_bidings = params[:biding]
-    params_biding = params_bidings.first
-    biding = Bid.where(:user_name => params_biding[:user_name], :activity_name => params_biding[:activity_name], :name => params_biding[:name]).first
-    biding.status = params_biding[:status]
-    biding.save
-
-    if params[:winner_info]
-      params_winner_infos = params[:winner_info]
-      params_winner_info = params_winner_infos.first
-      winner_info = BidSignUp.where(:user_name => params_winner_info[:user_name], :activity_name => params_winner_info[:activity_name], :bid_name => params_winner_info[:bid_name], :phone => params_winner_info[:phone]).first
-      winner_info.is_winner = true
-      winner_info.save
-    end
+    Bid.update_biding_status(params)
+    BidSignUp.update_winner_info(params)
     respond_to do |format|
       format.json {render :json => true}
     end
