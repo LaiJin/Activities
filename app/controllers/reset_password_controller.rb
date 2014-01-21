@@ -3,6 +3,7 @@ class ResetPasswordController < ApplicationController
   def check_user_name_view
     if session[:user]
       redirect_to :check_user_answer_view
+      return
     end
     if current_user
      redirect_to :login
@@ -12,9 +13,9 @@ class ResetPasswordController < ApplicationController
   def check_user_answer_view
     if !session[:user]
       redirect_to :check_user_name_view
-    else
-      @question = User.find(session[:user]).question
+      return
     end
+    @question = User.find(session[:user]).question
     if session[:answer]
       redirect_to :setup_user_new_password_view
     end
@@ -31,10 +32,10 @@ class ResetPasswordController < ApplicationController
     if user
       session[:user] = user
       redirect_to :check_user_answer_view
-    else
+      return
+    end
       flash[:reset_password_error] = "帐号不存在"
       redirect_to :check_user_name_view
-    end
   end
 
   def check_user_answer
@@ -42,10 +43,10 @@ class ResetPasswordController < ApplicationController
     if answer == params[:answer]
       session[:answer] = answer
       redirect_to :setup_user_new_password_view
-    else
-      flash[:reset_password_error] = "忘记密码答案错误"
-      redirect_to :check_user_answer_view
+      return
     end
+    flash[:reset_password_error] = "忘记密码答案错误"
+    redirect_to :check_user_answer_view
   end
 
   def setup_user_new_password
@@ -54,16 +55,16 @@ class ResetPasswordController < ApplicationController
     #  flash[:reset_password_error] = "密码不能为空"
     #  redirect_to :setup_user_new_password_view
     #else
-      user.password = params[:password]
-      user.password_confirmation = params[:password_confirmation]
-      if user.save
-        reset_session_of_user_and_answer
-        cookies.permanent[:token] = user.token
-        redirect_to :user_welcome
-      else
-        flash[:reset_password_error] = user.errors.full_messages.first
-        redirect_to :setup_user_new_password_view
-      end
+    user.password = params[:password]
+    user.password_confirmation = params[:password_confirmation]
+    if user.save
+      reset_session_of_user_and_answer
+      cookies.permanent[:token] = user.token
+      redirect_to :user_welcome
+      return
+    end
+    flash[:reset_password_error] = user.errors.full_messages.first
+    redirect_to :setup_user_new_password_view
     #end
   end
 
