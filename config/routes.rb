@@ -38,10 +38,10 @@ Activities::Application.routes.draw do
   post 'data_synchronous/add_new_bid'
   post 'data_synchronous/update_biding_status_and_winner_info'
 
-  get 'user_mobile_client_info_show/bid_list_view' => 'user_mobile_client_info_show#bid_list_view', :as=> 'bid_list_view'
-  get 'user_mobile_client_info_show/activity_sign_up_list_view' => 'user_mobile_client_info_show#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'
-  get 'user_mobile_client_info_show/detailed_once_bid_view' => 'user_mobile_client_info_show#detailed_once_bid_view', :as => 'detailed_once_bid_view'
-  get 'user_mobile_client_info_show/synchronous_show_view' => 'user_mobile_client_info_show#synchronous_show_view', :as => 'synchronous_show_view'
+  get 'users/bid_list_view' => 'users#bid_list_view', :as=> 'bid_list_view'
+  get 'users/activity_sign_up_list_view' => 'users#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'
+  get 'users/detailed_once_bid_view' => 'users#detailed_once_bid_view', :as => 'detailed_once_bid_view'
+  get 'users/synchronous_show_view' => 'users#synchronous_show_view', :as => 'synchronous_show_view'
 
 end
 

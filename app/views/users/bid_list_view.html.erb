@@ -1,0 +1,31 @@
+<ol class="breadcrumb" style="margin-right: 180px">
+  <li><%= link_to "首页", user_welcome_path(:user_name => session[:user_name]), :style=> 'color: #1E90FF' %></li>
+  <li class="active">竞价列表</li>
+</ol>
+
+<div class="panel panel-default" style="margin-left: 180px; margin-right: 180px">
+  <div class="panel-heading">
+    竞价列表
+    <div class="text-right">
+      <%= link_to "报名列表", activity_sign_up_list_view_path(:activity_name => params[:activity_name], :activity_sign_ups_count => params[:activity_sign_ups_count]), :style => 'color: #1E90FF' %>
+    </div>
+  </div>
+  <table class="table" style="text-align: center">
+    <tr>
+      <td>编号</td>
+      <td>名称</td>
+      <td>参与人数</td>
+    </tr>
+    <% @bids.each do |bid| %>
+        <tr>
+          <td><%= @count += 1 %></td>
+          <td><%= link_to bid.name, detailed_once_bid_view_path(:bid_name => bid.name, :bid_status => bid.status, :activity_name => params[:activity_name], :activity_sign_ups_count => params[:activity_sign_ups_count]), :style=> "color: #1E90FF" %></td>
+          <td><%= BidSignUp.where(:user_name => session[:user_name], :activity_name => params[:activity_name], :bid_name => bid.name).length %>
+            /
+            <%= params[:activity_sign_ups_count] %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<%= will_paginate @bids, :previous_label =>"上一页", :next_label => "下一页", :style => "margin-left:900px" %>
