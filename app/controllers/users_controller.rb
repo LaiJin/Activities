@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     user = User.find_by_name(params[:name])
     if user && user.authenticate(params[:password])
       cookies.permanent[:token] = user.token
-      #current_user_is_admin
       redirect_to :user_welcome
       return
     end
@@ -50,12 +49,9 @@ class UsersController < ApplicationController
 
     if current_user.isAdmin && params[:user_name]
       session[:user_name] = params[:user_name]
-      @activity_infos = ActivityInfo.where(:user_name => session[:user_name]).order("created_at").paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
+      @activity_infos = paginate(ActivityInfo.where(:user_name => session[:user_name]).order("created_at"))
       @biding = Bid.where(:user_name => session[:user_name], :status => "start").first || Bid.new
       @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
       return
     end
 
@@ -63,12 +59,8 @@ class UsersController < ApplicationController
       redirect_to :login
     else
       session[:user_name] = current_user.name
-      @activity_infos = ActivityInfo.where(:user_name => current_user.name).order("created_at").paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
+      @activity_infos = paginate(ActivityInfo.where(:user_name => current_user.name).order("created_at"))
       @biding = Bid.where(:user_name => current_user.name, :status => "start").first || Bid.new
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
     end
   end
 
@@ -79,11 +71,8 @@ class UsersController < ApplicationController
 
   def bid_list_view
     if params[:activity_name]
-      @bids = Bid.where(:user_name => session[:user_name], :activity_name => params[:activity_name]).order("created_at").paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
+      @bids = paginate(Bid.where(:user_name => session[:user_name],
+                                 :activity_name => params[:activity_name]).order("created_at"))
       return
     end
     redirect_to :user_welcome
@@ -91,11 +80,8 @@ class UsersController < ApplicationController
 
   def activity_sign_up_list_view
     if params[:activity_name]
-      @activity_sign_ups = ActivitySignUp.where(:user_name => session[:user_name], :activity_name => params[:activity_name]).order("created_at").paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
+      @activity_sign_ups = paginate(ActivitySignUp.where(:user_name => session[:user_name],
+                                                         :activity_name => params[:activity_name]).order("created_at"))
       return
     end
     redirect_to :user_welcome
@@ -103,16 +89,14 @@ class UsersController < ApplicationController
 
   def detailed_once_bid_view
     if params[:activity_name] && params[:bid_name]
-      @bid_sign_ups = BidSignUp.where(:user_name => session[:user_name], :activity_name => params[:activity_name], :bid_name => params[:bid_name]).order("price").paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
+      @bid_sign_ups = paginate(BidSignUp.where(:user_name => session[:user_name],
+                                               :activity_name => params[:activity_name],
+                                               :bid_name => params[:bid_name]).order("price"))
       @winner_info = @bid_sign_ups.where(:is_winner => true).first
-      @statistics_bid_sign_ups = @bid_sign_ups.group(:price).paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
+      @statistics_bid_sign_ups = paginate(@bid_sign_ups.group(:price))
       @price_counts = []
       @statistics_bid_sign_ups.each do |bid_sign_up|
         @price_counts.push({price: bid_sign_up.price, count: @bid_sign_ups.where(:price => bid_sign_up.price).length})
-      end
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
       end
       return
     end
@@ -122,13 +106,12 @@ class UsersController < ApplicationController
   def synchronous_show_view
     @biding = Bid.where(:user_name => session[:user_name]).last
     if @biding
-      @activity_sign_ups_lenght = ActivitySignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name).length
-      @biding_sign_ups = BidSignUp.where(:user_name => session[:user_name], :activity_name => @biding.activity_name, :bid_name => @biding.name).order("price").paginate(page: params[:page], :per_page => PER_PAGE_COUNT)
+      @activity_sign_ups_lenght = ActivitySignUp.where(:user_name => session[:user_name],
+                                                       :activity_name => @biding.activity_name).length
+      @biding_sign_ups = paginate(BidSignUp.where(:user_name => session[:user_name],
+                                                  :activity_name => @biding.activity_name,
+                                                  :bid_name => @biding.name).order("price"))
       @winner_info = @biding_sign_ups.where(:is_winner => true).first
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
       return
     end
     redirect_to :user_welcome
@@ -141,6 +124,14 @@ class UsersController < ApplicationController
       return
     end
     redirect_to :user_welcome
+  end
+
+  def paginate(array)
+    @count = USER_NUMBER_INIT
+    if params[:page]
+      @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
+    end
+    return  array.paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
   end
 
 end
