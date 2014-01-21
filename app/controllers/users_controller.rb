@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     reset_session_of_user_and_answer
     if current_user
       redirect_to :login
-    else
-      @user =User.new
+      return
     end
+    @user =User.new
   end
 
   def create_login_session
@@ -26,10 +26,10 @@ class UsersController < ApplicationController
       cookies.permanent[:token] = user.token
       #current_user_is_admin
       redirect_to :user_welcome
-    else
-      flash[:login_error] = "用户名或密码错误"
-      redirect_to login_url
+      return
     end
+    flash[:login_error] = "用户名或密码错误"
+    redirect_to login_url
   end
 
   def create
@@ -37,9 +37,9 @@ class UsersController < ApplicationController
     if @user.save
       cookies.permanent[:token] = @user.token
       redirect_to :user_welcome
-    else
-      render :register
+      return
     end
+    render :register
   end
 
   def user_welcome
@@ -134,9 +134,9 @@ class UsersController < ApplicationController
   def current_user_is_admin
     if current_user.isAdmin
       redirect_to :administrator_welcome_view
-    else
-      redirect_to :user_welcome
+      return
     end
+    redirect_to :user_welcome
   end
 
 end
