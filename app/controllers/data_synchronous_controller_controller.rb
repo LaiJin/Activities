@@ -1,2 +1,0 @@
-class DataSynchronousControllerController < ApplicationController
-end

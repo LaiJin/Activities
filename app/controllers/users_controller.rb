@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   PER_PAGE_COUNT = 10
   USER_NUMBER_INIT = 0
 
-  skip_before_filter :verify_authenticity_token,:only => [:mobile_client_user_login, :synchronous_data]
-
   def login
     reset_session_of_user_and_answer
     if current_user
@@ -62,29 +60,6 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
 
-  def mobile_client_user_login
-    user = User.find_by_name(params[:name])
-    respond_to do |format|
-      if user && user.authenticate(params[:password])
-        format.json {render :json=> true}
-      else
-        format.json {render :json=> false}
-      end
-    end
-  end
-
-  def synchronous_data
-    update_data(params)
-    respond_to do |format|
-      format.json {render :json => true}
-      #if update_activity_infos(params)
-      #  format.json {render :json => true}
-      #else
-      #  format.json {render :json => false}
-      #end
-    end
-  end
-
   private
   def current_user_is_admin
     if current_user.isAdmin
@@ -92,15 +67,6 @@ class UsersController < ApplicationController
     else
       redirect_to :user_welcome
     end
-  end
-
-  private
-  def update_data(params)
-    #return ActivityInfo.update_user_activity_infos(params) && ActivitySignUp.update_user_activity_sign_ups(params) && Bid.update_user_bids(parsms) && BidSignUp.update_user_bid_sign_ups(parmas)
-    ActivityInfo.update_user_activity_infos(params)
-    ActivitySignUp.update_user_activity_sign_ups(params)
-    Bid.update_user_bids(params)
-    BidSignUp.update_user_bid_sign_ups(params)
   end
 
 end

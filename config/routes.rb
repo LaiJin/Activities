@@ -28,13 +28,15 @@ Activities::Application.routes.draw do
 
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
 
-  post 'users/mobile_client_user_login'
-  post 'users/synchronous_data'
-  post 'user_mobile_client_info_show/update_synchronous_show_bid_sign_up_info'
-  post 'user_mobile_client_info_show/add_new_activity_info'
-  post 'user_mobile_client_info_show/add_new_activity_sign_up_info'
-  post 'user_mobile_client_info_show/add_new_bid'
-  post 'user_mobile_client_info_show/update_biding_status_and_winner_info'
+
+
+  post 'data_synchronous/mobile_client_user_login'
+  post 'data_synchronous/synchronous_all_data'
+  post 'data_synchronous/update_synchronous_show_bid_sign_up_info'
+  post 'data_synchronous/add_new_activity_info'
+  post 'data_synchronous/add_new_activity_sign_up_info'
+  post 'data_synchronous/add_new_bid'
+  post 'data_synchronous/update_biding_status_and_winner_info'
 
   get 'user_mobile_client_info_show/bid_list_view' => 'user_mobile_client_info_show#bid_list_view', :as=> 'bid_list_view'
   get 'user_mobile_client_info_show/activity_sign_up_list_view' => 'user_mobile_client_info_show#activity_sign_up_list_view', :as => 'activity_sign_up_list_view'

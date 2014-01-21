@@ -21,7 +21,7 @@ function CreateActivityController($scope, $navigate, $http) {
             ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
             var new_activities = [new_activity]
-            $http.post('/user_mobile_client_info_show/add_new_activity_info', {
+            $http.post('/data_synchronous/add_new_activity_info', {
                 new_activities: new_activities
             })
                 .success(function(response) {

@@ -31,7 +31,7 @@ function ActivityListController($scope, $http, $navigate) {
         var              bids = Bid.get_bids_for_current_user().reverse()
         var      bid_sign_ups = BidSignUp.get_bid_sign_up_infos_for_current_user().reverse()
 
-        $http.post('/users/synchronous_data', {
+        $http.post('/data_synchronous/synchronous_all_data', {
                          user_name: user_name,
                activity_infos: activities,
             activity_sign_ups: activity_sign_ups,

@@ -12,7 +12,7 @@ function MobileClientUserLoginController($scope, $navigate, $http)
 
         var name = $scope.name
         var password = $scope.password
-        $http.post('/users/mobile_client_user_login', {name: name, password: password})
+        $http.post('/data_synchronous/mobile_client_user_login', {name: name, password: password})
             .success(function(response) {
 
                 if(JSON.parse(response) == true) {

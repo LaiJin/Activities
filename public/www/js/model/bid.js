@@ -19,7 +19,7 @@ Bid.create_new_bid = function($http) {
     Bid.set_click_bid(new_bid)
     Bid.set_biding(new_bid)
     var new_bids = [new_bid]
-    $http.post('/user_mobile_client_info_show/add_new_bid', {
+    $http.post('/data_synchronous/add_new_bid', {
         new_bids: new_bids
     })
         .success(function(response) {
@@ -81,7 +81,7 @@ Bid.update_bid_status = function($http) {
     Bid.save_bid_array(bids)
     var biding = [biding]
     var winner_info = [BidSignUp.get_winner_for_current_bid()]
-    $http.post('/user_mobile_client_info_show/update_biding_status_and_winner_info', {
+    $http.post('/data_synchronous/update_biding_status_and_winner_info', {
              biding: biding,
         winner_info: winner_info
     })

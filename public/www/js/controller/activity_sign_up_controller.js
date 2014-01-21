@@ -43,7 +43,7 @@ function ActivitySignUpController($scope, $navigate, $http) {
         $scope.stats_activity_sign_up_person = $scope.activity_sign_up_infos_for_current_activity.length
         if(new_activity_sign_up_info) {
             var new_activity_sign_ups = [new_activity_sign_up_info]
-            $http.post('/user_mobile_client_info_show/add_new_activity_sign_up_info', {
+            $http.post('/data_synchronous/add_new_activity_sign_up_info', {
                 new_activity_sign_ups: new_activity_sign_ups
             })
                 .success(function(response) {
