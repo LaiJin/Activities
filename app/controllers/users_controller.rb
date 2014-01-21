@@ -1,9 +1,6 @@
 #encoding: utf-8
 class UsersController < ApplicationController
 
-  PER_PAGE_COUNT = 10
-  USER_NUMBER_INIT = 0
-
   def login
     reset_session_of_user_and_answer
     if current_user
@@ -124,14 +121,6 @@ class UsersController < ApplicationController
       return
     end
     redirect_to :user_welcome
-  end
-
-  def paginate(array)
-    @count = USER_NUMBER_INIT
-    if params[:page]
-      @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-    end
-    return  array.paginate(page:params[:page],:per_page => PER_PAGE_COUNT)
   end
 
 end

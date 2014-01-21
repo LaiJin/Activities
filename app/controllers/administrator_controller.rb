@@ -1,20 +1,13 @@
 #encoding: utf-8
 class AdministratorController < ApplicationController
 
-  PER_PAGE_COUNT = 10
-  USER_NUMBER_INIT = 0
-
   def administrator_welcome_view
     session[:updated_user_id] = nil
     if !current_user || !current_user.isAdmin
       redirect_to :login
       return
     end
-    @users = User.where(:isAdmin => false).order("created_at").paginate(page: params[:page], :per_page => PER_PAGE_COUNT) || User.new
-    @count = USER_NUMBER_INIT
-    if params[:page]
-      @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-    end
+    @users = paginate(User.where(:isAdmin => false).order("created_at"))
   end
 
   def edit_user_view
