@@ -9,7 +9,7 @@ class DataSynchronousController < ApplicationController
     user = User.find_by_name(params[:name])
     respond_to do |format|
       if user && user.authenticate(params[:password])
-        format.json {render :json=> true}
+        format.json {render :json => true}
         return
       end
       format.json {render :json=> false}

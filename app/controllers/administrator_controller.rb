@@ -8,12 +8,12 @@ class AdministratorController < ApplicationController
     session[:updated_user_id] = nil
     if !current_user || !current_user.isAdmin
       redirect_to :login
-    else
-      @users = User.where(:isAdmin=>false).order("created_at").paginate(page:params[:page],:per_page=>PER_PAGE_COUNT)||User.new
-      @count = USER_NUMBER_INIT
-      if params[:page]
-        @count=Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
-      end
+      return
+    end
+    @users = User.where(:isAdmin => false).order("created_at").paginate(page: params[:page], :per_page => PER_PAGE_COUNT) || User.new
+    @count = USER_NUMBER_INIT
+    if params[:page]
+      @count = Integer(((Integer(params[:page]) - 1) * PER_PAGE_COUNT))
     end
   end
 
@@ -21,20 +21,19 @@ class AdministratorController < ApplicationController
     if params[:updated_user_id]
     session[:updated_user_id] = params[:updated_user_id]
     end
-
     if session[:updated_user_id]
-    @user_name = User.find(session[:updated_user_id]).name
-    else
-      redirect_to :administrator_welcome_view
+      @user_name = User.find(session[:updated_user_id]).name
+      return
     end
+      redirect_to :administrator_welcome_view
   end
 
   def add_user_view
     if !current_user || !current_user.isAdmin
       redirect_to :login
-    else
-      @user = User.new
+      return
     end
+    @user = User.new
   end
 
   def delete_user
@@ -47,10 +46,9 @@ class AdministratorController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to :administrator_welcome_view
-    else
-      render :add_user_view
+      return
     end
-
+    render :add_user_view
   end
 
   def update_user_password
@@ -60,11 +58,10 @@ class AdministratorController < ApplicationController
     if user.save
       session[:updated_user_id] = nil
       redirect_to :administrator_welcome_view
-    else
-      flash[:reset_password_error] = user.errors.full_messages.first
-      redirect_to :edit_user_view
+      return
     end
+    flash[:reset_password_error] = user.errors.full_messages.first
+    redirect_to :edit_user_view
   end
-
 
 end
