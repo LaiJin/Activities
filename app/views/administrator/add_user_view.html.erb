@@ -1,7 +1,4 @@
-<ol class="breadcrumb" style="margin-right: 180px">
-  <li><%= link_to "首页", administrator_welcome_view_path, :style=> "color: #1E90FF" %></li>
-  <li class="active">添加用户</li>
-</ol>
+<%= render :partial => 'shared/bread_crumb', :locals => {:home_view_path => administrator_welcome_view_path, :active_text => "添加用户", :second_text => nil} %>
 <div style="background: #F5F5F5; width: 659px; margin-left: 180px">
   <div class= "form-group" style="padding: 50px 50px 50px 50px; width:659px; margin: auto auto">
     <%= form_for @user, :url => 'add_user_view'  do |form| %>

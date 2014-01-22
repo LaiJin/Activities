@@ -1,8 +1,7 @@
 <meta http-equiv="refresh" content="3">
-<ol class="breadcrumb" style="margin-right: 180px">
-  <li><%= link_to "首页", user_welcome_path(:user_name => session[:user_name]), :style => "color: #1E90FF" %></li>
-  <li class="active">同步展示</li>
-</ol>
+<%= render :partial => 'shared/bread_crumb', :locals => {:home_view_path => user_welcome_path(:user_name => session[:user_name]),
+                                                         :active_text => "同步展示",
+                                                         :second_text => nil} %>
 <div style="margin: auto 180px auto 180px; background-color: #cccccc; text-align: center; padding-top: 20px;padding-bottom: 20px">
   <div style="font-size: 80px">
     <%= @biding.activity_name %>
