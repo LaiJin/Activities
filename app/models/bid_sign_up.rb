@@ -2,7 +2,7 @@ class BidSignUp < ActiveRecord::Base
 
   def self.update_user_bid_sign_ups(params)
     #BidSignUp.transaction do
-    if params[:BidSignUp]
+    if params[:bid_sign_ups]
       BidSignUp.delete_all(:user_name => params[:user_name])
       bid_sign_ups = params[:bid_sign_ups]
       bid_sign_ups.each do |bid_sign_up|

@@ -2,7 +2,7 @@ class ActivitySignUp < ActiveRecord::Base
 
   def self.update_user_activity_sign_ups(params)
     #ActivitySign_up.transaction do
-    if params[:activity_sign_up]
+    if params[:activity_sign_ups]
       ActivitySignUp.delete_all(:user_name => params[:user_name])
       activity_sign_ups = params[:activity_sign_ups]
       activity_sign_ups.each do |activity_sign_up|
