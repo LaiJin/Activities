@@ -90,8 +90,8 @@ class UsersController < ApplicationController
     @biding = Bid.where(:user_name => session[:user_name]).last
     if @biding
       @activity_sign_ups =  get_activity_sign_ups_data(@biding.activity_name)
-      @biding_sign_ups = get_bid_sign_ups_data(@biding.activity_name, @biding.name)
-      @winner_info = @biding_sign_ups.find_by(:is_winner => true)
+      @biding_sign_ups = get_bid_sign_ups_data(@biding.activity_name, @biding.name).last(10)
+      @winner_info = get_bid_sign_ups_data(@biding.activity_name, @biding.name).find_by(:is_winner => true)
       return
     end
     redirect_to :user_welcome
@@ -116,7 +116,8 @@ class UsersController < ApplicationController
 
 
   def get_activity_sign_ups_data(biding_activity_name)
-    return ActivitySignUp.where(:user_name => session[:user_name], :activity_name => biding_activity_name).order("created_at")
+    return ActivitySignUp.where(:user_name => session[:user_name],
+                                :activity_name => biding_activity_name).order("created_at")
   end
 
 

@@ -12,7 +12,8 @@ var native_accessor = {
     },
 
     process_received_message: function(json_message) {
-        process_message(json_message)
+        process_all_message.process_message(json_message)
+//        process_message(json_message)
     }
 
 };

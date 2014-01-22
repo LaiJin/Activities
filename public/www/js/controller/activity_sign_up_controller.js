@@ -38,24 +38,28 @@ function ActivitySignUpController($scope, $navigate, $http) {
         }
     }
 
-    $scope.refresh_sign_up_infos = function(new_activity_sign_up_info) {
+
+    $scope.synchronous_new_activity_sign_up = function(new_activity_sign_up_info) {
+        var new_activity_sign_ups = [new_activity_sign_up_info]
+        $http.post('/data_synchronous/add_new_activity_sign_up_info', {
+            new_activity_sign_ups: new_activity_sign_ups
+        })
+            .success(function(response) {
+                if(JSON.parse(response) == true) {
+                    alert("同步数据成功")
+                }else {
+                    alert("同步数据失败")
+                }
+            }).error(function() {
+                alert("请求服务器端出现问题")
+            })
+    }
+
+    process_all_message.inject_synchronous_new_activity_sign_up($scope.synchronous_new_activity_sign_up)
+
+    $scope.refresh_sign_up_infos = function() {
         $scope.activity_sign_up_infos_for_current_activity = ActivitySignUp.get_activity_sign_up_infos_for_click_activity()
         $scope.stats_activity_sign_up_person = $scope.activity_sign_up_infos_for_current_activity.length
-        if(new_activity_sign_up_info) {
-            var new_activity_sign_ups = [new_activity_sign_up_info]
-            $http.post('/data_synchronous/add_new_activity_sign_up_info', {
-                new_activity_sign_ups: new_activity_sign_ups
-            })
-                .success(function(response) {
-                    if(JSON.parse(response) == true) {
-                        alert("同步数据成功")
-                    }else {
-                        alert("同步数据失败")
-                    }
-                }).error(function() {
-                    alert("请求服务器端出现问题")
-                })
-        }
     }
 
     $scope.refresh_sign_up_infos()

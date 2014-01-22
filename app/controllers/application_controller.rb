@@ -8,16 +8,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_token(cookies[:token]) if cookies[:token]
   end
 
-  #def determine_whether_the_user_login
-  #  if current_user
-  #    if !current_user.isAdmin
-  #      redirect_to :user_welcome
-  #    else
-  #      redirect_to :administrator_welcome_view
-  #    end
-  #  end
-  #end
-
   PER_PAGE_COUNT = 10
   NUMBER_INIT = 0
 
