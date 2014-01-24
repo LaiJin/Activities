@@ -13,7 +13,6 @@ class ActivityInfo < ActiveRecord::Base
       end
   end
 
-
   def self.create_new_activity_info(params)
     new_activities = params[:new_activities]
     new_activity = ActivityInfo.new(new_activities.first)

@@ -18,37 +18,27 @@ class DataSynchronousController < ApplicationController
 
   def synchronous_all_data
     update_data(params)
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   def add_new_activity_info
     ActivityInfo.create_new_activity_info(params)
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   def add_new_activity_sign_up_info
     ActivitySignUp.create_new_activity_sign_up(params)
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   def add_new_bid
     Bid.create_new_bid(params)
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   def update_synchronous_show_bid_sign_up_info
     BidSignUp.create_new_bid_sign_up(params)
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   def update_biding_status_and_winner_info
@@ -56,9 +46,7 @@ class DataSynchronousController < ApplicationController
     if params[:winner_info]
       BidSignUp.update_winner_info(params)
     end
-    respond_to do |format|
-      format.json {render :json => true}
-    end
+    respond_to_mobile_client
   end
 
   private
@@ -67,6 +55,12 @@ class DataSynchronousController < ApplicationController
     ActivitySignUp.update_user_activity_sign_ups(params)
     Bid.update_user_bids(params)
     BidSignUp.update_user_bid_sign_ups(params)
+  end
+
+  def respond_to_mobile_client
+    respond_to do |format|
+      format.json {render :json => true}
+    end
   end
 
 end
