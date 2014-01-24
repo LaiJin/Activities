@@ -6,8 +6,8 @@
     - if @biding.status == 'end'
       %h4{:style => 'font-size: 30px'} 比赛结果
       = render 'shared/winner_info_show'
-- if @biding.status == 'start'
-  %div{:style => 'font-size: 30px; margin-right: 80px'}= '参与人数：' + @biding_sign_ups.length.to_s + '/' + @activity_sign_ups.length.to_s
+    - if @biding.status == 'start'
+      %div{:style => 'font-size: 30px; margin-right: 80px'}= '参与人数：' + @biding_sign_ups.length.to_s + '/' + @activity_sign_ups.length.to_s
   .panel.panel-default{:style => 'margin: 30px 180px auto 180px'}
     %table.table{:style => 'text-align: center'}
       %tr
