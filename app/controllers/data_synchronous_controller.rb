@@ -4,7 +4,6 @@ class DataSynchronousController < ApplicationController
                                                           :update_synchronous_show_bid_sign_up_info, :add_new_activity_info,
                                                           :add_new_activity_sign_up_info, :add_new_bid,
                                                           :update_biding_status_and_winner_info]
-  respond_to :html, :json
 
   def mobile_client_user_login
     user = User.find_by_name(params[:name])

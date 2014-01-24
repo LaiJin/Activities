@@ -20,19 +20,7 @@ function CreateActivityController($scope, $navigate, $http) {
             ActivityInfo.set_click_activity(new_activity)
             ActivityInfo.set_starting_activity(new_activity)
             ActivityInfo.set_new_activity_to_array(new_activity)
-            var new_activities = [new_activity]
-            $http.post('/data_synchronous/add_new_activity_info', {
-                new_activities: new_activities
-            })
-                .success(function(response) {
-                    if(JSON.parse(response) == true) {
-                        alert("同步数据成功")
-                    }else {
-                        alert("同步数据失败")
-                    }
-                }).error(function() {
-                    alert("请求服务器端出现问题")
-                })
+            synchronous_new_activity($http, new_activity)
             $scope.jump_to_activity_sign_up_view()
         }
     }

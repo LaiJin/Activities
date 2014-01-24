@@ -18,19 +18,7 @@ Bid.create_new_bid = function($http) {
     Bid.set_new_bid_to_array(new_bid)
     Bid.set_click_bid(new_bid)
     Bid.set_biding(new_bid)
-    var new_bids = [new_bid]
-    $http.post('/data_synchronous/add_new_bid', {
-        new_bids: new_bids
-    })
-        .success(function(response) {
-            if(JSON.parse(response) == true) {
-                alert("同步数据成功")
-            }else {
-                alert("同步数据失败")
-            }
-        }).error(function() {
-            alert("请求服务器端出现问题")
-        })
+    synchronous_new_bid($http, new_bid)
 }
 
 Bid.get_bid_array = function() {
@@ -79,21 +67,7 @@ Bid.update_bid_status = function($http) {
     Bid.set_click_bid(biding)
     _.find(bids, function(bid) {return bid.name == bid.name}).status = "end"
     Bid.save_bid_array(bids)
-    var biding = [biding]
-    var winner_info = [BidSignUp.get_winner_for_current_bid()]
-    $http.post('/data_synchronous/update_biding_status_and_winner_info', {
-             biding: biding,
-        winner_info: winner_info
-    })
-        .success(function(response) {
-            if(JSON.parse(response) == true) {
-                alert("同步数据成功")
-            }else {
-                alert("同步数据失败")
-            }
-        }).error(function() {
-            alert("请求服务器端出现问题")
-        })
+    update_biding_status_and_winner_info($http, biding)
 }
 
 Bid.get_bids_for_current_user = function() {

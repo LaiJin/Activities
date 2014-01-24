@@ -40,19 +40,7 @@ function ActivitySignUpController($scope, $navigate, $http) {
 
 
     $scope.synchronous_new_activity_sign_up = function(new_activity_sign_up_info) {
-        var new_activity_sign_ups = [new_activity_sign_up_info]
-        $http.post('/data_synchronous/add_new_activity_sign_up_info', {
-            new_activity_sign_ups: new_activity_sign_ups
-        })
-            .success(function(response) {
-                if(JSON.parse(response) == true) {
-                    alert("同步数据成功")
-                }else {
-                    alert("同步数据失败")
-                }
-            }).error(function() {
-                alert("请求服务器端出现问题")
-            })
+        synchronous_new_activity_sign_up($http, new_activity_sign_up_info)
     }
 
     process_all_message.inject_synchronous_new_activity_sign_up($scope.synchronous_new_activity_sign_up)
