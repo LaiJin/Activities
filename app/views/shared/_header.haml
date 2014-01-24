@@ -1,0 +1,12 @@
+.container.clearfix
+  %a.header-logo-wordmark{:href => '/'}
+    活动通
+  %ul#user-links
+    - if current_user
+      - if current_user.isAdmin
+        %li{:style => 'color: #000000'}
+          = link_to '你好, 管理员', administrator_welcome_view_path
+      - else
+        %li{:style => 'color: #000000'}
+          = link_to '你好,' +current_user.name, user_welcome_path
+      %li= link_to '退出', logout_path, method: 'delete', :style => 'color: blue'

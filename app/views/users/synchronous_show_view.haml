@@ -1,0 +1,19 @@
+%meta{:content => '3', 'http-equiv' => 'refresh'}
+  = render :partial => 'shared/bread_crumb', :locals => {:home_view_path => user_welcome_path(:user_name => session[:user_name]), :active_text => "同步展示", :second_text => nil}
+  .bid-show-background
+    %div{:style => 'font-size: 80px'}
+      = @biding.activity_name
+    - if @biding.status == 'end'
+      %h4{:style => 'font-size: 30px'} 比赛结果
+      = render 'shared/winner_info_show'
+- if @biding.status == 'start'
+  %div{:style => 'font-size: 30px; margin-right: 80px'}= '参与人数：' + @biding_sign_ups.length.to_s + '/' + @activity_sign_ups.length.to_s
+  .panel.panel-default{:style => 'margin: 30px 180px auto 180px'}
+    %table.table{:style => 'text-align: center'}
+      %tr
+        %td 姓名
+        %td 手机号
+      - @biding_sign_ups.each do |biding_sign_up|
+        %tr
+          %td= biding_sign_up.name
+          %td= biding_sign_up.phone

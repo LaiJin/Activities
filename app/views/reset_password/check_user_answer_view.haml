@@ -1,0 +1,16 @@
+.user_and_reset_password_view_background
+  = render 'shared/reset_password_title'
+  = form_for(:user, :url => 'check_user_answer_view') do |form|
+    = render :partial => 'shared/text_field', :locals => {:form => form,
+                                                          :span_text => '忘记密码问题',
+                                                          :user_attribute => :question,
+                                                          :disabled => true,
+                                                          :placeholder_show => @question}
+
+    = render :partial => 'shared/text_field', :locals => {:form => form,
+                                                          :span_text => '忘记密码答案',
+                                                          :user_attribute => :answer,
+                                                          :disabled => false,
+                                                          :placeholder_show => '请输入答案'}
+    = render 'shared/flash_message'
+    = render :partial => 'shared/submit_button', :locals => {:form => form, :submit_button_text => '下一步'}

@@ -29,7 +29,7 @@ class ResetPasswordController < ApplicationController
   end
 
   def check_user_name
-    user = User.find_by_name(params[:name])
+    user = User.find_by_name(params[:user][:name])
     if user
       session[:user] = user
       redirect_to :check_user_answer_view
@@ -41,7 +41,7 @@ class ResetPasswordController < ApplicationController
 
   def check_user_answer
     answer = User.find(session[:user]).answer
-    if answer == params[:answer]
+    if answer == params[:user][:answer]
       session[:answer] = answer
       redirect_to :setup_user_new_password_view
       return
@@ -52,8 +52,8 @@ class ResetPasswordController < ApplicationController
 
   def setup_user_new_password
     user = User.find(session[:user])
-    user.password = params[:password]
-    user.password_confirmation = params[:password_confirmation]
+    user.password = params[:user][:password]
+    user.password_confirmation = params[:user][:password_confirmation]
     if user.save
       reset_session_of_user_and_answer
       cookies.permanent[:token] = user.token

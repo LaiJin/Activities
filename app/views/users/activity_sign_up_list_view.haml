@@ -1,0 +1,20 @@
+= render :partial => 'shared/bread_crumb', :locals => {:home_view_path => user_welcome_path(:user_name => session[:user_name]),
+                                                       :active_text => '报名列表',
+                                                       :second_text => nil}
+.panel.panel-default{:style => 'margin-left: 180px; margin-right: 180px'}
+  .panel-heading
+    报名列表
+    .text-right
+      = link_to '竞价列表', bid_list_view_path(:activity_name => params[:activity_name],
+                                              :activity_sign_ups_count => params[:activity_sign_ups_count]), :style => 'color: #1E90FF'
+  %table.table{:style => 'text-align: center'}
+    %tr
+      %td 编号
+      %td 姓名
+      %td 手机号
+    - @activity_sign_ups.each do |activity_sign_up|
+      %tr
+        %td= @count += 1
+        %td= activity_sign_up.name
+        %td= activity_sign_up.phone
+= render :partial => 'shared/will_paginate', :locals => {:array => @activity_sign_ups}

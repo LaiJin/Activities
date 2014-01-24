@@ -1,0 +1,5 @@
+%ol.breadcrumb{:style => 'margin-right: 180px'}
+  %li= link_to '首页', home_view_path, :style=> 'color: #1E90FF'
+  - if second_text
+    %li= link_to second_text, second_view_path, :style=> 'color: #1E90FF'
+  %li.active= active_text

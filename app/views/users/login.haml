@@ -1,0 +1,18 @@
+.user_and_reset_password_view_background
+  %h4 用户登陆
+  = render :partial => 'shared/text_right_link_to', :locals => {:link_to_text => '用户注册', :url_or_path => register_path}
+  = form_for(:user, :url => 'login') do |form|
+    = render :partial => 'shared/text_field', :locals => {:form => form,
+                                                          :span_text => '帐号',
+                                                          :user_attribute => :name,
+                                                          :disabled => false,
+                                                          :placeholder_show => '请输入帐号'}
+
+    = render :partial => 'shared/password_field', :locals => {:form => form,
+                                                          :span_text => '请输入密码',
+                                                          :user_attribute => :password,
+                                                          :disabled => false,
+                                                          :placeholder_show => '请输入密码'}
+    = render :partial => 'shared/text_right_link_to', :locals => {:link_to_text => '忘记密码', :url_or_path => check_user_name_view_path}
+    = render 'shared/flash_message'
+    = render :partial => 'shared/submit_button', :locals => {:form => form, :submit_button_text => '登录'}

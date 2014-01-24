@@ -1,0 +1,11 @@
+.panel-heading
+  - if is_administrator_welcome_view
+    用户管理
+    %a.btn.btn-default{:href => 'add_user_view'} 添加用户
+  - if !is_administrator_welcome_view && biding
+    活动信息
+    %a.btn.btn-default{:href => 'user/synchronous_show_view', :disabled => !@biding.name, :style => 'margin-left: 700px; margin-right: 46px'} 同步展示
+  - if link_to_text
+    = head_text
+    .text-right
+      = link_to link_to_text, link_to_path, :style => 'color: #1E90FF'

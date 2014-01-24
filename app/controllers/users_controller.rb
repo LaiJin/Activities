@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def create_login_session
-    user = User.find_by_name(params[:name])
-    if user && user.authenticate(params[:password])
+    user = User.find_by_name(params[:user][:name])
+    if user && user.authenticate(params[:user][:password])
       cookies.permanent[:token] = user.token
       redirect_to :user_welcome
       return
@@ -87,6 +87,10 @@ class UsersController < ApplicationController
   end
 
   def synchronous_show_view
+    if !current_user
+      redirect_to :login
+      return
+    end
     @biding = Bid.where(:user_name => session[:user_name]).last
     if @biding
       @activity_sign_ups =  get_activity_sign_ups_data(@biding.activity_name)

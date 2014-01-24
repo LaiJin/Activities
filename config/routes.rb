@@ -1,12 +1,12 @@
 Activities::Application.routes.draw do
 
   root 'users#login', :as => 'login'
-  post 'create_login_session' => 'users#create_login_session'
+  post 'login' => 'users#create_login_session'
   get 'user/register' => 'users#register', :as => 'register'
   get 'user_welcome' => 'users#user_welcome', :as => 'user_welcome'
   delete 'logout' => 'users#logout', :as => 'logout'
   resources :users, :only => [:create]
-                                                             2
+
   get  'reset_password/check_user_name_view' => 'reset_password#check_user_name_view', :as => 'check_user_name_view'
   post 'reset_password/check_user_name_view' => 'reset_password#check_user_name'
 
@@ -23,8 +23,8 @@ Activities::Application.routes.draw do
   get 'administrator/add_user_view' => 'administrator#add_user_view',  :as => 'add_user_view'
   post 'administrator/add_user_view' => 'administrator#create_user'
 
-  post 'administrator/update_user_password' => 'administrator#update_user_password'
   get  'administrator/edit_user_view' => 'administrator#edit_user_view', :as => 'edit_user_view'
+  post 'administrator/edit_user_view' => 'administrator#update_user_password'
 
   delete 'delete_user' => 'administrator#delete_user', :as => 'delete_user'
 

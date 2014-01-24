@@ -12,13 +12,13 @@ class AdministratorController < ApplicationController
 
   def edit_user_view
     if params[:updated_user_id]
-    session[:updated_user_id] = params[:updated_user_id]
+      session[:updated_user_id] = params[:updated_user_id]
     end
     if session[:updated_user_id]
       @user_name = User.find(session[:updated_user_id]).name
       return
     end
-      redirect_to :administrator_welcome_view
+    redirect_to :administrator_welcome_view
   end
 
   def add_user_view
@@ -46,8 +46,8 @@ class AdministratorController < ApplicationController
 
   def update_user_password
     user = User.find(session[:updated_user_id])
-    user.password = params[:password]
-    user.password_confirmation = params[:password_confirmation]
+    user.password = params[:user][:password]
+    user.password_confirmation = params[:user][:password_confirmation]
     if user.save
       session[:updated_user_id] = nil
       redirect_to :administrator_welcome_view

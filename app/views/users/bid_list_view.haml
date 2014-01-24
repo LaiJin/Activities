@@ -1,0 +1,23 @@
+= render :partial => 'shared/bread_crumb', :locals => {:home_view_path => user_welcome_path(:user_name => session[:user_name]),
+                                                       :active_text => '竞价列表',
+                                                       :second_text => nil}
+.panel.panel-default{:style => 'margin-left: 180px; margin-right: 180px'}
+  .panel-heading
+    竞价列表
+    .text-right
+      = link_to '报名列表', activity_sign_up_list_view_path(:activity_name => params[:activity_name],
+                                                           :activity_sign_ups_count => params[:activity_sign_ups_count]), :style => 'color: #1E90FF'
+  %table.table{:style => 'text-align: center'}
+    %tr
+      %td 编号
+      %td 名称
+      %td 参与人数
+    - @bids.each do |bid|
+      %tr
+        %td= @count += 1
+        %td= link_to bid.name, detailed_once_bid_view_path(:bid_name => bid.name, :bid_status => bid.status, :activity_name => params[:activity_name], :activity_sign_ups_count => params[:activity_sign_ups_count]), :style=> 'color: #1E90FF'
+        %td
+          = BidSignUp.where(:user_name => session[:user_name], :activity_name => params[:activity_name], :bid_name => bid.name).length
+          ='/'
+          #{params[:activity_sign_ups_count]}
+= render :partial => 'shared/will_paginate', :locals => {:array => @bids}

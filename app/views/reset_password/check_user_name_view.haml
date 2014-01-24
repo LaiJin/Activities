@@ -1,0 +1,10 @@
+.user_and_reset_password_view_background
+  = render 'shared/reset_password_title'
+  = form_for(:user, :url => 'check_user_name_view') do |form|
+    = render :partial => 'shared/text_field', :locals => {:form => form,
+                                                          :span_text => '帐号',
+                                                          :user_attribute => :name,
+                                                          :disabled => false,
+                                                          :placeholder_show => '请输入帐号'}
+    = render 'shared/flash_message'
+    = render :partial => 'shared/submit_button', :locals => {:form => form, :submit_button_text => '下一步'}

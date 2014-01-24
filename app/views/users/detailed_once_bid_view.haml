@@ -1,0 +1,39 @@
+= render :partial => 'shared/bread_crumb', :locals => {:home_view_path => user_welcome_path(:user_name => session[:user_name]), :active_text => params[:bid_name], :second_text => "竞价列表", :second_view_path => bid_list_view_path(:activity_name => params[:activity_name], :activity_sign_ups_count => params[:activity_sign_ups_count])}
+.bid-show-background
+  - if params[:bid_status] == 'start'
+    %h4{:style => 'padding-top: 40px; font-size: 30px'} 活动竞价正在进行中,请点击首页的同步展示按钮查看竞价信息。
+    - return
+  = render 'shared/winner_info_show'
+%div{:style => 'margin: 10px 180px auto 180px'}
+  %ul#myTab.nav.nav-tabs
+    %li.active{:style => 'width: 50%; text-align: center'}
+      %a{'data-toggle' => 'tab', :href => '#home'}
+        出价列表
+    %li{:style => 'width: 50%; text-align: center'}
+      %a{'data-toggle' => 'tab', :href => '#profile'}
+        价格统计
+  .tab-content
+    #home.tab-pane.fade.in.active
+      %table.table{:style => 'text-align: center'}
+        %tr
+          %td 编号
+          %td 姓名
+          %td 价格/元
+          %td 手机号
+        - @bid_sign_ups.each do |bid_sign_up|
+          %tr
+            %td= @count += 1
+            %td= bid_sign_up.name
+            %td= bid_sign_up.price
+            %td= bid_sign_up.phone
+      = render :partial => 'shared/will_paginate', :locals => {:array => @bid_sign_ups}
+    #profile.tab-pane.fade
+      %table.table{:style => 'text-align: center'}
+        %tr
+          %td 价格/元
+          %td 人数
+        - @price_counts.each do |price_count|
+          %tr
+            %td= price_count[:price]
+            %td= price_count[:count]
+    = render :partial => 'shared/will_paginate', :locals => {:array => @statistics_bid_sign_ups}

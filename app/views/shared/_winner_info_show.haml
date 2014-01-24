@@ -1,0 +1,6 @@
+- if @winner_info
+  %h4{:style => 'padding-top: 20px'}= '获胜者: ' + @winner_info.name
+  %h4= '出价: '   + @winner_info.price + '元'
+  %h4= '手机号: ' + @winner_info.phone
+- else
+  %h4{:style => 'padding-top: 40px; font-size: 30px'} 竞价无效，没有胜出者！

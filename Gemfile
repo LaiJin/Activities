@@ -39,6 +39,8 @@ gem 'will_paginate', '3.0.5'
 
 gem 'bootstrap-will_paginate', '0.0.10'
 
+gem 'haml', '4.0.4'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'

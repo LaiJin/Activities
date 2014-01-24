@@ -1,0 +1,12 @@
+- if flash[:notice]
+  .flash-notice
+    = flash[:notice]
+- if flash[:alert]
+  .flash-alert
+    = flash[:alert]
+- if flash[:login_error]
+  .flash-error.text-center{:style => 'width:559px; margin-top: 20px '}
+    = flash[:login_error]
+- if flash[:reset_password_error]
+  .flash-error.text-center{:style => 'width:559px; margin-top: 20px'}
+    = flash[:reset_password_error]
